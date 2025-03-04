@@ -1,0 +1,34 @@
+\section{Schemes and Sheaves}
+\section{Morphisms}
+\section{Reduced and Irreducible Schemes (Varieties)}
+\section{Fibred Products}
+\section{Categories - Yoneda and Representable Functors}
+\section{Some Moduli Theory}
+The goal of a moduli problem is to classify a collection of geometric objects upto some sort of equivalence.
+The \textit{geometric object} can vary significantly from one moduli problem to another. 
+For example, in the rest of this thesis we will majorly be dealing with two major moduli problems - one where the object in consideration is a rational plane curve, and the other where the rational plane curve comes together with its embedding $\mu$ in $\mathbb{P}^{r}$.
+\par Next, we need the notion of a \textit{family} of these geometric objects. A family of geometric objects is a collection of \textit{similar} geometric objects. For example, the set of (non vertical) lines in $\mathbb{R}^{2}$:
+\begin{align*}
+    \mathcal{X} = \{\{(x, ax + b): x \in \mathbb{R}\} : (a,b) \in \mathbb{R}^{2}\}
+\end{align*}
+Each object in this set $\mathcal{X}$ is a line given by the equation $y = ax + b$.
+Notice that this \textit{family} $\mathcal{X}$ is parameterised by points in $\mathbb{R}^{2}$, that is, we have a map $\varphi: \mathcal{X} \to \mathbb{R}^{2}$, which sends the line $y = ax + b$ to $(a,b)$.  
+Therefore, we can think of the family of nonvertical lines in $\mathbb{R}^{2}$ as the map:
+\[\begin{tikzcd}
+	{\mathcal{X}} \\
+	\\
+	{\mathbb{R}^2}
+	\arrow["\varphi",from=1-1, to=3-1]
+\end{tikzcd}\]
+With the fibre $\varphi^{-1}(p)$ over the point $p = (a,b)$ being the line $y = ax + b$.
+An advantage of describing the set of lines $\mathcal{X}$ with this parameterisation is that points close to each other in $\mathbb{R}^{2}$ correspond to lines which are "close to each other".  
+Hence adding additional structure to our \textit{family}. 
+This motivates our definiton for a family.
+A morphism $\mathcal{X} \to B$ betwenn schemes (with possibly additional structure) will be referred to as a family over the scheme $B$.
+
+Finally, the notion of equivalence we need is an equivalence relation between the set of families over a base space $B$.
+This finishes the idea behind a moduli problem.
+
+
+\section{Blowups}
+\section{Flatness?}
