@@ -1,7 +1,5 @@
-
-\section{Introduction}
-    \subsection{Tropical Arithmetic}
-    Tropical Geometry can be considered as the combinatorial shadow of Algebraic Geometry. In algebraic geometry one studies varieties defined by ideals of polynomial rings, but in tropical geometry one usually deals with varieties assosiated with ideals of the \textbf{tropical semiring}.
+\section{Introduction and Examples}
+\subsection{Tropical Arithmetic}
     \begin{definition} The tropical semiring $(\mathbb{R} \cup \{\infty\}, \oplus, \odot)$, is defined as the semiring whose underlying set is $\mathbb{R}$ with the binary operations: 
         \begin{align*}
             x \oplus y &= \text{min}(x,y)\\
@@ -9,73 +7,46 @@
         \end{align*}
     We refer to $\oplus$ as the \textit{tropical sum}, and $\odot$ as the \textit{tropical product}. This can be a little confusing since the tropical product is defined as out usual notion of sum.
     \end{definition}
-    Now we will look at the polynomials in this semiring and define the tropical hypersurface. 
-    Let $f = \sum_{u=0}^{n} c_u x^u \in \mathbb{R}[x]$ be a polynomial, then we define $\text{trop}(f) = \text{min}_{u=0}^{n}(c_u + u\cdot x)$, a piecewise linear function. 
-    Notice that here we just replaced the standard products and sums with their tropical analouges.
-    Further one can easily show that any convex piecewise linear function is the tropicalisation of some polynomial.
-    One can generalise this definition to a polynomial in any finite number of variables.
-    \par The \textbf{tropical hypersurface}, $V(\text{trop}(f))$, is defined as the the set of points where the piecewise linear function $\text{trop}(f)$ is \textit{not differentiable}.
-    That is, the set of points where the minima is acheived by atleast two "monomial elements".
-    It turns out that when we treat the tropical hypersurface of a polynomial $f$ as a polyhedral complex and take its dual, we retrieve the \textit{Newton Polygon} of $f$. This idea will be formally stated and generalised as the \textit{structure theorem} in the later sections.
-    \subsection{Valuations and Varieties}
+
+\subsection{Tropical plane curves}
+\subsection{Valuations and Varieties}
     \begin{definition}
-        For a field $K$ we define the valuation $\text{val}$ as a function $\text{val}: K \to \mathbb{R}\cup \{\infty\}$ such that:
+        For a field $K$ we define the valuation $\emph{val}$ as a function $\emph{val}: K \to \mathbb{R}\cup \{\infty\}$ such that:
         \begin{enumerate}
-            \item $\text{val}(a) = \infty \Leftrightarrow a = 0$
-            \item $\text{val}(ab) = \text{val}(a)+ \text{val}(b)$
-            \item $\text{val(a+b)} \geq min(\text{val}(a),\text{val}(b))$
+            \item $\emph{val}(a) = \infty \Leftrightarrow a = 0$
+            \item $\emph{val}(ab) = \emph{val}(a)+ \emph{val}(b)$
+            \item $\emph{val(a+b)} \geq min(\emph{val}(a),\emph{val}(b))$
         \end{enumerate}
-    The image of $\text{val}$ is an additive subgroup $\Gamma_{\text{val}} \subset \mathbb{R}$, called the value group.
-    \end{definition} 
-    An important assumption we make is that $1 \in \Gamma_{\text{val}}$. 
-    Further, we define $K^{\circ} := \{a \in K: \text{val}(a)\geq 0\}$, and $K^{\circ \circ} := \{a \in K: \text{val}(a)> 0\}$. 
-    And the residue field $\tilde{K} = K^{\circ}/K^{\circ \circ}$.
+        The image of $\emph{val}$ is an additive subgroup $\Gamma_{\emph{val}} \subset \mathbb{R}$, called the value group.
+    \end{definition}
+
     \begin{lemma}
         \label{vallemma}
-        When $\text{val}(a) \neq \text{val}(b)$ for $a,b \in K$, then
-        \[
-            \text{val}(a+b)= \text{min}(\text{val}(a),\text{val}(b)).
-        \]
-        
+        When $\emph{val}(a) \neq \emph{val}(b)$ for $a,b \in K$, then $\emph{val}(a+b)= \text{min}(\emph{val}(a),\emph{val}(b))$.
     \end{lemma}
-    \begin{remark}
-        \label{remark1}
-    We now make a key observation. For any tropical polynomial (tropicalisation of a standard polynomial) in one variable, we refer to the points where it's not differentiable as its \textbf{roots}. 
-    Suppose $f(x) = \prod_{i=1}^{n}(x-\lambda_i) \in K[x]$, where $K$ is some valued field, then $\text{trop}(f) = \sum_{i=1}^{n}\text{min}(\text{val}(x),\text{val}(\lambda_i))$. 
-    It's clear that the \textbf{``roots"} of $\text{trop}(f)$ are $\text{val}(\lambda_i)$.
-    This relation between the two types of \textit{roots} will be further generalised, and will lead to the \textit{fundamental theorem of tropical geometry}.
-    \end{remark}
+
     \begin{lemma}
-        Suppose $K$ is an algebraically closed valued field, then the value group $\Gamma_{\text{val}}$ is divisible and dense in $\mathbb{R}$.
+        Suppose $K$ is an algebraically closed valued field, then the value group $\Gamma_{\emph{val}}$ is divisible and dense in $\mathbb{R}$.
     \end{lemma}
-%    \begin{proof}
-%        It's straightforward that the value group is divisible. Denseness in $\mathbb{R}$ follows since we assume $1 \in \Gamma_{\text{val}}$, which implies $\mathbb{Q} \subset \Gamma_{\text{val}}$.
-%    \end{proof}
+
     \begin{lemma}
-        When $K$ is an algebraically closed valued field, the surjection $K^{*} \twoheadrightarrow \Gamma_{\text{val}}$ splits.
+        When $K$ is an algebraically closed valued field, the surjection $K^{*} \twoheadrightarrow \Gamma_{\emph{val}}$ splits.
     \end{lemma}
-    The splitting is a map $\phi: \Gamma_{\text{val}} \to K^{*}$, but we always denote $\phi(w)$ with $t^w$. This notation is inspired from the splitting in the case where $K$ is the field of Puiseux series.
-    \par Other than the standard affine and projective spaces, in tropical geometry we often deal with \textit{n-dimensional algebraic tori}: $T^{n}_{K} := T^n = (K^{*})^n$. 
-    The coordinate ring of $T^{n}$ is $K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$, the ring of laurent polynomials. 
-    Zero set of ideals in the laurent polynomial ring define varieties in $T^n$, these varieties are called \textit{very affine varieties}.
-    Just like for affine spaces we can define a Zariski topology on $T^{n}$.
-    \par We now have the inclusions $i: T^{n} \hookrightarrow \mathbb{A}^n$ and $j: \mathbb{A}^{n} \hookrightarrow \mathbb{P}^{n}$. 
-    The affine closure of a very affine variety $X$ is $\overline{i(X)}$, and the projective closure of a affine variety $X$ is $\overline{j(X)}$. 
-    For an ideal $I \subset K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$, define $I_{\text{aff}}:= I \cap K[x_{1},\dots,x_{n}]$.
+
     \begin{proposition}
         For $I \subset K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$ let $X = V(I) \subset T^n$, then $V(I_{\text{aff}}) = \overline{i(X)}$.
     \end{proposition}
-    The next proposition is an important result, which acts as an in intgral step in the proof of the fundamental theorem.
+
     \begin{proposition}
         \label{densenessprop}
-        $(K,v)$ be a valued field with splitting $\Gamma_{\text{val}} \twoheadrightarrow \mathbb{R},~w \to t^{w}$.
-        Let $\alpha_{1}, \dots,\alpha_{n} \in \tilde{K}^{*}$ and $w_1, \dots, w_n \in \Gamma_{\text{val}}$. 
-        Conisder the set of $\textbf{y} = (y_1, \dots, y_n) \in T^{n}$ such that $\text{val}(y_{i}) = w_{i}$ and $\overline{t^{-w_i}y_i} = \alpha_{i}$ for all $1\leq i \leq n$.
+        $(K,v)$ be a valued field with splitting $\Gamma_{\emph{val}} \twoheadrightarrow \mathbb{R},~w \to t^{w}$.
+        Let $\alpha_{1}, \dots,\alpha_{n} \in \tilde{K}^{*}$ and $w_1, \dots, w_n \in \Gamma_{\emph{val}}$. 
+        Conisder the set of $\textbf{y} = (y_1, \dots, y_n) \in T^{n}$ such that $\emph{val}(y_{i}) = w_{i}$ and $\overline{t^{-w_i}y_i} = \alpha_{i}$ for all $1\leq i \leq n$.
         This set is dense in $T^n$ with respect to the Zariski topology.
     \end{proposition}
+\subsection{Polyhedral Geometry}
 
-    \subsection{Polyhedral Geometry}
-    Section $2.3$ \cite{maclagan2015introduction} concisely summarises the requisite polyhedral geometry pretty well. We will only discuss the construction of the regular subdivision in this report.
+Section $2.3$ \cite{maclagan2015introduction} concisely summarises the requisite polyhedral geometry pretty well. We will only discuss the construction of the regular subdivision in this report.
    Before moving onto the theory of groebner basis and tropical varieties we will define some basic notions from polyhedral geometry.
    \par A set $X\subset \mathbb{R}^{n}$ is said to be \textbf{convex} if for any two points in $X$ the line connecting those two points also lies in $X$. 
    The \textbf{convex hull}, conv$(U)$, of a set $U\subset \mathbb{R}^{n}$ is the smallest convex set containg $U$.
@@ -94,8 +65,7 @@
     For $d'$ the dimension of the face, there also exists a $d'\times n$ matrix $A'$ such that $\{x \in C: A'x\ =  0\}$. 
     A \textbf{polyhedral fan} is a collection of polyhedral cones such that every face of the cone is part of the collection, and the intersection of any two cones is a face of both the cones.
     A \textbf{polyhedron} $P \subset \mathbb{R}^{n}$ is the intersection of finitely many affine half spaces, allowing us to define it as the set $\{x \in \mathbb{R}^{n}: Ax\leq b\}$ where $b \in \mathbb{R}^{d}$ and $A$ is a $d \times n$ matrix. We can define faces of polyhedron's in the same manner as we defined faces of a cone.
-    \par A \textbf{polyhedral complex}, $\Sigma$, is a collection of polyhedron such that: if $P \in \Sigma$ then all faces of $P$ also lie in $\Sigma$, and if $P,Q \in \Sigma$ then $P \cap Q = \emptyset$ or $P \cap Q$ is a face of both $P,Q$. 
-    The support of a polyhedral complex, $|\Sigma |$, is the underlying set of points in $\Sigma$. 
+    \par A \textbf{polyhedral complex}, $\Sigma$, is a collection of polyhedron such that: if $P \in \Sigma$ then all faces of $P$ also lie in $\Sigma$, and if $P,Q \in \Sigma$ then $P \cap Q = \emptyset$ or $P \cap Q$ is a face of both $P,Q$. The support of a polyhedral complex, $|\Sigma |$ is the underlying set of points in $\Simga$. 
     The \textbf{lineality space} of a polyhedral complex, if it exists, is the largest linear subspace which lies in it.
     For any set of points in $\mathbb{R}^{n}$, their \textbf{affine span} is defined as the smallest affine subspace containing those points.
 
@@ -111,9 +81,9 @@
     \end{definition}
     Suppose you have a polyhedron $P$ given by $\text{conv}(u_i: 1\leq i\leq r)$, then we look at the vectors $v_i = (u_i,1)$. The regular subdivision of $v_1,\dots,v_r$ with respect to a weight vector $w = (w_1, \cdots, w_r)$ can be interpreted as projection of the bottom faces of the polytope $P_w = \text{conv}\{(u_i,w_i): 1\leq i\leq r\}$. That is in the polytope $P_w$ consider the faces $F$ whose normal vector has positive final coordinates and project them onto the first $r$ coordinates, this gives the regular subdivision of $P$ with respect to $w$.
 
-    \section{The Hypersurface Case}
-    For now we will discuss some basic grobner basis theory and revisit it once we want to deal with tropcial varieties in general.
-    Say $K$ is a valued field with a splitting, and for any $x \in K_{\circ}$ let $\overline{x}$ denote its image under the quotient map $K^{\circ} \to \tilde{K}$.
+
+\section{Tropical Hypersurfaces}
+
     \begin{definition}
         Consider polynomial $f = \sum c_u x^u \in K[x_0,\dots,x_n]$, and let
         \[
@@ -123,11 +93,25 @@
         \begin{align*}
             \text{in}_{w}(f)(x) = \sum_{\text{val}(c_u) + u\cdot w = W} \overline{c_u t^{-\text{val}(c_u)}} x^u.
         \end{align*}
-        We can also define the initial form for a laurent polynomial $f$ in the same fashion.
+        We can also define the initial form for a laurent polynomial $f$ in the same way.
     \end{definition}
-    \subsection{Kapranov's Theorem}
-    Recall the definition of a tropical hypersurface assiociated with a polynomial $f \in K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$.
-    The next theorem gives alternate characaterizations of the tropical hypersurface.
+
+    It's easter to discuss properties of these initial forms once we understand their relation to tropical hypersurfaces.
+    So before we further study these intial forms, we will first look at tropical hypersurfaces.
+    \begin{definition}
+        For a laurent polynomial $f \in  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}] $, the tropical hypersurface $\emph{trop}(V(f))$ is the set:
+        \begin{align*}
+        \{w \in \mathbb{R}^{n}: \text{minimum in }\emph{trop}(f)(w)\text{ is acheived atleast twice}\}.
+        \end{align*}
+    \end{definition}
+    Similarly, for a tropical polynomial $F$, $V(F)$ denotes the set:
+    \begin{align*}
+        \{w \in \mathbb{R}^{n}: \text{minimum in }F(w)\text{ is acheived atleast twice}\}.
+    \end{align*}
+    It's clear that for a laurent polynomial $f$: $V(\text{trop}(f)) = \text{trop}(V(f))$
+
+\subsection{Kapranov's Theorem}
+In this section we will discuss Kapranov's Theorem, which gives various characterisations for a tropical hypersurface.
     \begin{theorem}[Kapranov's Theorem]
     Let $K$ be an algebraically closed field with a non-trivial valuation. Fix a laurent polynomial $f \in K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$. The following sets are the same:
     \begin{enumerate}
@@ -137,10 +121,14 @@
     \end{enumerate}
     Further, if $f$ is irreducible and $w \in \Gamma_{\text{val}} \cap \text{trop}(V(f))$, then the set $\{y \in V(f): \text{val}(y) = w\}$ is Zariski dense in $V(f)$.
     \end{theorem}
+
     \begin{proof}[Sketch of proof]
         Showing $A$ = $B$ is straightforward. 
         If $x \in A$ then there exist atleast two $u_1,~u_2$ such that $\text{trop}(f)(x) = \text{val}(c_{u_{1}}) + u_{1}\cdot x = \text{val}(c_{u_{2}}) + u_{2}\cdot x$. 
-        This implies $\text{in}_{x}(f)$ has atleast the terms corresponding to $u_1$ and $u_2$, implying it's not a monomial, and $A \subset B$. The reverse inclusion also follows similarly. 
+        This implies $\text{in}_{x}(f)$ has atleast the terms corresponding to $u_1$ and $u_2$, implying it's not a monomial, and $A \subset B$.
+        Now consider a $w \in B$, the initial form $\text{in}_{w}f = \sum_i \text{val}(c_{u_{i}}) + u_i \cdot w$ has atleast two terms, say for $i=1,2$. 
+        Therefore $\text{trop}(f)(w) = \text{val}(c_{u_{1}}) + u_{1}\cdot w = \text{val}(c_{u_{2}}) + u_{2}\cdot w$, implying $w \in A$.
+        Hence A = B.
         \par To show $C \subset A$, since $A$ is already closed, we just need to show that the set $\{(\text{val}(y_1), \dots, \text{val}(y_n)): (y_1,\dots, y_n) \in \mathbb{R}^{n}\}$ lies in $A$. Say $\textbf{y} = (y_1,\dots,y_n) \in V(f)$, this implies 
         \begin{align*}
             f(\textbf{y}) &= \sum_u c_u y^{u} = 0 \\
@@ -148,79 +136,82 @@
             \Rightarrow& \text{min}_u(\text{val}(c_u) + u \cdot \text{val(\textbf{y})}) = \infty
         \end{align*}
         For this equality to hold, for any pair $u_{1},~u_{2}$ with $c_{u_{i} \neq 0}$ we need to have $\text{val}(c_1) = \text{val}(c_2)$, else by [\ref{vallemma}] $\text{val}(f(\textbf{y})) < \infty$, which is a contradiction. 
-        \par The reverse inclusion $A \subset C$ and final statement follow from an induction on the number of variables, we will just discuss the base case for now, which is essentially a restatement of [\ref{remark1}] and [\ref{densenessprop}].
+        \par To finish of the proof, we show $B \subset C$ and the density statement in the next propostion.
     \end{proof}
-    We next look at the hypersurface case of the structure theorem, which gives an explicit link between poyhedral geometry and tropical varieties.
-    Before stating the theorem we introduce some notation. For a polyhedral comples $P$, we denote the regular subdivision with respect to weight $w$ as $\text{r-subdiv}_{w}(P)$, and the $k-$skeleton of $P$ with $P^{[k]}$.
+    This proposition uses notation from the statement of Kapranov's Theorem.
+    \begin{proposition}
+        Fix a laurent polynomial $f \in  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$, and let $w \in \Gamma_{\text{val}^{n}}$. 
+        Suppose $w \in B$ and $\alpha \in (\tilde{K}^{*})^{n}$ satisfies $\text{in}_{w}(f)(\alpha) = 0$. 
+        There exists $\textbf{y} \in (K^{*})^{n}$ such that $f(\textbf{y}) = 0$,  $\text{val}(\textbf{y}) = \textbf{w}$, and $t^{-1_{i}}y_{i}=\alpha_{i}$ for $1 \leq i \leq n$.
+        Further, if $f$ is irreducible, then the set of such $\textbf{y}$ is Zariski dense in the hypersurface $V(f)$.
+    \end{proposition}
+    \begin{proof}
+        We go about proving this proposition via induction on $n$.
+        \par \textit{Base Case.} Consider $n = 1$.
+        \par We can multiply by a unit and assume that $f = \sum_{i=0}^{s}c_{i}x^{i}$ such that $c_{0}, c_{s}\neq0$. 
+        Since we are working in an algebraically closed field $K$, $f = \prod^{s}_{j=1} (a_{j}x-b_{j})$. 
+        From \textcolor{red}{[cite lemma from next seciton]}, $\text{in}_{w}(f) = \prod^{s}_{j=1} \text{in}_{w}(a_{j}x-b_{j})$. 
+        Since $\alpha \in \tilde{K}$ and $\text{in}_{w}f(\alpha)=0$, there exists $j$ such that $\text{in}_{w}(a_{j}x-b_{j})(\alpha) = 0$.
+        Futher, since $w \in B$, the initial form $\text{in}_{w}(f)$ is not a monomial.
+        This implies that $\text{in}_{w}(a_{j}x-b_{j})$ is not a monomial, hence:
+        \begin{align*}
+            \text{val}(a_{j}) + w &= \text{val}(b_{j})\\
+            \alpha &= \overline{t^{-w}b_{j}/a_{j}}.
+        \end{align*}
+        Setting $y = b_{j}/a_{j}$ we get $f(y) = 0$, and $\overline{t^{-\text{val}(y)}y} = \alpha$, proving the base case.
+        \par \textcolor{red}{Finish the rest of the proof}
+    \end{proof}
+
+\subsection{Structure Theorem?}
     \begin{theorem}
         For $f \in K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$, and $\text{trop}(V(f)) = |\Delta|$. Where $\Delta$ is a pure $\Gamma_{val}^n-$rational polyhedral complex of dimension $n-1$, more specifically:
         \begin{equation*}
             \Delta = \left(\text{dual}\left(\text{r-subdiv}_{\text{val}(c_u)}\left(\text{Newt}(f)\right)\right)\right)^{[n-1]}
         \end{equation*}
     \end{theorem}
-\section{Arbritary Tropical Varieties}
-    \subsection{Groebner Theory}
-    The definition of Groebner basis we use here is slightly different from the standard. 
-    For a homogenous ideal $I$ the initial ideal $\text{in}_{w}(I)$ is defined as the ideal in $\tilde{K}[x_0,\dots,x_n]$ generated by intial forms of polynomials in $I$. 
-    A set $\mathcal{G} \subset I$ is called a groebner basis of $I$ with respect to $w$ if $\langle\text{in}_{w}\left(\mathcal{G}\right)\rangle = \text{in}_{w}(I)$.
+\subsection{Combinatorial Description of Tropical Curves}
+
+\section{Gr\"{o}bner and Tropical Bases}
+    
+
     \begin{lemma}
-        $I \subset K[x_0,\dots, x_n]$ be a homogenous ideal; fix $w\in \mathbb{R}^{n+1}$. Then $\text{in}_{w}(I)$ is a homogenous ideal, and there exists a homogenous greobner basis for $I$. Further, if $w \in \Gamma_{\text{val}}$ then $g \in \text{in}_{w}(I)$ has the form $g = \text{in}_{w}(f)$ for $f \in I$.
+        $I \subset K[x_0,\dots, x_n]$ be a homogenous ideal; fix $w\in \mathbb{R}^{n+1}$. 
+        Then $\text{in}_{w}(I)$ is a homogenous ideal, and there exists a homogenous greobner basis for $I$. 
+        Further, if $w \in \Gamma_{\text{val}}$ then $g \in \text{in}_{w}(I)$ has the form $g = \text{in}_{w}(f)$ for $f \in I$.
     \end{lemma}
-    The reason we are dealing with homogenous ideals is because unlike standard groebner basis theory the ordering of monomials is also dependent on the coefficients. This implies that groebner bases needn't always generate the original ideal like usual. But when the ideals are homogenous, the groebner basis generates the original ideal.
-    \par The following lemma follows fairly easily from definitions.
+
     \begin{lemma}
         For a fixed polynomial $f \in K[x_0,\dots,x_n]$ and $w,v \in \mathbb{R}^{n+1}$ there exists $\varepsilon >0$ such that for all $0<\varepsilon ' < \varepsilon$ we have:
         \begin{equation*}
             \text{in}_{v}(\text{in}_{w}(f)) = \text{in}_{w + \varepsilon 'v}(f)
         \end{equation*}
     \end{lemma}
-    Turns out the above equation is also true when we replace the polynomial $f$ with a homogenous ideal $I$. Althogh proving this is much more non-trivial. 
-    We first show the inclusion $\text{in}_{v}(\text{in}_{w}(I)) \subset \text{in}_{w + \varepsilon 'v}(I)$ and then show that both the ideals have the same hilbert polynomial. 
-    This implies that at each grading $d$, ($\text{in}_{v}(\text{in}_{w}(I)))_d$ can't be a proper subset of $\text{in}_{w + \varepsilon 'v}(f)$, implying they are equal at each grading, and consquently showing:
-    \begin{equation*}
-        \text{in}_{v}(\text{in}_{w}(I)) = \text{in}_{w + \varepsilon 'v}(I)
-    \end{equation*}
-    The next lemma is important since it will be used to bound the dimension of a tropical variety.
+    
     \begin{lemma}
         If $I \subset K[x_0,\dots,x_n]$ is a homogenous prime ideal of dimension $d$ and $w \in \Gamma_{\text{val}}^{n+1}$, then every minimal associated prime of $\text{in}_{w}(I)$ has dimension $d$.
     \end{lemma}
-    \par We will now use the groebner theory we have built up to construct polyhedral complexes. 
-    Firstly, consider a homogenous ideal $I \subset K[x_0,\dots,x_n]$, we also assume that the valued field $K$ has a splitting.
-    For each $w \in \Gamma_{\text{val}}^{n+1}$ we define the polyhedra $C_{I}[w] = \{w' \in \mathbb{R}^{n+1}: \text{in}_{w}(I) = \text{in}_{w'}(I)\}$.
-    The closure of this set with respect to the euclidean topology is given by $\overline{C_{I}[w]}$.
-    \par It turns out that $\overline{C_{I}[w]}$ is a $\Gamma_{val}-$rational polyhedron with lineality space $\text{span}(1,1,\dots,1)$. 
-    Further, if $\text{in}_{w}I$ is not a monomial ideal then there exists a $w'$ such that $\text{in}_{w'}I$ is a monomial ideal.
-    We usually don't care about the lineality space and identify $\overline{C_{I}[w]}$ with the $\overline{C_{I}[w]}/\text{span}(1,1,\dots,1)$.
-    \par We would like to now combine all such $\overline{C_{I}[w]}$ to form polyhedral complex, but this is possible only if there exist a finite number of $\text{in}_{w}(I)$ for all $w \in \Gamma_{\text{val}}^{n+1}$. And this indeed is the case.
-    \par Further, for any tropical polynomial $F$ we can define a polyhedral complex $\Sigma_{F}$ such that it is the coarsest polyhedral complex for which $F$ is linear on each of its cells. 
-    It turns out that given an ideal $I$ we can construct a polynomial $g$ such that if $w \in \text{relint}(\sigma)$ where $\sigma$ is a maximal cell of $\Sigma_{\text{trop}(g)}$, then $\sigma = \overline{C_I[w]}$. 
-    The construction of $g$ is explained in detail in Theorem 2.5.7 of \cite{maclagan2015introduction}.
-    \subsection{Tropical Bases}
-    As mentioned earlier we can define initial forms for laurent polynomials just like we did for standard polynomials. For ideals in the laurent polynomial ring we introduce the notion of a \textbf{tropical basis} $\mathcal{T}$.
-    A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \textit{finite generating set} such that, if for all $w \in \mathbb{R}^{n}$:
+
+\subsection{Tropical Bases}
+
+A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \textit{finite generating set} such that, if for all $w \in \mathbb{R}^{n}$:
     \begin{align*}
         \exists ~f \in I~\text{such that }\text{trop}(f)(w)&~\text{achieves minimum only once}\\
                                                           & \textbf{iff}\\
-        \exists ~g \in \mathcal{T}~\text{such that }\text{trop}(g)(w)&~\text{achieves minimum only once}\\
+        \exists ~g \in \mathcal{T}~\text{such that }\text{trop}(g)(w)&~\text{achieves minimum only once}.
     \end{align*}
-    \par We can show that every ideal of the laurent polynomial ring has a tropical basis. We prove this statement by going upto a field extension where the valuation splits. 
-    Then we show that if the extension of the ideal in the field extension has a tropical basis, there exists a basis whose elements lie in original ideal. 
-    Lastly we show that every valued field with a splittling has a tropical basis, and we are done.
-    \par Before stating the fundamental and structure theorem for arbritary tropical varieties we define the notion of a tropical morphism.
+
+    Before stating the fundamental and structure theorem for arbritary tropical varieties we define the notion of a tropical morphism.
     Remember that a morphism of algebraic groups $\phi : T^{n}\to T^{m}$ induces a monomial map $\phi^{*}:K[x_1^{\pm 1}, \dots, x_m^{\pm 1}]\to K[z_1^{\pm 1}, \dots, z_n^{\pm 1}]$. 
     We can also represent this monomial map as a map $\phi^{*}: \mathbb{Z}^{m}\to \mathbb{Z}^{n}$ where $\phi^{*}(e_i) = u$ for $\phi^{*}(x_i) = z^u$. We now define the \textbf{tropicalization of $\phi$} as the map
     \begin{equation*}
         \text{trop}(\phi): \text{Hom}(\mathbb{Z}^{n},\mathbb{Z})\cong \mathbb{Z}^{n} \to \text{Hom}(\mathbb{Z}^{m},\mathbb{Z})\cong \mathbb{Z}^{m}
     \end{equation*}
-    given by right composition, so $\text{trop}(\phi)(f)= f \circ \phi^{*}$.
-    \subsection{Fundamental and Structure theorems}
-    We will now define the tropical variety for a any arbritary laurent ideal $I$ and state the Fundamental and Structure theorems. 
-    We refer to chapter 3 of \cite{maclagan2015introduction} for the proofs and the definition of multiplicity.
-    \par For an idea $I \subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ the tropicalization of the very affine variety $X = V(I)$ is defined as:
-    \[
-        \text{trop}(X) = \bigcap_{f \in I}\text{trop}(V(f))
-    \]
-    It's easy to see that if $\mathcal{T}$ is the tropical basis of $I$ then $\text{trop}(X) = \bigcap_{f \in \mathcal{T}}\text{trop}(V(f))$.
+
+\subsection{Gr\"{o}bner Complexes}
+
+\section{Arbritary Tropical varieties}
+\subsection{Fundamental Theorem}
+
     \begin{theorem}[Fundamental Theorem of Tropical Algebraic Geometry]
         Let $K$ be algebraically closed with a non trivial valuation, and let $I \subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ with $X = V(I)$ a very affine variety. 
         Then the following three sets are the same:
@@ -231,11 +222,14 @@
         \end{enumerate}
         Further, if $X$ is irreducible and $w \in \Gamma_{\text{val}} \cap \text{trop}(X)$, then the set $\{y \in X: \text{val}(y) = w\}$ is Zariski dense in $X$.
     \end{theorem}
+\subsection{Structure Theorem}
     \begin{theorem}[Structure Theorem for Tropical Varieties]
         Let $X$ be an \textit{irreducible d-diminsional} subvariety of $T^{n}$. Then, trop$(X)$ is the support of a balanced-weighted $\Gamma_{\text{val}}-$rational purely d-dimensional polyhedral complex, which is connected through codimension $1$.
     \end{theorem}
-\section{The Perspective of Berkovich Analytic Spaces}
-We we now very swiftly build up to the construction of tropicalizations from the perspective of Berkovich analytic spaces closely following \cite{1108.6126}. 
+\subsection{Stable Intersection}
+
+\section{Berkovich Analytic Spaces}
+\subsection{The Berkovich Analytification}
     In this section the norm $|\cdot |:K \to \mathbb{R}$ is defined as $|x| = \text{exp}(-\text{val}(x))$. This norm is \textit{non-archimedian}, that is: 
     \begin{itemize}
         \item $|a| = 0$ \textbf{iff} $a=0$
@@ -258,7 +252,9 @@ We we now very swiftly build up to the construction of tropicalizations from the
     For a point $p \in X^{an}$ we can construct a valued field $(L,w)$ over $K$, along with the $L-$rational point $P$ in $\text{Spec}(A)$ such that for all $a \in A$, $p(a) = |a(P)|_{w}$. 
     Here $L = A/\{a \in A: p(a)=0\}$. 
     Conversely given a valued extension $(L,w)$ of $K$ and any $L-$rational point $P$ of $A$ gives an element $p \in X^{an}$ defined by $p(a) = |a(P)|_{w}$.
-    \par Consider a free abelian group $M \cong \mathbb{Z}^n$ of rank n, and define $N = \text{Hom}(M,\mathbb{Z})$. 
+\subsection{Tropicalisation}
+
+    Consider a free abelian group $M \cong \mathbb{Z}^n$ of rank n, and define $N = \text{Hom}(M,\mathbb{Z})$. 
     Then $T:= \text{Spec}(K[M])$ is the multiplicative torus with character group $M$. 
     Let $N_{\mathbb{R}} = \mathbb{R} \otimes N = \text{Hom}(M,\mathbb{R})$. Then the \textbf{tropicalization map} is defined as:
     \begin{align*}
@@ -269,5 +265,4 @@ We we now very swiftly build up to the construction of tropicalizations from the
     \par So for any affine scheme of finite type $X$, we define the \textbf{tropical variety associated to }$X$ as $\text{Trop}_v(X) = \text{trop}_v(X^{an})$. 
     This construction makes many tropical objects easier to deal with. 
     For example if $X$ is connected then we know $X^{an}$ is connected (see \cite{berkovich2012spectral}), since $\text{trop}$ is a continuous map it's image also must be connected, proving that the tropical variety is also connected.
-    \section{Future Work}
-    The plan is to reading through Walter Gubler's notes (cite) to understand the multiplicties associated with a tropical variety before moving on Gathmann's and Markwig's papers on Kontsevich's formula(\cite{GathmannMarkwig+2007+155+177} and \cite{GATHMANN2008537}). After studying those we plan to compare the tropical version of the proofs to the initial algebraic geometric proofs.
+\subsection{Another Proof of the Fundamental Theorem}
