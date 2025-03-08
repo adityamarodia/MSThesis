@@ -2,18 +2,18 @@
 %\section{Morphisms}
 %\section{Reduced and Irreducible Schemes (Varieties)}
 %\section{Fibred Products}
-\section{Categories - Yoneda and Representable Functors}
-\section{Some Moduli Theory}
+\section{Moduli Theory}
+\subsection{Introduction and Motivation}
 The goal of a moduli problem is to classify a collection of geometric objects upto some sort of equivalence.
 The \textit{geometric object} can vary significantly from one moduli problem to another. 
-For example, in the rest of this thesis we will majorly be dealing with two major moduli problems - one where the object in consideration is a rational plane curve, and the other where the rational plane curve comes together with its embedding $\mu$ in $\mathbb{P}^{r}$.
+For example, in the rest of this thesis we will majorly be dealing with two moduli problems - one where the object in consideration is a rational plane curve, and the other where the rational plane curve comes together with its embedding $\mu$ in $\mathbb{P}^{r}$.
 
 Before I what exactly a Moduli problem entails, consider the following example:
 
 \begin{example}
     \label{exLinesInPlane}
 \begin{align*}
-    \mathcal{X} = \{\{(x, ax + b): x \in \mathbb{R}\} : (a,b) \in \mathbb{R}^{2}\}
+    \mathcal{X} = \{\{(x, ax + b) \in \mathbb{R}^{2}: x \in \mathbb{R}\} : (a,b) \in \mathbb{R}^{2}\}
 \end{align*}
 Each object in this set $\mathcal{X}$ is a line given by the equation $y = ax + b$.
 Notice that this set $\mathcal{X}$ is parameterised by points in $\mathbb{R}^{2}$, that is, we have a map $\varphi: \mathcal{X} \to \mathbb{R}^{2}$, which sends the line $y = ax + b$ to $(a,b)$.  
@@ -108,13 +108,13 @@ Before we formally define a moduli problem in the context of categories let's lo
         \end{tikzcd}
     \]
     And this can be seen as a family $\gamma : \mathbb{RP}^{2}\to \mathbb{RP}^{2}$ of lines in $\mathbb{RP}^{2}$.
-    \par We can now interpret the families $\mathcal{X}/\mathbb{R}^{2}$ (from example \ref{exLinesInPlane}) and $\mathcal{Y}/\{\mathbb{RP}^{2}\backslash {[0:0:1]}\} $ as families of lines in $\mathbb{RP}^{2}$ by embedding $\mathbb{R}^{2}$ in $\mathbb{RP}^{2}$, giving us the three families:
+    \par We can now interpret the families $\mathcal{X}/\mathbb{R}^{2}$ (example \ref{exLinesInPlane}) and $\mathcal{Y}/\{\mathbb{RP}^{2}\backslash {[0:0:1]}\} $ as families of lines in $\mathbb{RP}^{2}$ by embedding $\mathbb{R}^{2}$ in $\mathbb{RP}^{2}$, giving us the three families:
     \begin{itemize}
         \item $\varphi : \mathcal{X} \to \mathbb{R}^{2}$
         \item $\psi: \mathcal{Y} \to \mathbb{RP}^{2}\backslash {[0:0:1]}\} $
         \item $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$.
     \end{itemize}
-    It turns out that under the inclusion maps, 
+    For the inclusion maps, 
     \begin{itemize}
         \item $i: \mathbb{R}^{2}\hookrightarrow \mathbb{RP}^{2}$,
         \item $j: \mathbb{RP}^{2}\backslash {[0:0:1]}\} \hookrightarrow \mathbb{RP}^{2}$,
@@ -124,11 +124,82 @@ Before we formally define a moduli problem in the context of categories let's lo
         i^{*}\mathbb{RP}^{2} \simeq &\mathcal{X}\\
         j^{*}\mathbb{RP}^{2} \simeq &\mathcal{Y}.
     \end{align*}
-    It turns out that for any family of lines in $\mathbb{RP}^{2}$, $\mathcal{Z}/B$, there exists a unique morphism $\phi :B \to \mathbb{RP}^{2}$, such that $\mathcal{Z}/B$ is equivalent to the pullback family along $\phi$.
-    In the next section we will see that the family $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$ satisfies the properties of a universal family, with the base space being defined as a \textbf{fine moduli space}.
-
+    Further, for any family of lines in $\mathbb{RP}^{2}$, $\mathcal{Z}/B$, there exists a unique morphism $\phi :B \to \mathbb{RP}^{2}$, such that $\mathcal{Z}/B$ is equivalent to the pullback family along $\phi$.
+    We will see that the family $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$ satisfies the properties of a \textbf{universal family}, with the base space being defined as a \textbf{fine moduli space}.
 \end{example}
 
+\begin{definition}[Fine moduli spaces]
+    A \textbf{universal family} for a moduli problem is a family $U/M$ such that for any other family $\mathcal{X}/B$ there exists a unique morphism $\varphi: B \to M$ with the property that $\varphi^{*}U \simeq \mathcal{X}$.
+    \par The base space of the universal family $M$ is called a \textbf{fine moduli space}. The morphism $\varphi$ is called the \textbf{classifying map} of the family $\mathcal{X}/B$.
+\end{definition}
+
+\subsection{Moduli Problems in the language of Categories}
+The properties of a moduli problem, like commutativity of pullback families with equivalences, can be stated elegantly in the language of categories.
+To see this, consider the following commutative diagram:
+\[
+\begin{tikzcd}
+    {\varphi^{*}\mathcal{X} := \mathcal{X} \times_{B} B'} & & \mathcal{X}\\
+    \\
+    B' && B
+    \arrow[ from = 1-3, to = 3-3]
+    \arrow[from = 1-1, to = 1-3]
+    \arrow["\varphi", from = 3-1, to = 3-3]
+    \arrow[from = 1-1, to = 3-1]
+\end{tikzcd}
+\]
+Given a morphism $\varphi: B' \to B$ we get a map from $S(B)$ to $S(B')$ which sends $\mathcal{X}/B$ to $\varphi^{*}\mathcal{X}/B'$. 
+Remember that $S(B)$ denotes the equivalence class of families over $B$ - hence ensuring that pullback is defined upto equivalence.
+We can interpret this reversing of directions as a contravariant functor which sends each scheme to the equivalence class of families over it. 
+Consider a functor $S$ defined as:
+    \begin{align*}
+        S:\textbf{Sch}^{op} & \to \textbf{Sets}\\
+        X &\mapsto S(X):=\{\text{Equivalence classes of families over }X\},
+    \end{align*}
+where for $\varphi \in \text{Mor}(A,B)$, $S(\varphi) = \varphi^{*} \in \text{Mor}(S(B),S(A))$. 
+\subsubsection{Representable Funtors and Fine Moduli Spaces}
+\begin{definition}[Functor of Points]
+    For any scheme $X$ there exists a contravariant set-valued functor, $h_{X}$, called its \textbf{funtor of points}.
+    This funtor is defined as: 
+    \begin{align*}
+        h_{X}: \textbf{Sch}^{op} &\to \textbf{Sets}\\
+         B &\mapsto \emph{Hom}(B,X),
+    \end{align*}
+where for $\varphi:B' \to B$, $h_{X}(\varphi)$ is defined as:
+\begin{align*}
+    h_Y(\varphi):\emph{Hom}(B,X) &\to \emph{Hom}(B',Y)\\
+    \beta &\mapsto \beta \circ \varphi
+\end{align*}
+\end{definition}
+\begin{definition}[Representable Functors]
+    A functor $S$ isomorphic to a functor points (for some scheme $X$) is called a \textbf{representable functor}.
+    If $\mathcal{U}:h_{Y}\to S$ is an isomrphism of functors, then we say that the pair $(Y, \mathcal{U})$ represents $S$.
+\end{definition}
+By Yoneda's Lemma (appendix) we knoww that we can identify the natiral transformation $\mathcal{U}:h_{Y}\to S$ with an element of $S(Y)$.
+Suppose the element of $S(Y)$ corresponding to $\mathcal{U}$ is $U$.
+Then $(Y,U)$ is said to represent $S$.
+\begin{proposition}
+    A family $U/M$ is the universal family (with M the fine moduli space) for a moduli problem, if and only if the pair $(M,U)$ represents the moduli functor $S$.
+\end{proposition}
+\begin{proof}
+    \textcolor{red}{add the proof}
+\end{proof}
+
+Notice that the previous proposition doesn't deal with the existence of fine moduli spaces in general.
+There are many interesting moduli functors (one which we will encounter later) in the thesis which aren't representable.
+That is, fine moduli spaces need not exist for such moduli problems.
+It's now natural to ask if there is a way we can relax the definition of a fine moduli space to construct some sort of a \textit{best approximation}? We will call this approximation the \textbf{coarse moduli space}.
+
+\begin{definition}
+    A \textbf{coarse moduli space} for a moduli functor $S$ is the pair $(M, \mathcal{V})$, where $M$ is a scheme and $\mathcal{V}:S \to h_{M}$ is a natural transform of functor such that:
+    \begin{itemize}
+        \item $(M,\mathcal{V})$ is initial across all such pairs,
+        \item The map between sets, 
+            \begin{align*}
+                \mathcal{V}_{\emph{Spec}\mathbb{C}}: S(\emph{Spec}\mathbb{C}) \to \emph{Hom}(\emph{Spec}\mathbb{C}, M),
+            \end{align*}
+            is a bijection.
+    \end{itemize}
+\end{definition}
 
 \section{Blowups}
 \section{Flatness?}
