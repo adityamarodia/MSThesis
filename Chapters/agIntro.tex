@@ -100,7 +100,7 @@ Before we formally define a moduli problem in the context of categories let's lo
     \[
         \begin{tikzcd}
             {\mathbb{RP}^{2}} & & {\{\text{lines in }\mathbb{RP}^{2}\}} \\
-        {[a:b:c]} \arrow[u, phantom, sloped, "\in"]& & {\{[x:y:z] \in \mathbb{RP}^{2}: ax + by + cz = 0 \}}\arrow[u, phantom, sloped, "\in"].
+            {[a:b:c]} \arrow[u, phantom, sloped, "\in"]& & {\{[x:y:z] \in \mathbb{RP}^{2}: ax + by + cz = 0 \}}\arrow[u, phantom, sloped, "\in"].
             \arrow["\gamma", leftarrow, from = 1-1, to = 1-3]
             \arrow[ leftrightarrow, from = 2-1, to = 2-3]
             %\arrow[phantom, from = 2-1, to = 1-1, sloped, "\in"]
@@ -111,21 +111,21 @@ Before we formally define a moduli problem in the context of categories let's lo
     \par We can now interpret the families $\mathcal{X}/\mathbb{R}^{2}$ (example \ref{exLinesInPlane}) and $\mathcal{Y}/\{\mathbb{RP}^{2}\backslash {[0:0:1]}\} $ as families of lines in $\mathbb{RP}^{2}$ by embedding $\mathbb{R}^{2}$ in $\mathbb{RP}^{2}$, giving us the three families:
     \begin{itemize}
         \item $\varphi : \mathcal{X} \to \mathbb{R}^{2}$
-        \item $\psi: \mathcal{Y} \to \mathbb{RP}^{2}\backslash {[0:0:1]}\} $
-        \item $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$.
-    \end{itemize}
-    For the inclusion maps, 
-    \begin{itemize}
-        \item $i: \mathbb{R}^{2}\hookrightarrow \mathbb{RP}^{2}$,
-        \item $j: \mathbb{RP}^{2}\backslash {[0:0:1]}\} \hookrightarrow \mathbb{RP}^{2}$,
-    \end{itemize}
-    we have: 
-    \begin{align*}
-        i^{*}\mathbb{RP}^{2} \simeq &\mathcal{X}\\
-        j^{*}\mathbb{RP}^{2} \simeq &\mathcal{Y}.
-    \end{align*}
-    Further, for any family of lines in $\mathbb{RP}^{2}$, $\mathcal{Z}/B$, there exists a unique morphism $\phi :B \to \mathbb{RP}^{2}$, such that $\mathcal{Z}/B$ is equivalent to the pullback family along $\phi$.
-    We will see that the family $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$ satisfies the properties of a \textbf{universal family}, with the base space being defined as a \textbf{fine moduli space}.
+    \item $\psi: \mathcal{Y} \to \mathbb{RP}^{2}\backslash {[0:0:1]}\} $
+    \item $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$.
+\end{itemize}
+For the inclusion maps, 
+\begin{itemize}
+    \item $i: \mathbb{R}^{2}\hookrightarrow \mathbb{RP}^{2}$,
+\item $j: \mathbb{RP}^{2}\backslash {[0:0:1]}\} \hookrightarrow \mathbb{RP}^{2}$,
+\end{itemize}
+we have: 
+\begin{align*}
+    i^{*}\mathbb{RP}^{2} \simeq &\mathcal{X}\\
+    j^{*}\mathbb{RP}^{2} \simeq &\mathcal{Y}.
+\end{align*}
+Further, for any family of lines in $\mathbb{RP}^{2}$, $\mathcal{Z}/B$, there exists a unique morphism $\phi :B \to \mathbb{RP}^{2}$, such that $\mathcal{Z}/B$ is equivalent to the pullback family along $\phi$.
+We will see that the family $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$ satisfies the properties of a \textbf{universal family}, with the base space being defined as a \textbf{fine moduli space}.
 \end{example}
 
 \begin{definition}[Fine moduli spaces]
@@ -137,24 +137,24 @@ Before we formally define a moduli problem in the context of categories let's lo
 The properties of a moduli problem, like commutativity of pullback families with equivalences, can be stated elegantly in the language of categories.
 To see this, consider the following commutative diagram:
 \[
-\begin{tikzcd}
-    {\varphi^{*}\mathcal{X} := \mathcal{X} \times_{B} B'} & & \mathcal{X}\\
-    \\
-    B' && B
-    \arrow[ from = 1-3, to = 3-3]
-    \arrow[from = 1-1, to = 1-3]
-    \arrow["\varphi", from = 3-1, to = 3-3]
-    \arrow[from = 1-1, to = 3-1]
-\end{tikzcd}
+    \begin{tikzcd}
+        {\varphi^{*}\mathcal{X} := \mathcal{X} \times_{B} B'} & & \mathcal{X}\\
+        \\
+        B' && B
+        \arrow[ from = 1-3, to = 3-3]
+        \arrow[from = 1-1, to = 1-3]
+        \arrow["\varphi", from = 3-1, to = 3-3]
+        \arrow[from = 1-1, to = 3-1]
+    \end{tikzcd}
 \]
 Given a morphism $\varphi: B' \to B$ we get a map from $S(B)$ to $S(B')$ which sends $\mathcal{X}/B$ to $\varphi^{*}\mathcal{X}/B'$. 
 Remember that $S(B)$ denotes the equivalence class of families over $B$ - hence ensuring that pullback is defined upto equivalence.
 We can interpret this reversing of directions as a contravariant functor which sends each scheme to the equivalence class of families over it. 
 Consider a functor $S$ defined as:
-    \begin{align*}
-        S:\textbf{Sch}^{op} & \to \textbf{Sets}\\
-        X &\mapsto S(X):=\{\text{Equivalence classes of families over }X\},
-    \end{align*}
+\begin{align*}
+    S:\textbf{Sch}^{op} & \to \textbf{Sets}\\
+    X &\mapsto S(X):=\{\text{Equivalence classes of families over }X\},
+\end{align*}
 where for $\varphi \in \text{Mor}(A,B)$, $S(\varphi) = \varphi^{*} \in \text{Mor}(S(B),S(A))$. 
 \subsubsection{Representable Funtors and Fine Moduli Spaces}
 \begin{definition}[Functor of Points]
@@ -162,13 +162,13 @@ where for $\varphi \in \text{Mor}(A,B)$, $S(\varphi) = \varphi^{*} \in \text{Mor
     This funtor is defined as: 
     \begin{align*}
         h_{X}: \textbf{Sch}^{op} &\to \textbf{Sets}\\
-         B &\mapsto \emph{Hom}(B,X),
+        B &\mapsto \emph{Hom}(B,X),
     \end{align*}
-where for $\varphi:B' \to B$, $h_{X}(\varphi)$ is defined as:
-\begin{align*}
-    h_Y(\varphi):\emph{Hom}(B,X) &\to \emph{Hom}(B',Y)\\
-    \beta &\mapsto \beta \circ \varphi
-\end{align*}
+    where for $\varphi:B' \to B$, $h_{X}(\varphi)$ is defined as:
+    \begin{align*}
+        h_Y(\varphi):\emph{Hom}(B,X) &\to \emph{Hom}(B',Y)\\
+        \beta &\mapsto \beta \circ \varphi
+    \end{align*}
 \end{definition}
 \begin{definition}[Representable Functors]
     A functor $S$ isomorphic to a functor points (for some scheme $X$) is called a \textbf{representable functor}.
@@ -181,8 +181,67 @@ Then $(Y,U)$ is said to represent $S$.
     A family $U/M$ is the universal family (with M the fine moduli space) for a moduli problem, if and only if the pair $(M,U)$ represents the moduli functor $S$.
 \end{proposition}
 \begin{proof}
-    \textcolor{red}{add the proof}
+    \textit{Suppose $(M,U)$ represents the moduli functor $F$}.
+    \par Then there exists an isomorphism of functors:
+    \begin{align*}
+        \mathcal{U}:h_{M} \to F,
+    \end{align*}
+    which at the level of objects maps in the following manner:
+    \begin{align*}
+        \mathcal{U}_{M}:h_{M}(M) &\to F(M)\\
+        \text{id}_{M} &\mapsto U/M.
+    \end{align*}
+    Let $\mathcal{V}:= \mathcal{U}^{-1}$ be the inverse functor. Now consider any $\varphi: B \to M$, we have the commutative diagram:
+    \[
+        \begin{tikzcd}
+            h_{M}(M) & & F(M) & & h_{M}(M)\\
+            h_{M}(B) & & F(B) & & h_{M}(B)
+            \arrow["\mathcal{U}_{M}", from = 1-1, to = 1-3]
+            \arrow["\mathcal{V}_{M}", from = 1-3, to = 1-5]
+            \arrow["\mathcal{U}_{B}", from = 2-1, to = 2-3]
+            \arrow["\mathcal{V}_B", from = 2-3, to = 2-5]
+            \arrow["F(\varphi)", from = 1-3, to = 2-3]
+            \arrow["\_\circ \varphi", from = 1-1, to = 2-1]
+            \arrow["\_\circ \varphi", from = 1-5, to = 2-5]
+        \end{tikzcd}
+    \]
+    Since $\mathcal{U}$ is an isomorphism $\mathcal{U}_{B}$ is a bijection for all $B$. Implying that for all $\mathfrak{X}/B \in F(B)$ there exists $\varphi_{\mathfrak{X}}\in h_{M}(B)$ such that $\mathcal{U}_{B}(\varphi_{\mathfrak{X}}) = \mathfrak{X}/B$. 
+    For this morphism, $\varphi_{\mathfrak{X}}$, consider the following diagram (with the element being chased on the right).
+    \[
+        \begin{tikzcd}
+            h_{M}(M) & & F(M) & & \text{id}_{M} && U/M\\
+            h_{M}(B) & & F(B) & & \varphi_{\mathfrak{X}} && \mathfrak{X}/B = F(\varphi_{\mathfrak{X}})(U/M) = \varphi_{\mathfrak{X}}^{*}U/B
+            \arrow["\mathcal{U}_{M}", from = 1-1, to = 1-3]
+            \arrow["\mathcal{U}_{B}", from = 2-1, to = 2-3]
+            \arrow["F(\varphi_{\mathfrak{X}})", from = 1-3, to = 2-3]
+            \arrow["\_\circ \varphi_{\mathfrak{X}}", from = 1-1, to = 2-1]
+            \arrow["\mathcal{U}_{M}", mapsto, from = 1-5, to = 1-7]
+            \arrow["\mathcal{U}_{B}", mapsto, from = 2-5, to = 2-7]
+            \arrow["\_\circ \varphi_{\mathfrak{X}}", mapsto, from = 1-5, to = 2-5]
+            \arrow["F(\varphi_{\mathfrak{X}})", mapsto, from = 1-7, to = 2-7]
+        \end{tikzcd}
+    \]
+    Via commutativity of the above diagram it follows that $\mathfrak{X}/B = \varphi_{\mathfrak{X}}^{*}U/B$. 
+    The classifying map, $\varphi_{\mathfrak{X}}$, is unique since the $\mathcal{U}_{B}$ is a bijection. 
+    Hence, we have proved one direction of the hypothesis.
+    \par \textit{Suppose $U/M$ is a universal family}.
+    \par We need to show that the naturam transformation $\mathcal{U}:h_{M} \to F$, which corresponds to $U/M \in F(M)$ (via the bijection from Yoneda's lemma), is an isomorphism of functors.
+    Recall that a natural transformation, $\mathcal{U}$, is an isomorphism if for a each $B \in \textbf{Sch}$ the induced map $\mathcal{U}_{B}$ is a set theoretic bijection. 
+    We showed above that for any $\vaprhi \in h_{M}(B)$, $\mathcal{U}_{B}(\varphi) = \varphi^{*}U/B$: 
+    \begin{align*}
+        \mathcal{U}_{B}: h_{M}(B) = \text{Hom}(B,M) &\to F(B) \\
+        \varphi &\mapsto \varphi^{*}U/B.
+    \end{align*}
+    Further, via the universal propety of $U/M$, for each family $\mathfrak{X}/B$ there exists a unique morphism (the classifying map) $\varphi_{\mathfrak{X}} \in h_{M}(B)$. 
+    Let this correspondence between families over $B$ and morphisms in $\text{Hom}(B,M)$ by a map $L$. Then,
+    \begin{align*}
+        L \circ \mathcal{U}_{B} (\varphi) &= L(\varphi^{*}U/B) = \varphi \\
+        \mathcal{U}_{B} \circ L (\mathfrak{X}/B) &= \mathcal{U}_{B} (\varphi_{\mathfrak{X}}) = \varphi^{*}_{\mathfrak{X}} U/M = \mathfrak{X}/B .
+    \end{align*}
+    Therefore, $\mathcal{U}_{B}$ is a bijection for all $B \in \textbf{Sch}$, proving that $\mathcal{U}$ is an isomorphism of functors.
 \end{proof}
+
+\subsubsection{Coarse Moduli Spaces}
 
 Notice that the previous proposition doesn't deal with the existence of fine moduli spaces in general.
 There are many interesting moduli functors (one which we will encounter later) in the thesis which aren't representable.
@@ -200,6 +259,86 @@ It's now natural to ask if there is a way we can relax the definition of a fine 
             is a bijection.
     \end{itemize}
 \end{definition}
+\subsection{Families of Points in $\mathbb{P}^{1}$}
+In this section we will look at families of distint point in $\mathbb{P}^{1}$. 
+This example will serve as an important building block for the study of moduli spaces of marked rational plane curves. 
+For the rest of this section we denote with $x$, the point $[x:1] \in \mathbb{P}^{1}$, and $\infty$ for the point $[0:1]$.
+\par By a family of $n$ points in $\mathbb{P}^{1}$ over a scheme $B$ we mean a diagram:
+\[
+    \begin{tikzcd}
+        B \times \mathbb{P}^{1}\\
+        \\
+        B
+        \arrow["\pi",xshift = -2ex, from = 1-1, to = 3-1]
+        \arrow[ xshift = 1ex,from = 3-1, to = 1-1]
+        \arrow[ xshift = 2.3ex,from = 3-1, to = 1-1]
+        \arrow[ swap, "\sigma_{i}", xshift = 3.6ex,from = 3-1, to = 1-1]
+    \end{tikzcd}
+\]
+Where $\sigma_{i}$ are disjoint sections. Therefore for each $b \in B$ we get $n$ points in $\mathbb{P}^{1}$ given by the $n$ sections. 
+\par For the rest of this section we are interested in the case where $n \geq 4$, since for any three distinct points, $p_{1}, p_{2}, p_{3}$, there exists an automorphism of $\mathbb{P}^{1}$ which sends them to $0,\,1,\text{ and }\infty$ respectively - implying all tuples of three or less points are equivalent.
+
+\subsubsection{Projective Equivalence of Families}
+Two families of $n$-points over a scheme $B$ are said to be projectively equivalent if there exists an automorphism $\phi \in \text{Aut}(\mathbb{P}^{1})$ such that the diagram:
+\[
+    \begin{tikzcd}
+        B \times \mathbb{P}^{1} & & B \times \mathbb{P}^{1}\\
+                                & & \\
+        B & & B
+        \arrow["\pi",xshift = -2ex, from = 1-1, to = 3-1]
+        \arrow[ swap, "\sigma_{i}", xshift = 1.2ex,from = 3-1, to = 1-1]
+        \arrow["\pi",xshift = -2ex, from = 1-3, to = 3-3]
+        \arrow[ swap, "\sigma_{i}'", xshift = 1.2ex,from = 3-3, to = 1-3]
+        \arrow["\text{id}\times \phi", from = 1-1, to = 1-3]
+        \arrow[equal,  from = 3-1, to= 3-3]
+    \end{tikzcd}
+\]
+commutes.
+
+\subsubsection{Family of 4 points - Quadruples}
+Define $Q:= \mathbb{P}^{1} \times \mathbb{P}^{1} \times \mathbb{P}^{1} \times \mathbb{P}^{1} \backslash \{\text{diagonals}\}$. 
+Then for any family of four points over a scheme $B$ we have a map $\sigma: B \to Q$ where each coordinate is defined by the section $\sigma_{i}$.
+This map $\sigma$ acts as the classifying map, and shows that $Q$ is a fine moduli space for families of four points and the universal family is of the form:
+\[
+    \begin{tikzcd}
+        Q \times \mathbb{P}^{1}\\
+        \\
+        Q
+        \arrow["\pi",xshift = -2ex, from = 1-1, to = 3-1]
+        \arrow[ xshift = 1ex,from = 3-1, to = 1-1]
+        \arrow[ xshift = 2.3ex,from = 3-1, to = 1-1]
+        \arrow[ xshift = 3.6ex,from = 3-1, to = 1-1]
+        \arrow[ swap, "\sigma_{i}", xshift = 4.9ex,from = 3-1, to = 1-1]
+    \end{tikzcd}
+\]
+with $\sigma_{i}(\textbf{p}) = (\textbf{p},p_{i})$.
+\par Now we want to take into consideration the notion of projective equivalence. 
+Remember that any three points $p_{1},\, p_{2}, \,p_{3}$ define an automorphism $\alpha$ of $\mathbb{P}^{1}$ which sends them to $0,\,1\,\text{and }\infty$.
+For a quedrupule of points $p_1, \dots, p_4$, let $\alpha$ be the automorphism determined by the first three points. 
+Then we define the \textbf{cross ratio} of the quadruple as $\alpha(p_{4}) \in \mathbb{P}^{1}\backslash\{0,1,\infty\}$.
+\par It follows that each quadruple $(p_{1}, \dots, p_{4})$ is projctively equivalent to $(0,1,\infty,q)$ where $q$ is the cross ratio of the quadruple. Consquently we have a bijection:
+\begin{align*}
+    \mathcal{M}_{0,4} := \{\text{Equivalence class of quadruples}\} \leftrightarrow \mathbb{P}^{1}\backslash\{0,1,\infty\}.
+\end{align*}
+It's easy to show that $\mathcal{M}_{0,4}$ is the \textbf{fine moduli space} for families of quadruples with the universal family given by:
+\[
+    \begin{tikzcd}
+        \mathcal{M}_{0,4} \times \mathbb{P}^{1}\\
+        \\
+        \mathcal{M}_{0,4},
+        \arrow["\pi",xshift = -2ex, from = 1-1, to = 3-1]
+        \arrow[ xshift = 1ex,from = 3-1, to = 1-1]
+        \arrow[ xshift = 2.3ex,from = 3-1, to = 1-1]
+        \arrow[ xshift = 3.6ex,from = 3-1, to = 1-1]
+        \arrow[ swap, "\tau_{i}", xshift = 4.9ex,from = 3-1, to = 1-1]
+    \end{tikzcd}
+\]
+where $\tau_1 :=0$, $\tau_2 :=1$, $\tau_3 := \infty$, $\tau_4(p) = p$.
+
+\subsubsection{Family of n-points}
+
+The previous construction for family of $4$-points can be easily generalised to larger $n$.
+\par \textcolor{red}{Add this generalisation}
 
 \section{Blowups}
 \section{Flatness?}

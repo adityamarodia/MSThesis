@@ -65,7 +65,7 @@ Section $2.3$ \cite{maclagan2015introduction} concisely summarises the requisite
     For $d'$ the dimension of the face, there also exists a $d'\times n$ matrix $A'$ such that $\{x \in C: A'x\ =  0\}$. 
     A \textbf{polyhedral fan} is a collection of polyhedral cones such that every face of the cone is part of the collection, and the intersection of any two cones is a face of both the cones.
     A \textbf{polyhedron} $P \subset \mathbb{R}^{n}$ is the intersection of finitely many affine half spaces, allowing us to define it as the set $\{x \in \mathbb{R}^{n}: Ax\leq b\}$ where $b \in \mathbb{R}^{d}$ and $A$ is a $d \times n$ matrix. We can define faces of polyhedron's in the same manner as we defined faces of a cone.
-    \par A \textbf{polyhedral complex}, $\Sigma$, is a collection of polyhedron such that: if $P \in \Sigma$ then all faces of $P$ also lie in $\Sigma$, and if $P,Q \in \Sigma$ then $P \cap Q = \emptyset$ or $P \cap Q$ is a face of both $P,Q$. The support of a polyhedral complex, $|\Sigma |$ is the underlying set of points in $\Simga$. 
+    \par A \textbf{polyhedral complex}, $\Sigma$, is a collection of polyhedron such that: if $P \in \Sigma$ then all faces of $P$ also lie in $\Sigma$, and if $P,Q \in \Sigma$ then $P \cap Q = \emptyset$ or $P \cap Q$ is a face of both $P,Q$. The support of a polyhedral complex, $|\Sigma |$ is the underlying set of points in $\Sigma$. 
     The \textbf{lineality space} of a polyhedral complex, if it exists, is the largest linear subspace which lies in it.
     For any set of points in $\mathbb{R}^{n}$, their \textbf{affine span} is defined as the smallest affine subspace containing those points.
 
@@ -159,7 +159,46 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
             \alpha &= \overline{t^{-w}b_{j}/a_{j}}.
         \end{align*}
         Setting $y = b_{j}/a_{j}$ we get $f(y) = 0$, and $\overline{t^{-\text{val}(y)}y} = \alpha$, proving the base case.
-        \par \textcolor{red}{Finish the rest of the proof}
+        \par \textit{Inducting on n}. Consider $n>1$.       
+        \par Let $\phi^{*}_{l}$ be the automorphism on $ K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$ from the change of variables lemma \textcolor{red}{[cite change of var lemma]}.
+        If $\textbf{y}\in T^{n}$ satisfies:
+        \begin{align*}
+            \phi^{*}_{l}(f)(\textbf{y}) &= 0\\
+            \text{val}({y}_{i}) &= w_{i} - l^{i}w_{n} \\
+            \overline{t^{-w_{i}- l^{i}w_{n}}y_{i}} &= \alpha_{i}\alpha_{n}^{-l^{i}},
+        \end{align*}
+        then for  $\textbf{y}'\in T^{n}$, defined by $y'_{i}=y_{i}y_{n}^{l^{i}}$ for $1\leq i<n$, and $y'_{n}  = y_{n}$:
+        \begin{align*}
+            f(\textbf{y}') &= 0\\
+            \text{val}({y'}_{i}) &= w_{i} \\
+            \overline{t^{-w_{i}}y'_{i}} &= \alpha_{i}.
+        \end{align*}
+        Therefore we can replace $f$ with $\phi^{*}_{l}(f)$.
+        From \textcolor{red}{lemma} it follows that when $f$ is regarded as a polynomial in $x_{n}$, all coefficients are monomials in $ K[x_{1}^{\pm1}, \dots, x_{n-1}^{\pm1}]$.
+        \par Consider the set $\mathcal{V} := \{(y_{1},\dots, y_{n-1})\in T^{n-1}: \text{val}(y_{i}) = w_{i},\,\overline{ t^{-w_{i}}y_{i}} = \alpha_{i} \}$.
+        From proposition \ref{densenessprop}, we know that the set $\mathcal{Y}$ is Zariski dense in $T^{n-1}$.
+        Additionaly, for each such point $\textbf{y}\in \mathcal{Y}$ the polyomial defined by $g(x_{n}) = f(y_{1},\dots, y_{n-1}, x_{n})$ is non-zero.
+        For $\textbf{u} \in \mathbb{Z}^{n}$ we denote with $\textbf{u}'\in \mathbb{Z}^{n-1}$ the projection of $\textbf{u}$ onto the first $n-1$ coordinates. 
+        \par With $\textbf{u} = (\textbf{u}',i)$, the polynomial $g$ has the form,
+        \begin{align*}
+            g(x_{n}) = \sum_{i} c_{\textbf{u}}\textbf{y}^{\textbf{u}'}x_{n}^{i}
+        \end{align*}
+        And for each monomial corresponding to $\textbf{u}$ we have:
+        \begin{align*}
+            &~ \text{val}(c_{\textbf{u}}) + \text{val}(\textbf{y}^{\textbf{u}'}) + w_{n}\cdot i\\
+            =& ~\text{val}(c_{\textbf{u}}) + \textbf{w} \cdot \textbf{u}.
+        \end{align*}
+        Therefore, $\text{trop}(g)(w_{n}) = \text{trop}(f)(\textbf{w})$, implying:
+        \begin{align*}
+            \text{in}_{w_{n}}(g)(x_{n}) =& \sum_{\textbf{u}: \text{val}(c_{\textbf{u}}) + \text{val}(\textbf{y}^{\textbf{u}'}) + w_{n}\cdot u_{n} = \text{trop}(g)(w_{n})} \overline{t^{-\text{val}(c_{\textbf{u}})}c_{\textbf{u}}t^{-\textbf{u}'\cdot \textbf{w}'}y^{\textbf{u}'}}x^{u_n}_{n} \\
+            =& \sum_{\textbf{u}: \text{val}(c_{\textbf{u}}) + \textbf{w} \cdot \textbf{u} = \text{trop}(g)(w_{n})}\overline{t_{-\text{val}(c_{\textbf{u}})}c_{\textbf{u}}}\alpha^{\textbf{u}'}x^{u_{n}}_{n}\\
+            =& ~ \text{in}_{\textbf{w}}(f)(\alpha_{1}, \dots, \alpha_{n-1}, x_{n}).
+        \end{align*}
+        So from $\text{in}_{\textbf{w}}(f)(\alpha) = 0$ we get $\text{in}_{w_{n}}(g)(\alpha_{n}) = 0$.
+        From the $n=1$ case there exists a $y_{n} \in K^{*}$ such that $\text{val}(y_n) = w_n$, $\overline{t^{-\text{val}(w_{n})}y_{n}} = \alpha_{n}$, and $g(y_{n}) = 0$, implying $f(y_1,\dots,y_n) = 0$.
+        Therefore we have found the required point $y \in V(f)$.
+        \par \textcolor{red}{Finish last statement of prrof}
+
     \end{proof}
 
 \subsection{Structure Theorem?}
@@ -171,9 +210,7 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
     \end{theorem}
 \subsection{Combinatorial Description of Tropical Curves}
 
-\section{Gr\"{o}bner and Tropical Bases}
-    
-
+\section{Gr\"{o}bner and Tropical Bases}  
     \begin{lemma}
         $I \subset K[x_0,\dots, x_n]$ be a homogenous ideal; fix $w\in \mathbb{R}^{n+1}$. 
         Then $\text{in}_{w}(I)$ is a homogenous ideal, and there exists a homogenous greobner basis for $I$. 
@@ -231,6 +268,7 @@ A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \t
 \section{Berkovich Analytic Spaces}
 \subsection{The Berkovich Analytification}
     In this section the norm $|\cdot |:K \to \mathbb{R}$ is defined as $|x| = \text{exp}(-\text{val}(x))$. This norm is \textit{non-archimedian}, that is: 
+mm
     \begin{itemize}
         \item $|a| = 0$ \textbf{iff} $a=0$
         \item $|ab| = |a||b|$

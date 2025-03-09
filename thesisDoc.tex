@@ -1,11 +1,5 @@
 \documentclass{iiser-thesis}
 \usepackage{amsmath, amssymb, amsthm, thmtools}
-\usepackage[framemethod=TikZ]{mdframed}
-\usepackage{tikz-cd}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    allcolors=blue}
 \usepackage[dvipsnames]{xcolor}
 %Command for theorems and stuff
 \theoremstyle{definition}
@@ -17,23 +11,25 @@
 \theoremstyle{plain}
 \newtheorem{definition}[theorem]{Definition}
 \declaretheorem[style = plain, qed = $\lozenge\blacklozenge\lozenge$, numberwithin = section]{example}
+%tikz
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{tikz-cd}
+%references package
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    allcolors=blue}
+
 \begin{document}
 \tableofcontents
 
 \chapter{Preliminaries on tropical geometry}
 \label{chap:sturmfels}
 \input{Chapters/tropicalIntro.tex}
-%\section{Basic definitions}
-%\label{sec:basictropical}
 
-%\section{Geometric approach}
-%\label{sec:gubler}
-
-
-
-\chapter{Some algebraic geometry}
-\label{chap:alggeom}
-\input{Chapters/agIntro.tex}
+%\chapter{Some algebraic geometry}
+%\label{chap:alggeom}
+%\input{Chapters/agIntro.tex}
 
 \chapter{Kontsevich formula in algebraic geometry}
 \label{chap:kontalggeom}
@@ -44,11 +40,9 @@
 
 \chapter{Conclusion}
 \label{chap:conclusion}
-
-
+aaaaa
 \bibliographystyle{alpha}
 \bibliography{References}
-
 \end{document}
 
 %%% Local Variables:
