@@ -1,4 +1,5 @@
 \documentclass{iiser-thesis}
+\usepackage{graphicx}
 \usepackage{amsmath, amssymb, amsthm, thmtools}
 \usepackage[dvipsnames]{xcolor}
 %Command for theorems and stuff
@@ -11,9 +12,23 @@
 \theoremstyle{plain}
 \newtheorem{definition}[theorem]{Definition}
 \declaretheorem[style = plain, qed = $\lozenge\blacklozenge\lozenge$, numberwithin = section]{example}
-%tikz
-\usepackage[framemethod=TikZ]{mdframed}
+%tikzpicture
+\usepackage{tikz}
+\usepackage{scalerel}
+\usepackage{pict2e}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc}
+\usetikzlibrary{patterns,arrows.meta}
+\usetikzlibrary{shadows}
+\usetikzlibrary{external}
 \usepackage{tikz-cd}
+
+%pgfplots
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{statistics}
+\usepgfplotslibrary{fillbetween}
+\usepackage[framemethod=TikZ]{mdframed}
 %references package
 \usepackage{hyperref}
 \hypersetup{

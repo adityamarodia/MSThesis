@@ -332,10 +332,114 @@ It's easy to show that $\mathcal{M}_{0,4}$ is the \textbf{fine moduli space} for
 where $\tau_1 :=0$, $\tau_2 :=1$, $\tau_3 := \infty$, $\tau_4(p) = p$.
 
 \subsubsection{Family of n-points}
+For a quadruples of points $(p_{1}, p_{2}, p_{3}, p_{4})$ let $\lambda((p_{1}, p_{2}, p_{3}, p_{4}))$ denote their cross ratio.
+Then we can sharacterize projective equivalence of two $n$-tuples in the following manner.
+Let $(p_{1}, p_{2}, p_{3},\dots,p_{n})$ and $(p'_{1}, p'_{2}, p'_{3},\dots,p'_{n})$ be two $n$-tuples; they are said to be projectively equivalent if and only if for all $i\geq 4$:
+\begin{align*}
+     \lambda(p_{1}, p_{2}, p_{3}, p_{i}) = \lambda(p'_{1}, p'_{2}, p'_{3}, p'_{i}).
+\end{align*}
+With this characterisation it's easy to see that:
+\begin{align*}
+    \mathcal{M}_{0,n} \simeq \mathcal{M}_{0,4} \times \dots \times \mathcal{M}_{0,4} \backslash\{diagonals\},
+\end{align*}
+where the product has $n-3$ elements.
 
-The previous construction for family of $4$-points can be easily generalised to larger $n$.
-\par \textcolor{red}{Add this generalisation}\section{Stable n-pointed Curves}
-Rational plane curves are one dimensional varieties that are birational to $\mathbb{P}^{1}$. 
-In this section we will be studying rational plane curves, $C$, along with $n$ distinct marked points $p_{1},\dots, p_{n} \in C$.
+\section{Stable n-pointed Curves}
+For the rest of this thesis, a rational plane curve (or a plane curve) will refer to a one dimensional variety that's birational to $\mathbb{P}^{1}$. 
+In this section we will look at moduli spaces of plane curves with $n$-marked points.
+This will help us in building intution for understanding the moduli space of stable maps, which we will use to prove Kontsevich's forumla.
+A plane curve, C, with $n$ distinct point $p_{1},\dots, p_{n} \in C$ will be called a $n$-pointed rational curve, and will be denoted by the tuple $(C, p_{1}, \dots, p_{n})$.
+
+\subsection{Families of smooth $n$-pointed curves}
+\begin{definition}
+    A family of $n$-pointed rational plane curves is a flat and proper morphism of schemes $\pi: X \to B$, such that the geometric fibres $\pi^{-1}(b)$ for all $b \in B$ are projective rational curves.
+    Further, this morphism is equipped with $n$ disjoint sections $\sigma_{i}:B \to X$ which represent the $n$ marked points on each fibre.
+\end{definition}
+An equivalence between two families $\pi: \mathfrak{X} \to B$ and $\pi': \mathfrak{X}' \to B$ is an isomorphism $\phi: \mathfrak{X} \to \mathfrak{X}'$ such that the following diagram commutes:
+\[
+    \begin{tikzcd}
+        \mathfrak{X} & & \mathfrak{X}'\\
+                                & & \\
+        B & & B
+        \arrow[swap, "\pi",xshift = -1ex, from = 1-1, to = 3-1]
+        \arrow[ swap, "\sigma_{i}", xshift = 1ex,from = 3-1, to = 1-1]
+        \arrow[swap, "\pi",xshift = -1ex, from = 1-3, to = 3-3]
+        \arrow[ swap, "\sigma_{i}'", xshift = 1ex,from = 3-3, to = 1-3]
+        \arrow["\phi", from = 1-1, to = 1-3]
+        \arrow[equal,  from = 3-1, to= 3-3]
+    \end{tikzcd}
+\]
+For families, $\mathfrak{X}/B$ where the geomteric fibres are \textit{isomorphic} to $\mathbb{P}^{1}$:
+\begin{itemize}
+    \item If $n=1$ then $\mathfrak{X} \simeq \mathbb{P}(\varepsilon)$, where $\varepsilon$ is a rank 2 vector bundle on $B$.
+    \item For $n=2$ this vector bundle splits.
+    \item And for $n\geq 3$ there is a unique isomorphism $\mathfrak{X}\to B \times \mathbb{P}^{1}$. 
+        Which makes this case equivalent to classification of families of $n$ points on $\mathbb{P}^{1}$ upto projective equivalence.
+\end{itemize}
+From the third point above it follows that, for $n\geq 4$, there exists a fine moduli space $\mathcal{M}_{0,n}$ for the problem of classifying $n$-pointed \textit{smooth} rational curves up to isomorphism.
+We have seen that for $n=3$, $\mathcal{M}_{0,3}$ is a single point space, hence are first interesting example is $\mathcal{M}_{0,4}$ which can be interpreted as $\mathbb{P}^{1}\backslash\{0,1,\infty\}$.
+
+\subsection{$\mathcal{M}_{0,4}$ and Compactification of $\mathcal{M}_{0,n}$}
+When we see $\mathcal{M}_{0,4}$ as the projective line minus three points it's clear that it is not a compact space.
+In general, for a good intersection theory to exist on our moduli space, it is necessary for them to be compact. 
+
+\begin{example}
+    \label{M04Example}
+    We look at the universal family over $\mathcal{M}_{0,4}$ and see what happens when we compactify it to $\mathbb{P}^{1}$. 
+    As discussed in the previous section, the universal family is $\pi :\mathcal{M}_{0,4} \times \mathbb{P}^{1} \to \mathcal{M}_{0,4}$, with sections $\tau_1 :=0$, $\tau_2 :=1$, $\tau_3 := \infty$, $\tau_4(p) = p$.
+    This can be visualised as the following diagram, where $U_{q} = \pi^{-1}(q)$
+    \begin{center}
+    \includegraphics[scale = 0.3]{Chapters/Images/M_04_UniversalFam.png}
+    \end{center}
+    If we compactify $\mathcal{M}_{0,4}$ to $\mathbb{P}^{1}$ then the sections will no longer be disjoint.
+    The diagnoal section $\tau_{4}$ will intersect the other $\tau_{i}'$s at $0,\,1\,\text{and }\infty$ respectively. 
+    Therefore, the geometric sections over the points $0,\,1,\, \text{and }\infty$ are $3$-pointed curves, rather than $4$ pointed ones.
+    \par To fix this problem we can blow up the universal family $\mathbb{P}^{1} \times \mathbb{P}^{1}$ at the three points, $\tau_{4}\cap \tau_{i}$, for $1\leq i \leq 3$.
+    This process of blowing replaces each point $\tau_{4}\cap \tau_{i}$ with a copy of $\mathbb{P}^{1}$ (the exceptional divisor).
+    Let $\tilde{\tau}_{i}$ denote the sections to the the blowup of the unversal family, then the fibre over $0$, $U_{0}$, looks like the following.
+    \begin{center}
+    \begin{tikzpicture}
+        \draw (1,0) -- (1,4);
+        \draw (0,1) -- (4,0);
+    \draw[Circle-Circle] (1,3) node[right] {$\tilde{\tau}_{3}(0)$} -- (1,2)node[right] {$\tilde{\tau}_{2}(0)$};
+        \draw[Circle-Circle] (2,0.5)node[below] {$\tilde{\tau}_{1}(0)$} -- (3,0.25)node[below] {$\tilde{\tau}_{4}(0)$};
+    \end{tikzpicture}    
+    \end{center}
+    This fibre clearly isn't a smooth variety isomorphic to $\mathbb{P}^{1}$, but it gives us an idea of curves we may want to include in our family if we want our moduli space to be compact. 
+    To be specific, we will include reducible curves with some additional structures in our family.
+\end{example}
+Taking the preceeding example as motivation we introduce the notion of \textit{trees} and \textit{stable curves}.
+\begin{definition}
+    A \textbf{tree of projective lines} is a connected curve such that:
+    \begin{itemize}
+        \item All irreducible components are isomorphic to $\mathbb{P}^{1}$.
+        \item The points of intersection between irreducible components are ordinary double points (so no intersections are tangential).
+        \item There are no closed cricuits, that is, if a node is removed, then the curve becomes disconnected.
+    \end{itemize}
+    We will refer to these as just trees.
+    Further, the irreducible components are called \textbf{twigs}.
+\end{definition}
+\begin{definition}
+    Let $n  \geq 3$. 
+    We refer to the marked points and nodes as \textit{special points}.
+    A stable $n$-pointed rational curve is a tree $C$ of projective lines, with $n$ distinct marked points (which don't overlap with the nodes) such that each twig has atleast $3$ special points. 
+\end{definition}
+
+Notice that the fibres over $0,\,1,\,\infty$ in Example \ref{M04Example} are stable $4$-pointed curves with two twigs.
+
+\begin{remark}
+ \par The stability condition in the previous definition is equivalent to saying that curve is automorphism free.
+Any automorphism of a $n$-pointed stable curves sends the marked point to itself. 
+Therefore, any twig with one node will be sent to itself. 
+Since singular points are mapped to singular points, the node must be sent to itself to himself.
+By induction it's easy to see that all nodes will mapped to themselves, and consquently, all twigs are sent to itself.
+This implies that an automorphism of a stable curve is formed by gluing together automorphisms of the twigs.
+But by stability, each twig has more than three special points, each of which is mapped to themselves, implying that their automorphisms are trivial.
+Showing that the automorphisms for stable curves are trivial.
+\end{remark}
+\subsection{Forgetting points, Stabilisation and Contraction}
+\textcolor{red}{Will add later}
+\subsection{$\mathcal{M}_{0,n}$ and Boundary Divisors}
+
 \section{Stable Maps}
 \section{Kontsevich's Formula}
