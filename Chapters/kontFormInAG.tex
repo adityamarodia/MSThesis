@@ -627,4 +627,182 @@ And hence $\overline{U}_{0,5}:=\overline{\mathfrak{U}}_{0,5}$.
 \subsubsection{Boundary Divisors}
 \textcolor{red}{[Will add this section later]}
 \section{Stable Maps}
+\textcolor{red}{[Rewrite this paragraph later]}This section assumes some primitive familiarity with Intersection Theory. \textcolor{red}{[Should I add things in appendix about this later?]}.
+Over this section we will define and understand the properties of moduli spaces of stable maps $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$.
+Since the goal of this chapter is to study the intersections of degree $d$ curves in projective space, these moduli spaces will serve as an important tool.
+
+\begin{definition}
+    A family of maps of smooth raional curves is a diagram
+    \[
+        \begin{tikzcd}
+            \mathfrak{X} & & \mathbb{P}^{r}\\
+            \\
+            B
+            \arrow["\mu", from = 1-1, to = 1-3]
+            \arrow["\pi", from = 1-1, to = 3-1]
+        \end{tikzcd}
+    \]
+    where $\pi$ is a flat family with geometric fibres isomorphic to $\mathbb{P}^{1}$.
+    The map $\mu$ restriced to the fibres $\mathfrak{X}_{b}$ of points $b \in B$, denoted $\mu_{b}$, is a map from a smooth eational curve. 
+    Futher, it can be shown that all fibres $\mu_{b}$ have the same degree.
+\end{definition}
+
+\subsection{Moduli Spaces of maps to $\mathbb{P}^{r}$}
+
+\subsubsection{The Space of Parameterisations}
+
+\begin{definition}[Degree of a map]
+    The degree of the map $\mu : \mathbb{P}^{1} \to \mathbb{P}^{r}$ is defined as the degree of the direct image cycle $\mu_{*}[\mathbb{P}^{1}]$.
+    That is, if $e$ is degree of the image curve, and $k$ the degree of the field extension corresponding to the map $\mu$, then the degree is defined to be $k \cdot e$.
+\end{definition}
+
+An easier way to understand this notion of degree is by looking at the explicit form of the morphism $\mu$.
+$\mu$ is of the form $\mu([x;y]) = [F_{0}(x,y);\cdots ; F_{r}(x,y)]$ where $F_{i}$'s are homogenous polynomials, then $\text{deg}(\mu) = \text{deg}(F_{i})$ for any $0 \leq i \leq r$. 
+This characterisation makes sense since all $F_{i}$'s are homogenous.
+This interpretation of $\mu$ also helps us define thee space of degree $d$ maps $\mathbb{P}^{1} \to \mathbb{P}^{r}$.
+Note that each degree $d$ map $\mathbb{P}^{1} \to \mathbb{P}^{r}$ is a parameterisation of the image curve, hence we refer to the set of all such maps as the \textit{space of parametrisations}, and denote it $W(r,d)$. 
+
+\par Defining a map $\mu : \mathbb{P}^{1} \to \mathbb{P}^{r}$ of degree $d$ is equivalent to defining $r+1$ degree $d$ forms, upto a constant factor.
+This condition characterises $W(r,d)$ as a Zariski open subset:
+\begin{align*}
+    W(r,d) \subset \mathbb{P}\left(\bigoplus_{i=0}^{r}H^{0}(\mathcal{O}_{\mathbb{P}^{1}}(d)) \right).
+\end{align*}
+Here $H^{0}(\mathcal{O}_{\mathbb{P}^{1}}(d))$ is the set of global sections on $\mathbb{P}^{1}$ of degree $d$.
+The dimension of $W(r,d)$ is $1$ less than the dimension of the space with $r+1$ degree $d$ forms since we are going modulo a constant factor, 
+\begin{align*}
+    \text{dim}(W(r,d)) = (r+1)(d+1) - 1 = rd + r + d.
+\end{align*}
+\par $W(r,d)$ admits a canonical family of maps $\mathbb{P}^{1} \to \mathbb{P}^{r}$.
+For the family given by the projection $\pi : W(r,d) \times \mathbb{P}^{1} \to W(r,d)$, the fibre over each morphism $\mu \in W(r,d)$ is mapped to curve $\mu(\mathbb{P}^{1}) \subset \mathbb{P}^{r}$.
+It turns out that this canonical family is the universal family of the moduli space for maps $\mathbb{P}^{1} \to \mathbb{P}^{r}$ of degree $d$.
+\begin{definition}
+    A map $\mu :\mathbb{P}^{1} \to \mathbb{P}^{r}$ is called an \textbf{immersion} when the induced tangent map is injective at all points.
+\end{definition}
+\begin{lemma}[On Codimension of Space of Parametrisations]
+    The set $W^{\circ}(r,d) \subset W(r,d)$ of all immersions is \textit{open}.
+    For $d=1$, $W^{\circ}(r,1)  = W(r,1)$. For $d\geq 2$, its complement is of codimension $r-1$.
+\end{lemma}
+\begin{proof}
+    \textcolor{red}{[May add it later]}
+\end{proof}
+
+An important subset of $W(r,d)$ is the maps which are birational onto their image, we denote this subset with $W^{*}(r,d)$.
+Just like in the previous lemma, we will now try to find a bound on the codimension of the complement of $W^{*}(r,d)$. 
+We there for ask, what does the complement of $W^{*}(r,d)$ look like?
+For $d=1$ this is trivial since $W^{\circ}(r,1) = W^{*}(r,1) =  W(r,1)$.
+dotted arrow latex
+\par \textcolor{red}{Add disscussion about k-fold covers. And exlpain what we will do with the next two lemmas.}
+\par Before, examining the $d \geq 2$ case, recall the following proposition.
+\begin{proposition}[\textcolor{red}{Cite 7.16 from Harris}]
+    Let $f: X \dashrightarrow Y$ be a dominant rational map between two varieties. 
+    The general fibre of the map $f$ is finite \textbf{iff} the map $f^{*}: K(Y) \to K(X)$ is a finite field extension.
+    Further, when the base field $K$ is of characteristic $0$, the degree of the map is equal to the cardinality of the general fibre.
+\end{proposition}
+
+Returning to the $d \geq 2$ case, since the map $\mu$ in discussion is not birational the cardinality of the general fibre is atleast $2$.
+Consequently, from the above lemma, the degree of the field extension corresponding to the map is of atleast degree $2$.
+We refer to maps of this kind as \textit{multiple covers}.
+\par Every multiple cover $\mu: \mathbb{P}^{1} \to \mathbb{P}^{r}$ factors via $\mathbb{P}^{1}$ as $\mathbb{P}^{1} \xrightarrow{\rho} \mathbb{P}^{1} \xrightarrow{\psi} \mathbb{P}^{n} $, where $\rho$ is a multiple cover of the projective line, and $\psi$ a map birational onto its image.
+This factorisation is not unique since for every automorphism $\phi$ of $\mathbb{P}^{1}$ we have a factorisation $(\psi \circ \phi^{-1}) \circ (\phi \circ \rho)$. 
+Remember that the degree $d$ of $\mu$ is defined as $d = ke$, where $e$ is the degree of the image curve and $k$ the degree of the associated field extension.
+In the above factorisation of $\mu$, $\rho$ is a $k$-fold cover of $\mathbb{P}^{1}$, and the image of $\psi$ is a degree $e$ curve in $\mathbb{P}^{r}$.
+\par This gives a relation between factorisations of $d$ and factorisations of $\mu$ via $\mathbb{P}^{1}$. 
+To establish a bound on the codimension of the complement of $W^{*}(r,d)$, we study the locus of maps associated with each factorisation of $d$ in the complement.
+In particular, we are looking for factorisations where the associated locus achieves the least possible codimension.
+
+\begin{lemma}[generalisation of Lemma 2.1.4 and 2.1.5 from Kock's book]
+    \textcolor{red}{Prove this lemma in notes and write it here}
+\end{lemma}
+
+\begin{proposition}
+    The locus $W^{*}(r,d) \subset W(r,d)$ is open, and for $d \geq 2$ the codimension of its complement is atleast:
+    \begin{align*}
+        \text{min}\{(r-1)(d-1),(r+1)d/2 - 2\}.
+    \end{align*}
+    For $r \geq 2$ this locus is dense in $W(r,d)$.
+\end{proposition}
+
+%begin{lemma}
+%   The locus in $W(r,d)$ of $d$-fold covers of a line is closed, with codimension $(r-1)(d-1)$.
+%end{lemma}
+%
+%begin{lemma}
+%   Suppose $d$ is even. Then the closure of the locus of double covers of curves of degree $d/2$ is of codimension $(r+1)d/2 - 2$.
+%\end{lemma}
+
+\subsubsection{Problems with this space of Parametrisations}
+We now see why the space $W(r,d)$ is not good enough:
+\begin{itemize}
+    \item The families assosciated with $W(r,d)$ are such that all parametrisations are induced from the same $\mathbb{P}^{1}$, but we will see in example \textcolor{red}{[add example]} that there exists families of rational curves where maps come from different $\mathbb{P}^{1}$.
+    \item The space $W(r,d)$ isn't compact, which makes it hard to define a good intersection theory on it.
+    \item Additionaly, reparametrisations of the same family are considered as different elements of the moduli space.
+\end{itemize}
+
+\begin{example}
+    Consider the rational map $\mu: \mathbb{P}^{2} \dashrightarrow \mathbb{P}^{1}$ given by the projection $[x;y;z] \to [x;y]$. 
+    We resolve this map by considering the blowup of $\mu$.
+    Since the locus $V(x,y) = \{[0;0;1]\}$ in $\mathbb{P}^{2}$, the map $\mu$ can be interpreted as projection along the point $[0;0;1]$.
+    Let $\tilde{\mathbb{P}}^{2}$ denote the closure of the graph of $\mu$ in $\mathbb{P}^{2} \times \mathbb{P}^{1}$.
+    \par \textcolor{red}{Finish this example after working out the blow-up thing}
+\end{example}
+
+\begin{lemma}
+    Let $\mu : \mathbb{P}^{1} \to \mathbb{P}^{r}$ be a non-constant map. 
+    Then there exists only a finite number of automophisms $\phi$ of $\mathbb{P}^{1}$ such that $\mu = \mu \circ \phi$.
+    If $\mu$ is birational onto its image, $\text{Aut}(\mu)$ is trivial.
+\end{lemma}
+
+\begin{definition}
+    \textcolor{red}{Give definiton of \textbf{the} moduli space of maps, and do a dimension count}
+\end{definition}
+
+\begin{proposition}
+    For $n \geq 3$ there exists a fine moduli space $\mathcal{M}_{0,n}(\mathbb{P}^{r},d)$ for isomorphism classes of $n$- pointed maps of degree $d$,
+    \begin{align*}
+        \mathcal{M}_{0,n}(\mathbb{P}^{r},d) = \mathcal{M}_{0,n} \times W(r,d).
+    \end{align*}
+    In fact, $\mathcal{M}_{0,n}(\mathbb{P}^{r},d)$ is a smooth variety.
+\end{proposition}
+
+\subsubsection{Example: Degree 1 Maps}
+
+\subsection{Kontsevich Stable Maps}
+
+\subsubsection{Examples motivating the definition}
+\textcolor{red}{[Unsure if I want to add this section] - will see on based on length of rest of this chapter.}
+
+\subsubsection{The space of Stable Maps}
+Hint at the remark  from previous section.
+\begin{definition}
+    An $n$-pointed map $\mu : C \to \mathbb{P}^{r}$ is called \textit{Kontsevich Stable} if any twig mapped to a point is a stable pointed curve.
+\end{definition}
+\begin{lemma}[Equivalence of Stability and Cardinality of Automorphism Group]
+    An $n$-pointed map is Kontsevich stable if and only if it has a finite number of automorphisms.
+\end{lemma}
+
+\begin{theorem}
+    There exists a coarse modulis space $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$ parametrising isomorphism classes of Kontsevich stable maps of degree $d$.
+\end{theorem}
+
+\begin{theorem}
+    $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$ is a projective normal irreducible variety, and it is locally ismorphic to a quitient of a smooth varity by the action of a finite group.
+    It contains $\overline{\mathcal{M}}^{*}_{0,n}(\mathbb{P}^{r},d)$ as aa smooth oprn dense subvariety which is a fine moduli space for maps without automorphisms.
+\end{theorem}
+
+\par \textcolor{red}{Do a dimension count of the moduli space}.
+
+\subsubsection{Idea behind the construction of $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$}
+\subsubsection{The Group Action}
+
+\subsection{Evaluation and Forgetful Maps}
+\subsubsection{Consequence of Flatness of Evaluation Maps and Examples}
+\subsubsection{Evaluation Maps and Their Properties}
+
+\subsection{Boudary Divisors and Their Properties}
+\subsubsection{Properties}
+\subsubsection{Examples}
+
+\subsection{Some Examples}
+\textcolor{red}{[Potential section in Second Draft]}
+
 \section{Kontsevich's Formula}
