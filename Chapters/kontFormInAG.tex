@@ -595,5 +595,36 @@ It's easy to see that this is an inverse to the previous map, and hence a biject
 \subsubsection{Construction of the Universal Family $\overline{U}_{0,5}$}
 Now that we have shown $\overline{\mathcal{M}}_{0,n+1}$ and $\overline{U}_{0,4}$ are isomorphic, to construct $\overline{\mathcal{M}}_{0,n}$ for any $n$ we need to see how to obtain the universal family from the moduli space.
 We draw inspiration from the $n=4$ case and look at the fibre products of $\overline{\mathcal{M}}_{0,5}$ with itself over the base scheme $\overline{\mathcal{M}}_{0,4}$.
+Let $\overline{\mathfrak{U}}_{0,5}$ denote the stabilisation of $\overline{\mathcal{M}}_{0,5} \times_{\overline{\mathcal{M}}_{0,4}} \overline{\mathcal{M}}_{0,5}$, over the base $\overline{\mathcal{M}}_{0,5}$. 
+We then have the following diagram.
+\[
+\begin{tikzcd}
+    \overline{\mathfrak{U}}_{0,5} & & \\
+    \\
+    \overline{U}_{0,4} \times_{\overline{\mathcal{M}}_{0,4}} \overline{U}_{0,4} & & \overline{\mathcal{M}}_{0,5} \simeq \overline{U}_{0,4} \\
+    \\
+    \overline{\mathcal{M}}_{0,5} \simeq \overline{U}_{0,4} & & \overline{\mathcal{M}}_{0,4}
+    \arrow[from = 1-1, to = 3-1]
+    \arrow[from = 3-1, to = 3-3]
+    \arrow[from = 3-1, to = 5-1, xshift = -1ex]
+    \arrow[from = 5-1, to = 5-3]
+    \arrow[from = 3-3, to = 5-3, xshift = -1ex]
+    % sections
+    \arrow[from = 5-1, to = 3-1, xshift = 1.3ex]
+    \arrow[from = 5-1, to = 3-1, xshift = 2.6ex]
+    \arrow[from = 5-1, to = 3-1, xshift = 3.9ex]
+    \arrow[swap, "\sigma_{i}",from = 5-1, to = 3-1, xshift = 5.2ex]
+    \arrow["\delta", from = 5-1, to = 3-1, xshift = -3ex]
+    %more sections
+    \arrow[from = 5-3, to = 3-3, xshift = 1.3ex]
+    \arrow[from = 5-3, to = 3-3, xshift = 2.6ex]
+    \arrow[from = 5-3, to = 3-3, xshift = 3.9ex]
+    \arrow[swap, "\sigma_{i}",from = 5-3, to = 3-3, xshift = 5.2ex]
+\end{tikzcd}
+\]
+By using commutativity of stabilisation with fibred products it's easy to show that this stabilisation $\overline{\mathfrak{U}}_{0,5}$ is the universal family over $\overline{\mathcal{M}}_{0,5}$.
+And hence $\overline{U}_{0,5}:=\overline{\mathfrak{U}}_{0,5}$.
+\subsubsection{Boundary Divisors}
+\textcolor{red}{[Will add this section later]}
 \section{Stable Maps}
 \section{Kontsevich's Formula}
