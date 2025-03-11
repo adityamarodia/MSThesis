@@ -438,8 +438,162 @@ But by stability, each twig has more than three special points, each of which is
 Showing that the automorphisms for stable curves are trivial.
 \end{remark}
 \subsection{Forgetting points, Stabilisation and Contraction}
-\textcolor{red}{Will add later}
+The addition of reducible curves to our problem gives rise to a few key operations on them.
+These operations answer questions regarding what happens to a $n$-pointed curve when we add or remove points from it.
+\subsubsection{Stabilisation}
+Consider a $n$-marked curve $(C, p_{1}, \dots, p_{n})$.
+There are two possibilities for where a $n+1^{\text{th}}$ point can be added.
+If the new point doesn't overlap with any of the other special points, the $n+1$ marked tree is a stable curve.
+The case which is intersting is when the $n+1^{\text{th}}$ point overlaps one of the special points.
+
+\par We first look at the case where the new point overlaps with a marked point.
+\begin{center}
+\begin{tikzpicture}
+    %First Diagram
+    \draw (-7.5,0) -- (-4.5,3);
+    \draw (-7,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-6,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-5,2.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-6,1.5) node [shape=circle, draw = red, scale = 1];
+    %Second Diagram
+    \draw (-3,0) -- (0,3)
+    \draw (-2.5,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-1.5,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-0.5,2.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-2,1) node [shape=circle, draw = red,fill = red, scale = 0.5];
+    \draw[-{Stealth[scale = 1.5]}] (-1.8,1) -- (-1.4,1.4);
+    %Third Diagram
+    \draw (1.5,0) -- (4.5,3);
+    \draw (2,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (4,2.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (1.5,3) -- (4.5,0);
+    \draw (2,2.5) node [shape=circle, draw = red,fill = red, scale = 0.5];
+    \draw (4,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    %Transitions
+    \draw[double, -{Stealth}, thick] (-4.3,1.5) -- (-3.2,1.5);
+    \draw[double, -{Stealth}, thick] (0.2,1.5) -- (1.3,1.5);
+\end{tikzpicture}
+\end{center}
+\par The red circle in the left picture on top dentoes the additional point.
+We treat this curve as the limit of a family of curves where the a the fourth point approaches the middle point, as shown in the middle picture.
+As seen in the earlier example of moduli spaces of $4$-pointed curves, the limit of this family is a reducible curve with twigs, as shown in the right picture. 
+The curve on the right is called the \textbf{stabilisation} of the left most curve.
+\par Similartly When a new point overlaps a node, we treat it like like a limiting family curves where the new point approaches the node like above.
+Then the limit curve formed by a blowup in the universal family gives us the stabilisation.
+\par We can also stabilise in families, which is formalised in the next proposition(given without proof).
+\begin{proposition}
+    For a family $(\mathfrak{X}/B, \sigma_{1},\dots,\sigma_{n})$ of stable $n$-pointed curves, let $\delta$ be an additional section.
+    Then there exists a family $(\mathfrak{X}'/B, \sigma'_{1},\dots,\sigma'_{n+1})$ of stable $n+1$-pointed curves and a morphism $\varphi: \mathfrak{X}'\to \mathfrak{X}$ such that:
+    \begin{itemize}
+        \item The restriction of $\varphi$ on $\varphi^{-1}(\mathfrak{X}\backslash \delta) \to \mathfrak{X}\backslash \delta$ is an isomorphism.
+        \item $\varphi \circ \sigma'_{n+1} = \delta$, and $\varphi \circ \sigma'_{i} = \sigma_{i}$ for $i \leq n$.
+    \end{itemize}
+    This family is unique upto isomorphism, and is called the \textbf{stabilisation} of $(\mathfrak{X}/B, \sigma_{1}, \dots, \sigma_{n})$. Further, stabilisation commutes with fibre products.
+\end{proposition}
+
+\subsubsection{Forgetful Maps and Contraction}
+We now discuss the converse, how do we forget a marked point of a stable $n$-pointed curve? 
+That is, what happens when we go from $(C,p_{1}, \dots,p_{n+1})$ to $(C,p_{1}, \dots,p_{n})$. 
+If $p_{n+1}$ lies on a twig with $4$ or more special points, the resulting $n$ pointed curve remains stable, hence the resulting curve is just the same curve with onw less point. 
+Problems start occuring when the $n+1^{\text{th}}$ point lies on a twig with $3$ or less special points. 
+This has two cases.
+\par $1.$ \textit{$p_{n+1}$ lies on a twig with two nodes}.
+\begin{center}
+\begin{tikzpicture}
+    %First
+    \draw (-4.5,0) -- (-4.5,2);
+    \draw (-5,0.5) -- (-3,0.5);
+    \draw (-5, 1.5) -- (-3,1.5);
+    \draw (-4.5,1) node [shape=circle, draw = blue,fill = blue, scale = 0.5];
+    \draw (-3.5,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-4,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-3.5,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-4,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    %Second
+    \draw (-1.5,0) -- (-1.5,2);
+    \draw (-2,0.5) -- (0,0.5);
+    \draw (-2, 1.5) -- (0,1.5);
+    \draw (-0.5,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-1,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-0.5,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-1,0.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    %Third
+    \draw (1,0.833) -- (3,1.5);
+    \draw (1, 1.166) -- (3,0.5);
+    \draw (2.5,1.33) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (2,1.1666) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (2.5,0.66) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (2,0.833) node [shape=circle, draw = black,fill = black, scale = 0.5];
+%    \draw (1.5,1) node [shape=circle, draw = black, scale = 0.5];
+    %transitions
+    \draw[double, -{Stealth}, thick] (-3,1) -- (-2.3,1);
+    \draw[double, -{Stealth}, thick] (0,1) -- (0.7,1);
+\end{tikzpicture}
+\end{center}
+When we remove a point a on a twig with two other nodes we contract the twig to a single point, resulting in the two adjacent twigs intersecting with each other, like in the diagram above.
+So this is a two step proccess, \textbf{forgetting} followed by \textbf{contraction}. 
+\par $2.$ \textit{$p_{n+1}$ lies on a twig with a node and a marked point}.
+\begin{center}
+\begin{tikzpicture}
+    %First
+    \draw (-4.5,0) -- (-4.5,2);
+    \draw (-5, 1.5) -- (-3,1.5);
+    \draw (-4.5,0.5) node [shape=circle, draw = blue,fill = blue, scale = 0.5];
+    \draw (-4.5,1) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-3.5,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-4,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    %Second
+    \draw (-1.5,0) -- (-1.5,2);
+    \draw (-2, 1.5) -- (0,1.5);
+    \draw (-1.5,1) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-0.5,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (-1,1.5) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    %Third
+    \draw (1,0.833) -- (3,1.5);
+    \draw (1.5,1) node [shape=circle, draw = black, fill = black, scale = 0.5];
+    \draw (2.5,1.33) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    \draw (2,1.1666) node [shape=circle, draw = black,fill = black, scale = 0.5];
+    %transitions
+    \draw[double, -{Stealth}, thick] (-3,1) -- (-2.3,1);
+    \draw[double, -{Stealth}, thick] (0,1) -- (0.7,1);
+\end{tikzpicture}
+\end{center}
+\par Here again, after the marked point is removed, we contract the unstable twig.
+The key difference here is that the point of intersection with the other twig becomes a marked point after contraction.
+This again can be formalised for familes, as we do in the next proposition without proof.
+\begin{proposition}
+    For a family $(\mathfrak{X}'/B, \sigma'_{1},\dots, \sigma'_{n+1})$ of stable $n+1$-pointed curves there exists a family $(\mathfrak{X}/B, \sigma_{1},\dots, \sigma_{n})$ and $B$-morphism $\varphi: \mathfrak{X}' \to \mathfrak{X}$ such that:
+    \begin{itemize}
+        \item $\varphi \circ \sigma' = \sigma$ for $1\leq i \leq n$.
+        \item for each $b \in B$ the morphism at the level of fibres $\mathfrak{X}'_{b}\to \mathfrak{X}_{b}$ is an isomorphism when restricted to any stable twig of $(\mathfrak{X}'_{b}, \sigma'_{1}(b), \dots, \sigma'_{n}(b))$.
+    \end{itemize}
+    This family is unique upto isomorphism, and we shall is say that it is obtained from $\mathfrak{X}'/B$ by forgetting the section $\sigma'_{n+1}$. Further, forgetting commutes with fibre products.
+\end{proposition}
+
+When we forget the last section for the universal family over $n+1$ points, we get a family of $n$-points over $\overline{\mathcal{M}}_{0,n+1}$. 
+Via the universal propery of $\overline{U}_{0,n}/\overline{\mathcal{M}}_{0,n}$ there exists a unique morphism:
+\begin{align*}
+    \varepsilon : \overline{\mathcal{M}}_{0,n+1} \to \overline{\mathcal{M}}_{0,n},
+\end{align*}
+which we call the \textbf{forgetful map}.
+ 
 \subsection{$\mathcal{M}_{0,n}$ and Boundary Divisors}
 
+\subsubsection{A Set Theoretic bijection between $\overline{\mathcal{M}}_{0,n+1}$ and $\overline{U}_{0,n}$}
+We understand the bijection between $\overline{\mathcal{M}}_{0,n+1}$ and $\overline{U}_{0,n}$ by examining the $n=4$ case.
+Consider a point $p \in \overline{U}_{0,4}$; to this point we are going to assign a stable $5$-pointed curve $C_{p}$.
+Let $F_{p}$ denote the $4$-pointed curve $\pi^{-1}(\pi(p))$ where $\pi: \overline{U}_{4} \to \overline{\mathcal{M}}_{0,4}$.
+Then $p$ lies on the curve $F_{q}$; if $p$ doesn't overlap with any of the special points, then define $C_{p} := (F_{p},p)$, else if $p$ overlaps with a special point define $C_{p}$ to be the stabilisation of $(F_{p},p)$.
+If we interpret $C_{p}$ as it's corresponding point in $\overline{\mathcal{M}}_{0,5}$ we have established an \textit{injective} map $\overline{U}_{0,4} \to \overline{\mathcal{M}}_{0,5}$.
+\par It's easy to check the srujectivity of this map.
+Consider a $5$-pointed curve $(C,p_{1},\dots, p_{5})$, let $F_{q}$ be the four pointed curve obtained by forgetting the last point (contracting, if required).
+That is, the $4$-pointed curve corresponding to the image of the curve under the forgetful map $\varepsilon : \overline{\mathcal{M}}_{0,5}\to \overline{\mathcal{M}}_{0,4}$.
+To obtain a point in the universal family $\overline{U}_{0,4}$, we consider the fibre over the point in $\overline{\mathcal{M}}_{0,4}$ and choose the point to be the image of $p_{5}$ under forgetting and contracting. 
+It's easy to see that this is an inverse to the previous map, and hence a bijection between $\overline{\mathcal{M}}_{0,5}$ and $\overline{U}_{0,4}$.
+\par This set-theoretic bijection is also an isomorphism of schemes.
+
+\subsubsection{Construction of the Universal Family $\overline{U}_{0,5}$}
+Now that we have shown $\overline{\mathcal{M}}_{0,n+1}$ and $\overline{U}_{0,4}$ are isomorphic, to construct $\overline{\mathcal{M}}_{0,n}$ for any $n$ we need to see how to obtain the universal family from the moduli space.
+We draw inspiration from the $n=4$ case and look at the fibre products of $\overline{\mathcal{M}}_{0,5}$ with itself over the base scheme $\overline{\mathcal{M}}_{0,4}$.
 \section{Stable Maps}
 \section{Kontsevich's Formula}
