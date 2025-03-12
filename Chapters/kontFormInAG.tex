@@ -625,10 +625,83 @@ We then have the following diagram.
 By using commutativity of stabilisation with fibred products it's easy to show that this stabilisation $\overline{\mathfrak{U}}_{0,5}$ is the universal family over $\overline{\mathcal{M}}_{0,5}$.
 And hence $\overline{U}_{0,5}:=\overline{\mathfrak{U}}_{0,5}$.
 \subsubsection{Boundary Divisors}
-\textcolor{red}{[Will add this section later]}
+
+By the boundary of $\overline{\mathcal{M}}_{0,n}$ we mean the set $\overline{\mathcal{M}}_{0,n} \backslash \mathcal{M}_{0,n}$.
+The points of the boundary correspond to reducible curves.
+In this section we will classify the set of reducible curves, and discuss the properties of the set of reducible curves of codimension $1$.
+
+\begin{proposition}
+    The the subset $\Sigma_{\delta} \subset \overline{\mathcal{M}}_{0,n}$ consisting of curves with $\delta \leq n-3$ number of nodes is of \textit{pure} dimension $n-3-\delta$.
+\end{proposition}
+\begin{proof}
+    hm.
+\end{proof}
+
+\begin{definition}[Ordered Partition]
+    Let $S$ be a set with $|S| = n < \infty$.
+    A partition of $S$ is a set of disjoint subsets $\{A_{i}\}_{i=0}^{r}$ such that $\bigcap_{i=0}^{r}A_{i} = S$.
+    On each element $A_{i}$ we can define an ordering of its elements given by $<_{i}$ (usually this ordering is given by the ordering of points in the set $S$).
+    We refer to the partition along with the ordering, $\{(A_{i},<_{i}): 0 \leq i\leq r\}$, as a \textbf{ordered partition}.
+    We will call an ordered partition stable if $|A_{i}|\geq 2$ for all $i$.
+\end{definition}
+
+\begin{definition}[Labeled Configuration]
+    Consider the set $S = \{p_{1}, \dots, p_{n}\}$ of marked points for the moduli space $\overline{\mathcal{M}}_{0,n}$. 
+    Over each stable ordered partition, $\mathcal{A}$, of the set $S$ we can construct a set of $n$-marked curves:
+    \begin{itemize}
+        \item Let the ordered partition be $\{(A_{i},<_{i}): 0 \leq i\leq r\}$.
+        \item Consider a tree $C$ with $r$ nodes.
+        \item Since a tree is connected with no cycles, there exist $r+1$ twigs in $C$.
+        \item Label the twigs $T_{i}$ for $0\leq i \leq r$, such that for all $i$, the intersection $T_{i}\cap T_{i+1} \neq \emptyset$. 
+            It's easy to see that there exist only two such sequences, $T_{i}$ and $T_{r-i}$.
+        \item To each twig $T_{i}$ assign $|A_{i}|$ marked points, and label them with respect to the ordering $<_{i}$ - making $C$ a $n$-marked curve.
+        \item Let $F_{\mathcal{A}}$ denote the set of all these $n$-marked curves upto automorphisms (preserving the ordered partitioning).
+    \end{itemize}
+    The set $F_{\mathcal{A}}$ is called a \textbf{labeled configuration}.
+\end{definition}
+
+\begin{example}
+    \textcolor{red}{[Add example of a labeled configuration]}
+\end{example}
+
+\begin{definition}
+    The closure of each labeled configuration is a smooth and irreducible subvariety of $\overline{\mathcal{M}}_{0,n}$, called a \textbf{boundary cycle}.
+    \par The boundary of boundary cycles are made from other boundary cycles of higher codimension (more elements in the ordered parition).
+\end{definition}
+
+\begin{remark}
+    Since the set $S = \{p_{1}, \dots, p_{n}\}$ we partition to define cycles already has an ordering, from now on we will assume that the ordering on the partitions is induced from this ordering. Hence we choose to drop the term \textit{ordered} while referring to partitions.
+\end{remark}
+
+\begin{definition}[Boundary Divisors]
+    Boundary cycles of codimension $1$ are called \textbf{boundary divisors}. 
+    They are the closure of a labeled configuration $T_{\mathcal{A}}$, where $\mathcal{A}$ is a stable partition with two elements.
+    For a stable partition $S = A \cup B$ of the marked points, the divisor defined by the induced labeled configuration is denoted as $D(A|B)$.
+    \par A general point of the divisor $D(A|B)$ is a curve with two twigs, such that the set of marks $A$ and $B$ are distributed among different twigs.
+\end{definition}
+
+\begin{example}
+    \textcolor{red}{[Add an example for divisors]}
+\end{example}
+
+\begin{proposition}[The recursive structure of divisors]
+    Each boundary cycle can be expressed as a finite product of moduli spaces of lower dimension. 
+    In paritcular, a divisor $D(A|B)$ is isomorphic to $\overline{\mathcal{M}}_{0,A \cup \{x\}} \times \overline{\mathcal{M}}_{0,B \cup \{x\}}$.
+\par We will just discuss the idea behind the proof for the case of divisors and leave it to the reader to extend the ideas to the case of boundary cycles.
+\end{proposition}
+\begin{proof}[Sketch of a proof]
+    \textcolor{red}{fill this}
+\end{proof}
+
+\begin{remark}
+    On compatibility of forgetful maps with the recursive structures of divisors. \textcolor{red}{Talk to vivek and fix this}.
+\end{remark}
+
+\textcolor{red}{[Primitive version of WDVV equations]}
+
 \section{Stable Maps}
-\textcolor{red}{[Rewrite this paragraph later]}This section assumes some primitive familiarity with Intersection Theory. \textcolor{red}{[Should I add things in appendix about this later?]}.
-Over this section we will define and understand the properties of moduli spaces of stable maps $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$.
+
+\textcolor{red}{[Rewrite this paragraph later]}Over this section we will define and understand the properties of moduli spaces of stable maps $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$.
 Since the goal of this chapter is to study the intersections of degree $d$ curves in projective space, these moduli spaces will serve as an important tool.
 
 \begin{definition}
@@ -1000,7 +1073,9 @@ Since we are forgetting the map $\mu$, the map is invariant of the action of $G$
 \begin{proof}
     \textcolor{red}{Add sketch later}
 \end{proof}
-\subsection{Boudary Divisors}
+
+
+\subsection{Boundary Divisors}
 \subsubsection{Properties}
 \subsubsection{Examples}
 
@@ -1008,3 +1083,4 @@ Since we are forgetting the map $\mu$, the map is invariant of the action of $G$
 \textcolor{red}{[Potential section in Second Draft]}
 
 \section{Kontsevich's Formula}
+
