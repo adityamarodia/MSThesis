@@ -691,7 +691,6 @@ Just like in the previous lemma, we will now try to find a bound on the codimens
 We there for ask, what does the complement of $W^{*}(r,d)$ look like?
 For $d=1$ this is trivial since $W^{\circ}(r,1) = W^{*}(r,1) =  W(r,1)$.
 dotted arrow latex
-\par \textcolor{red}{Add disscussion about k-fold covers. And exlpain what we will do with the next two lemmas.}
 \par Before, examining the $d \geq 2$ case, recall the following proposition.
 \begin{proposition}[\textcolor{red}{Cite 7.16 from Harris}]
     Let $f: X \dashrightarrow Y$ be a dominant rational map between two varieties. 
@@ -853,7 +852,7 @@ We will now look at the case of stable maps into $\mathbb{P}^{2}$ and discuss so
 We describe a class of open sets of $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ which cover the entire space.
 
 \par Fix lines $l_{0},\,l_{1},\,l_{2}$ in $\mathbb{P}^{2}$, defined by the linear forms $x_{0},\, x_{1},\, x_{2} \in H^{0}(\mathcal{O}_{\mathbb{P}^{2}}(1))$.
-The open set we are interested is the set given by maps in $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ such that their images intersect transversaly with the lines $l_{i}$.
+The open, $U$, set we are interested is the set given by maps in $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ such that their images intersect transversaly with the lines $l_{i}$.
 This is equivalent to saying that the inverse image of the divisor $l_{0}+l_{1}+l_{2}$ consists of $3d$ distinct non-special points of $C$.
 The inverse image of this divisor is equally distributed among twigs of $C$.
 Remember that the degree of a curve can also be defined by the number of intersection of the curve with a transverse hyperplane divisor. 
@@ -867,20 +866,97 @@ We denote with $D_{j}:= \mu^{*}l_{j}$ the inverse image divisor, and with $q_{j1
 \begin{proposition}
         For a map $\mu:C \to \mathbb{P}^{2}$ the constructed $(n+3d)$-pointed curve is stable if and only if the map $\mu$ is stable.
 \end{proposition}
+\begin{proof}
+    \par \textit{Suppose $\mu$ is Kontsevitch stable}.
+    \par Then by defininition, the degree $0$ twigs (where restriction of $\mu$ is of degree $0$) of $\tilde C$ are already stable.
+    As for the twigs with degree $d' \geq 1$, there exist atleast $3d'\geq 3$ marked points on them - hence satisfying the stability condition for pointed curves.
+    \par \textit{Suppose $\tilde C$ is a stable $(n+3d)$-pointed curve}.
+    \par We go about this via contradiction, say $\mu$ was not kontsevitch stable - there would exist a twig of degree $0$ with less that $3$ special points.
+    Consequently the curve $C$ wouldn't be stable as a pointed curve.
+    This degree zero twig will remain unstable even we add the $3d$ marked points to construct $\tilde C$ - since all these points are added to twigs with nonzero degree.
+    This contradicts that $\tilde C$ is a stable pointed curve - hence $\mu$ is Kontsevich stable.
+\end{proof} 
+
 \begin{proposition}
     Let $\tilde{C}$ with marks $p_{1},\allowbreak \dots,\allowbreak p_{n},\allowbreak q_{01},\allowbreak\dots,\allowbreak q_{0d} ,\allowbreakq_{11},\allowbreak \dots,\allowbreak q_{1d},\allowbreak q_{21},\allowbreak \dots,\allowbreak q_{2d}$ be a stable curve.
     Define divisors $D_{j}:= \sum q_{jk}$.
     If the divisors are \textit{linearly equivalent} there exists an element $\mu \in \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ such that the $(n+3d)$-curve constructed by the inverse image divisors of $\sum_{i}l_{i}$ is $\tilde{C}$.
 \end{proposition}
+\begin{proof}
+    Since the divisors $D_{j}$ are linearly equivalent, they arise from sections of the same line bundle, say $\mathcal{O}(D)$.
+    Let $\tilde{s}_{0},\, \tilde{s}_{1},\,\tilde{s}_{2}$ be the sections which give rise to $D_{0},\,D_{1},\,D_{2}$ respectively.
+    Since these sections are disjoint, they define a morphism $\tilde{\mu}: \tilde C \to \mathbb{P}^{2}$ given by $x \mapsto [\tilde{s}_{0}(x);\tilde{s}_{1}(x);\tilde{s}_{2}(x)]$.
+    We can choose a $\phi \in \text{Aut}(\mathbb{P}^{2})$ such that $(\phi \circ \tilde{\mu})^{*}l_{i} = \tilde{s}_{i}$ for the divisors $l_{i}$ defined by the linear forms $x_{i}$.
+    If we now forget the $3d$ marked points and let $\mu := \phi \circ \mu$ be a map from $C$, the curve with $n$-marked points, then the $n+3d$-pointed curve induced by $\mu$ is same as the $\tilde{C}$ we started off with.
+    Hence we are done.
+\end{proof}
 
+\begin{remark}
+    We define $B \subset \overline{\mathcal{M}}_{0,n+3d}$ to be the set of pointed curves such that divisors $D_{j}$ (defined in the above proposition) are linearly equivalent. 
+    A condition for $(\tilde C, (p_{i}), (q_{jk})) \in \overline{\mathcal{M}}_{0,n+3d}$ to lie in $B$ equivalent to the linear equivalence of divisors is that the number of points of the divisor $D_{j}$ lying on a twig is independent of $j$; that is, each divisor contributes the same number of points on a twig.
+    It follows that the complement of $B$ consists of boundary divisors $D(A|A')$ such that $A$ intersects $D_{j}$ at more points than $A'$. Implying, $B$ is a \textit{open subset} in $\overline{\mathcal{M}}_{0,n+3d}$.
+    Further, $B$ also clearly contains all the irreducible $n+3d$ pointed curves in $\mathbb{P}^{1}$, showing that it's non-empty.
+\end{remark}
 
 \subsubsection{The Group Action}
+\par The curve $\tilde C$ in $\overline{\mathcal{M}}_{0,n+3d}$, can be induced by several non-isomorphic maps $\mu : C \to \mathbb{P}^{2}$.
+Indeed, for any such map $\mu$ we can choose an automorphism $\phi$ of $\mathbb{P}^{2}$ which fixes the three lines $l_{i}$, then the map $\phi \circ \mu$ also induces $\tilde C$.
+The automorphisms which fix $l_{i}$'s are of the form,
+\begin{align*}
+    \phi: [x_{0};x_{1};x_{2}] \mapsto [\lambda_{0}x_{0};\lambda_{1}x_{1};\lambda_{2}x_{2}].
+\end{align*}
+We can fix $\lambda_{0} = 1$ and we get that the set of non-isomorphic maps which induce the same $(n+3d)$-pointed curve is in bijection with $\mathbb{C}^{*}\times \mathbb{C}^{*}$.
+Additionaly, when we defined the map $\mu: C \to \mathbb{P}^{2}$ for the curve $\tilde C$, we could have composed $\mu$ with any of the automorphism corresponding to the set $\mathbb{C}^{*}\times \mathbb{C}^{*}$ to obtain an element of $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$.
+We use this set of automorphisms to define a $(\mathbb{C}^{*}\times \mathbb{C}^{*})$-bundle $Y$ over the open set $B$.
+
+\par Notice that when we assigned $3d$ additional points to $C$ to form $(n+3d)$-pointed stable cuvre $\tilde C$ we never chose a particular ordering of these marks.
+There are $d!d!d!$ possible ways of ordering these marked points, and this observation will help us define a group action on $Y$.
+
+\par Let $G = S_{d} \times S_{d} \times S_{d}$, where $S_{d}$ is the permutation group on $d$ elements.
+Then there exists an obvious action of $G$ on the total space $Y$, for $g = (g_{0},g_{1},g_{2})$ and curve $(\tilde C,(p_{i}),(q_{jk}))$, the action of $g$ on this curve permutes the marked point and results in $(\tilde C,(p_{i}),(q_{jg_{j}(k)}))$.
+It's easy to see that the quotient $Y/G$ is in bijection with the open set $U \subset \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ we defined earlier. 
+This can also be verfied by checking the dimension of $Y$, which is:
+\begin{align*}
+    \text{dim}Y = 2 + (n+3d)-3 = n + 3d - 1 = \text{dim}\,\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d).
+\end{align*}
 
 \subsection{Evaluation and Forgetful Maps}
-\subsubsection{Consequence of Flatness of Evaluation Maps and Examples}
-\subsubsection{Evaluation Maps and Their Properties}
+\subsubsection{Evaluation Maps}
+For each marked point $p_{i}$ there exists a map,
+\begin{align*}
+    \nu_{i}: \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) &\to \mathbb{P}^{r},\\
+    (C,p_{1}, \dots, p_{n}, \mu) & \mapsto \mu(p_{i}),
+\end{align*}
+which is called the \textit{evaluation map}. This map is also a morphism of schemes.
 
-\subsection{Boudary Divisors and Their Properties}
+\begin{lemma}
+    The evaluation maps are flat.
+\end{lemma}
+
+A consquence of flatness of evaluation maps is that codimension is preserved for inverse images.
+Say $H \subset \mathbb{P}^{r}$ is a hyperplane, then for each $i$, $\nu^{-1}_{i}(H)$ is a divisor (hence codimension 1) which consists of all maps whose $i^{\text{th}}$ point is mapped to $H$.
+If $Q$ is a point in $\mathbb{P}^{2}$ then the inverse image $\nu_{i}^{-1}(Q)$ is of codimension $2$ in $\mathbb{\overline{\mathcal{M}}}_{0,n}(\mathbb{P}^{2},d)$.
+
+\begin{remark}
+    We can take all the evaluation maps togehter and define a \textit{total evaluation map},
+\begin{align*}
+    \underline{\nu}: \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) &\to \prod_{i=1}^{n}\mathbb{P}^{r}\\
+    (C,p_{1}, \dots, p_{n}, \mu) & \mapsto \left(\mu(p_{1}), \dots,\mu(p_{n}) \right).
+\end{align*}
+Although the individual component maps are flat, the total evaluation map is not flat.
+\end{{remark}
+
+\subsubsection{Forgetful Maps and Their Properties}
+Just like we did for pointed stable curves, for each subset of marks $B\subset A$ we can define forgetful maps $\overline{\mathcal{M}}_{0,A}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,B}(\mathbb{P}^{r},d)$ which forget the marks in $A \backslash B$.
+Each such forgetful map can be constructed by iteratively composing maps which forget one marked point:
+\begin{align*}
+    \varepsilon : \overline{\mathcal{M}}_{0,n+1}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d).
+\end{align*}
+These maps behave a lot like the forgetful maps for pointed stable curves.
+If we forget a point on a twig with non-zero degree, the forgetful map is straightforward.
+But if we forget a point on a twig with zero degree such that the twig becomes unstable, the source curve undergoes a contraction where the twig is mapped to a point under the forgetful map.
+
+\subsection{Boudary Divisors}
 \subsubsection{Properties}
 \subsubsection{Examples}
 
