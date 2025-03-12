@@ -956,6 +956,50 @@ These maps behave a lot like the forgetful maps for pointed stable curves.
 If we forget a point on a twig with non-zero degree, the forgetful map is straightforward.
 But if we forget a point on a twig with zero degree such that the twig becomes unstable, the source curve undergoes a contraction where the twig is mapped to a point under the forgetful map.
 
+\begin{example}[Universal Family over $\overline{\mathcal{M}}^{*}_{0,n}(\mathbb{P}^r,d)$]
+\par We will now use the forgetful map to construct the universal family over $\overline{\mathcal{M}}^{*}_{0,0}(\mathbb{P}^{r},d)$.
+\par Conisder a map $\mu : C \to \mathbb{P}^{r}$, for every point $p \in C$ we can produce a $1$-pointed map to $\mathbb{P}^{r}$.
+If $p$ is a non smooth point on $C$, the associated $1$-pointed map is the stabilisation of the curve C.
+The new twig added to this $1$-pointed curve will be of degree $0$ and mapped to a point in $\mathbb{P}^{r}$. 
+This observation gives a bijection between the fibre $F_{\mu}$ of $\varepsilon$ over $\mu$ and the set of $1$-pointed maps we just produced. 
+It's also clear that the evaluation map on these $1$-pointed curves in the fibre $F_{\mu}$ is given by the morphism $\mu$.
+That is, if $\mu_{q} \in F_{\mu}$ is the $1$-pointed map corresponding to the point $q \in C$, then:
+\begin{align*}
+    \nu_{1}([\mu_{q}]) = \mu (q).
+\end{align*}
+We have used $\varepsilon$ to create a tautological family of maps over $\overline{\mathcal{M}}^{*}_{0,0}(\mathbb{P}^{r},d)$.
+This family is infact the universal family when we are concerned with the moduli problem of automorphism free stable maps.
+\end{example}
+
+\begin{remark}
+    When we try accounting for automorphisms we quickly run into problems. 
+    For example the forgetful map $\varepsilon: \overline{\mathcal{M}}_{0,1}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,0}(\mathbb{P}^{r},d)$ is not even a family of stable maps.
+\end{remark}
+
+\begin{definition}
+    Consider the locus of $\nu_{n+1}^{-1}(H^{k})$ in $\overline{\mathcal{M}}_{0,n+1}(\mathbb{P}^{r},d)$, where $H^{k}$ is a codimension $k$ linear subspace (for $k\geq 2$).
+    If we forget the last point $p_{n+1}$ then we get the locus of maps that are just incident to $H^{k}$.
+    We define the set of these maps as:
+    \begin{align*}
+        \emph{inc}(H^{k}) := \varepsilon\left({\nu^{-1}_{n+1}(H^{k})}\right).
+    \end{align*}
+    This is a subvariety of codimension $k-1$.
+\end{definition}
+
+\par In the case of stable maps, we another forgetful map - forgetting the map $\mu$ and just looking at the source curve. 
+A map:
+\begin{align*}
+    \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,n}.
+\end{align*}
+We can construct this map by defining a map from the open set $Y/G$. 
+Since we are forgetting the map $\mu$, the map is invariant of the action of $G$ ($G$ permutes the additional marked points induced by $\mu$) and we have a well defined map $Y/G \to \overline{\mathcal{M}}_{0,n}$.
+
+\begin{lemma}
+    The forgetful map $\eta : \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,n}$ is flat for $n \geq 3$.
+\end{lemma}
+\begin{proof}
+    \textcolor{red}{Add sketch later}
+\end{proof}
 \subsection{Boudary Divisors}
 \subsubsection{Properties}
 \subsubsection{Examples}
