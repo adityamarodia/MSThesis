@@ -1074,7 +1074,6 @@ Since we are forgetting the map $\mu$, the map is invariant of the action of $G$
     \textcolor{red}{Add sketch later}
 \end{proof}
 
-
 \subsection{Boundary Divisors}
 \subsubsection{Properties}
 \subsubsection{Examples}
@@ -1083,4 +1082,33 @@ Since we are forgetting the map $\mu$, the map is invariant of the action of $G$
 \textcolor{red}{[Potential section in Second Draft]}
 
 \section{Kontsevich's Formula}
+
+We now have all the required prerequisites in our arsenal to derive Kontsevitch's curve counting forumla.
+
+\subsection{The problem statement}
+The question we look to answer now is, how many degree $d$ curves in $\mathbb{P}^{2}$ pass through $3d-1$ points in \textit{general position}. 
+Before moving onto the problem, we will first explain why we are looking at $3d-1$ points in particular.
+
+\subsubsection{Why $3d-1$ points?} \textcolor{red}{Cite Eisenbud}
+Any degree $d$ rational curve $C$ in $\mathbb{P}^{2}$ is given by a map:
+\begin{align*}
+    \mathbb{P}^{1} &\to \mathbb{P}^{2}\\
+    [x;y] &\mapsto [F(x,y);G(x,y);H(x,y)],
+\end{align*}
+where $F,\,G,\,\text{and }H$ are degree $d$ homogenous polynomials which have no common zeros.
+The vector space, $V$, of triples of degree $d$ homogenous polynomials (with no common roots) in $2$ variables is of dimension $3d+3$.
+We have a map $\psi: V \to \text{Hom}(\mathbb{P}^{1}, \mathbb{P}^{2})$, which identifies each triple $(f,g,h)$ with the curve given by $[f;g;h]$.
+This map is clearly surjective on the set of degree $d$ rational curves $C$ in $\mathbb{P}^{2}$
+The dimension of the fibre of each degree $d$ curve defined by $\mu : [x;y] &\mapsto [F(x,y);G(x,y);H(x,y)]$ is of dimension 4.
+Since composing with an automorphism of $\mathbb{P}^{1}$ gives the same curve, this contributes to three to the dimension of the fibre, secondly, the curve is defined upto a scalr multiple of polynomials, which contributes to the fourth dimension of the fibre.
+This shows that the space of degree $d$ curves in $\mathbb{P}^{2}$ is of dimension $3d-1$.
+Implying the largest number, $n$, for which there might exist non zero number of degree $d$ curves passing through $n$ points in general position is $n = 3d-1$.
+Hence the question we now seek to answer is, how many degree $d$ curves pass through $3d-1$ points?
+
+\begin{definition}
+    We denote with $N_{d}$ the number of degree $d$ curves that pass through $3d-1$ points in general position.
+\end{definition}
+
+\subsection{The $d = 2$ case}
+
 
