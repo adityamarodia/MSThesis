@@ -1220,8 +1220,18 @@ We strongly recommed the reader to look at the computation for $n=2,\,3$ from \t
                     \begin{equation*}
                         n_{A} = 3d_{A} - 2.
                     \end{equation*}
-                \item The number of such possible boundary divisors is $\binom{3d-4}{3d_{A}-2}$.
-
+                \item The number of such possible boundary divisors is $\binom{3d-4}{3d_{A}-2}$, and for each such boundary divisor there are $N_{d_{A}}$ and $N_{d_{B}}$ possibilities for the images of $C_{A}$ and $C_{B}$ respectively.
+                \item From Bezout's theorem, the lines $L_{1}$ and $L_{2}$ meet the images of the twig $C_{A}$ and $C_{B}$ in $d_{A}$ and $d_{B}$ possible ways,respectively.
+                \item And finally, the image curves $C_{A}$ and $C_{B}$ intersect in $d_{A}\cdot d_{B}$ possible points.
             \end{itemize}
     \end{enumerate}
+    This completes the count of number of possible curves for the right side of the equation, giving:
+    \begin{align}
+        \sum_{\substack{d_{A}+d_{B} = d;\\ d_{A},d_{B} \geq 1}}
+        \begin{pmatrix}
+        3d-4\\
+        3d_{A} - 2
+        \end{pmatrix} d_{A} N_{d_{A}}  d_{B} N_{d_{B}}  d_{A} d_{B}.\label{kontRHS}.
+    \end{align} 
+    From \ref{kontRHS}, \ref{kontLHS}, and \ref{WDVVformY} Kontsevitch's equation now follows.
 \end{proof}
