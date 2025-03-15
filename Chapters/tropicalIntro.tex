@@ -22,7 +22,7 @@
 
     \begin{lemma}
         \label{vallemma}
-        When $\emph{val}(a) \neq \emph{val}(b)$ for $a,b \in K$, then $\emph{val}(a+b)= \text{min}(\emph{val}(a),\emph{val}(b))$.
+        When $\text{val}(a) \neq \text{val}(b)$ for $a,b \in K$, then $\text{val}(a+b)= \text{min}(\text{val}(a),\text{val}(b))$.
     \end{lemma}
 
     \begin{lemma}
@@ -208,6 +208,44 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
             \Delta = \left(\text{dual}\left(\text{r-subdiv}_{\text{val}(c_u)}\left(\text{Newt}(f)\right)\right)\right)^{[n-1]}
         \end{equation*}
     \end{theorem}
+    \begin{proof} 
+       Let $f = \sum_{u \in \mathbb{Z}^n}c_ux^u$
+       \begin{itemize}
+           \item $P = \text{conv}\{u: c_u \neq 0\} \subset \mathbb{R}^n$ .
+           \item $P_{\text{val}} = \text{conv}\{(u,c_u): c_u \neq 0\}\subset \mathbb{R}^{n+1}$.
+       \end{itemize}
+       Defining the following will be helpful:
+       \begin{itemize}
+           \item $\text{face}_v(P) = \{x \in P : x\cdot v \leq y \cdot v~ \text{for all } y \in P\}$. Here the vector $v$ is an inward pointing normal vector of the face.
+           \item $\pi: \mathbb{R}^{n+1} \to \mathbb{R}^n$ is projection onto first $n$-coords.
+       \end{itemize}
+       The regular subdivision of $P$ with weight vectors given by $c_u$ is the projection of the lower faces of $P_{\text{val}}$.
+       A face is called a \textit{lower face} if it can be defined with a vector $v$ for which $v_{n+1} > 0$.
+       
+       Now that we have the regular subdivision, we define the dual:
+       \begin{itemize}
+           \item The \textit{Normal Cone} of a face is the set of all defining vectors of the face.
+               Formally, for a face $F \subset P_{\text{val}}$, the \textit{Normal Cone} $\mathcal{N}(F) = \{v \in \mathbb{R}^{n+1}: \text{face}_v(P_{\text{val}}) = F\}$.
+           \item And $\mathcal{F} = \{v \in \mathcal{N}(F): v_{n+1} = 1\}$.
+           \item $\tilde{\pi}(F) = \pi(\mathcal{F})$
+       \end{itemize}
+       And the complex $D = \{\tilde{\pi}(F) : F \text{ is a lower face of }P_{\text{val}}\}$ defines the dual of the regular subdivision. 
+       Let's see what the initial form defined by $v \in \tilde{\pi}(F)$ looks like (let $\bar{v} = (v,1) \in \mathcal{F}$ be the pre-image of $v$).
+       \begin{align*}
+           \text{in}_v(f) = \sum_{\text{val}(c_u) + v \cdot u = w} \overline{c_u t^{-\text{val}(c_u)}} x^u
+       \end{align*}
+       Where $w = \text{min}_{u}\{\text{val}(c_u) + u\cdot v\}$. 
+       Notice $\text{val}(c_u) + v \cdot u = \bar v \cdot (u,c_u)$, 
+       so if $x^{u'}$ has non-zero coefficient in $\text{in}_v(f)$: 
+       \begin{equation*}
+           (u',c_{u'})\cdot \bar{v} \leq (u,c_u) \cdot \bar{v}~~~\forall u
+       \end{equation*}
+       Which is precisely the condition required for $(u,c_u)$ to be a vertex of the face F defined by $\bar v$. 
+       And consequently for $u$ to be vertex of $\pi(F)$. 
+       Therefore for $\text{in}_{v}(f)$ is \textit{not} a monomial \textbf{iff} $\text{face}_v(P_{val})$ has more than vertex.
+       \par So $w\in \text{trop}(f)(v)$ \textbf{iff} $\text{face}_{(w,1)}(P_{val})$ is a \textit{not} a vertex. 
+       Implying, $w \in D^{[n-1]}$.
+   \end{proof}
 \subsection{Combinatorial Description of Tropical Curves}
 
 \section{Gr\"{o}bner and Tropical Bases}  
@@ -299,7 +337,7 @@ mm
         \text{trop}_v:T^{an} &\to N_{\mathbb{R}}\\
         p &\mapsto \text{trop}_v(p)
     \end{align*}
-    Such that for the character $\chi^u$ of $T$ corresponding to $u \in M$, $\langle u,\text{trop}_{v}(p)\rangle = -\text{log}(p(\chi^{u}))$. So if choose some coodinates $x_1, \to, x_n$ for $T^{n}$ then, $\text{trop}_v(p) = (-\text{log}(p(x_1)), \dots, -\text{log}(p(x_n)))$.
+    Such that for the character $\chi^u$ of $T$ corresponding to $u \in M$, $\langle u,\text{trop}_{v}(p)\rangle = -\text{log}(p(\chi^{u}))$. So if choose some coodinates $x_1, \to, x_n$ for $T^{n}$ then, $\text{trop}_v(p) = (-\text{log}(p(x_1)), \dots,\allowbreak -\text{log}(p(x_n)))$.
     \par So for any affine scheme of finite type $X$, we define the \textbf{tropical variety associated to }$X$ as $\text{Trop}_v(X) = \text{trop}_v(X^{an})$. 
     This construction makes many tropical objects easier to deal with. 
     For example if $X$ is connected then we know $X^{an}$ is connected (see \cite{berkovich2012spectral}), since $\text{trop}$ is a continuous map it's image also must be connected, proving that the tropical variety is also connected.
