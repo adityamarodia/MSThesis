@@ -660,9 +660,9 @@ In this section we will classify the set of reducible curves, and discuss the pr
     The set $F_{\mathcal{A}}$ is called a \textbf{labeled configuration}.
 \end{definition}
 
-\begin{example}
-    \textcolor{red}{[Add example of a labeled configuration]}
-\end{example}
+%\begin{example}
+%    \textcolor{red}{[Add example of a labeled configuration]}
+%\end{example}
 
 \begin{definition}
     The closure of each labeled configuration is a smooth and irreducible subvariety of $\overline{\mathcal{M}}_{0,n}$, called a \textbf{boundary cycle}.
@@ -680,28 +680,29 @@ In this section we will classify the set of reducible curves, and discuss the pr
     \par A general point of the divisor $D(A|B)$ is a curve with two twigs, such that the set of marks $A$ and $B$ are distributed among different twigs.
 \end{definition}
 
-\begin{example}
-    \textcolor{red}{[Add an example for divisors]}
-\end{example}
+%\begin{example}
+%    \textcolor{red}{[Add an example for divisors]}
+%\end{example}
 
 \begin{proposition}[The recursive structure of divisors]
     Each boundary cycle can be expressed as a finite product of moduli spaces of lower dimension. 
     In paritcular, a divisor $D(A|B)$ is isomorphic to $\overline{\mathcal{M}}_{0,A \cup \{x\}} \times \overline{\mathcal{M}}_{0,B \cup \{x\}}$.
 \par We will just discuss the idea behind the proof for the case of divisors and leave it to the reader to extend the ideas to the case of boundary cycles.
 \end{proposition}
-\begin{proof}[Sketch of a proof]
-    \textcolor{red}{fill this}
-\end{proof}
+%\begin{proof}[Sketch of a proof]
+%    \textcolor{red}{fill this}
+%\end{proof}
 
-\begin{remark}
-    On compatibility of forgetful maps with the recursive structures of divisors. \textcolor{red}{Talk to vivek and fix this}.
-\end{remark}
+%\begin{remark}
+%    On compatibility of forgetful maps with the recursive structures of divisors. \textcolor{red}{Talk to vivek and fix this}.
+%\end{remark}
 
-\textcolor{red}{[Primitive version of WDVV equations]}
+%\textcolor{red}{[Primitive version of WDVV equations]}
 
 \section{Stable Maps}
 
-\textcolor{red}{[Rewrite this paragraph later]}Over this section we will define and understand the properties of moduli spaces of stable maps $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$.
+%\textcolor{red}{[Rewrite this paragraph later]}
+Over this section we will define and understand the properties of moduli spaces of stable maps $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$.
 Since the goal of this chapter is to study the intersections of degree $d$ curves in projective space, these moduli spaces will serve as an important tool.
 
 \begin{definition}
@@ -755,9 +756,9 @@ It turns out that this canonical family is the universal family of the moduli sp
     The set $W^{\circ}(r,d) \subset W(r,d)$ of all immersions is \textit{open}.
     For $d=1$, $W^{\circ}(r,1)  = W(r,1)$. For $d\geq 2$, its complement is of codimension $r-1$.
 \end{lemma}
-\begin{proof}
-    \textcolor{red}{[May add it later]}
-\end{proof}
+%\begin{proof}
+%    \textcolor{red}{[May add it later]}
+%\end{proof}
 
 An important subset of $W(r,d)$ is the maps which are birational onto their image, we denote this subset with $W^{*}(r,d)$.
 Just like in the previous lemma, we will now try to find a bound on the codimension of the complement of $W^{*}(r,d)$. 
@@ -765,7 +766,8 @@ We there for ask, what does the complement of $W^{*}(r,d)$ look like?
 For $d=1$ this is trivial since $W^{\circ}(r,1) = W^{*}(r,1) =  W(r,1)$.
 dotted arrow latex
 \par Before, examining the $d \geq 2$ case, recall the following proposition.
-\begin{proposition}[\textcolor{red}{Cite 7.16 from Harris}]
+\begin{proposition}
+    %[\textcolor{red}{Cite 7.16 from Harris}]
     Let $f: X \dashrightarrow Y$ be a dominant rational map between two varieties. 
     The general fibre of the map $f$ is finite \textbf{iff} the map $f^{*}: K(Y) \to K(X)$ is a finite field extension.
     Further, when the base field $K$ is of characteristic $0$, the degree of the map is equal to the cardinality of the general fibre.
@@ -782,9 +784,9 @@ In the above factorisation of $\mu$, $\rho$ is a $k$-fold cover of $\mathbb{P}^{
 To establish a bound on the codimension of the complement of $W^{*}(r,d)$, we study the locus of maps associated with each factorisation of $d$ in the complement.
 In particular, we are looking for factorisations where the associated locus achieves the least possible codimension.
 
-\begin{lemma}[generalisation of Lemma 2.1.4 and 2.1.5 from Kock's book]
-    \textcolor{red}{Prove this lemma in notes and write it here}
-\end{lemma}
+%\begin{lemma}[generalisation of Lemma 2.1.4 and 2.1.5 from Kock's book]
+%    \textcolor{red}{Prove this lemma in notes and write it here}
+%\end{lemma}
 
 \begin{proposition}
     The locus $W^{*}(r,d) \subset W(r,d)$ is open, and for $d \geq 2$ the codimension of its complement is atleast:
@@ -805,7 +807,9 @@ In particular, we are looking for factorisations where the associated locus achi
 \subsubsection{Problems with this space of Parametrisations}
 We now see why the space $W(r,d)$ is not good enough:
 \begin{itemize}
-    \item The families assosciated with $W(r,d)$ are such that all parametrisations are induced from the same $\mathbb{P}^{1}$, but we will see in example \textcolor{red}{[add example]} that there exists families of rational curves where maps come from different $\mathbb{P}^{1}$.
+    \item The families assosciated with $W(r,d)$ are such that all parametrisations are induced from the same $\mathbb{P}^{1}$, but we will see in a following example 
+        %\textcolor{red}{[add example]} 
+        that there exists families of rational curves where maps come from different $\mathbb{P}^{1}$.
     \item The space $W(r,d)$ isn't compact, which makes it hard to define a good intersection theory on it.
     \item Additionaly, reparametrisations of the same family are considered as different elements of the moduli space.
 \end{itemize}
@@ -815,7 +819,7 @@ We now see why the space $W(r,d)$ is not good enough:
     We resolve this map by considering the blowup of $\mu$.
     Since the locus $V(x,y) = \{[0;0;1]\}$ in $\mathbb{P}^{2}$, the map $\mu$ can be interpreted as projection along the point $[0;0;1]$.
     Let $\tilde{\mathbb{P}}^{2}$ denote the closure of the graph of $\mu$ in $\mathbb{P}^{2} \times \mathbb{P}^{1}$.
-    \par \textcolor{red}{Finish this example after working out the blow-up thing}
+   % \par \textcolor{red}{Finish this example after working out the blow-up thing}
 \end{example}
 \par To remedy the third drawback in the above discussion, we give the quotient $W(r,d)/\text{Aut}\mathbb{P}^{1}$ the structure of a variety.
 The following lemma hints at the likelyhood for the existence of a coarse moduli space.
@@ -838,7 +842,9 @@ When we take these maps into account, we get the \textit{coarse moduli space}:
     \mathcal{M}_{0,0}(\mathbb{P}^{r},d) \simeq W(r,d)/\text{Aut}(\mathbb{P}^{1}).
 \end{align*}
 The dimension, $\text{dim}\mathcal{M}_{0,0}(\mathbb{P}^{r},d) = rd + r + d -3$.
-Notice when $r\geq 2$ and $d \geq 1$, from \textcolor{red}{Cite Lemma} it follows that $\mathcal{M}^{*}_{0,0}(\mathbb{P}^{r},d)$ is dense in $\mathcal{M}^{*}_{0,0}(\mathbb{P}^{r},d)$.
+Notice when $r\geq 2$ and $d \geq 1$, 
+%from \textcolor{red}{Cite Lemma} 
+it follows that $\mathcal{M}^{*}_{0,0}(\mathbb{P}^{r},d)$ is dense in $\mathcal{M}^{*}_{0,0}(\mathbb{P}^{r},d)$.
 
 
 \begin{proposition}
@@ -849,12 +855,12 @@ Notice when $r\geq 2$ and $d \geq 1$, from \textcolor{red}{Cite Lemma} it follow
     In fact, $\mathcal{M}_{0,n}(\mathbb{P}^{r},d)$ is a smooth variety.
 \end{proposition}
 
-\subsubsection{Example: Degree 1 Maps}
-\textcolor{red}{[May Add]}
+%\subsubsection{Example: Degree 1 Maps}
+%\textcolor{red}{[May Add]}
 \subsection{Kontsevich Stable Maps}
 
-\subsubsection{Examples motivating the definition}
-\textcolor{red}{[Unsure if I want to add this section] - will see on based on length of rest of this chapter.}
+%\subsubsection{Examples motivating the definition}
+%\textcolor{red}{[Unsure if I want to add this section] - will see on based on length of rest of this chapter.}
 
 \subsubsection{The space of Stable Maps}
 We now introduce the notion of \textit{Kontsevich Stable Maps}.
@@ -897,9 +903,9 @@ where $\pi$ is a flat family of trees, and $\sigma_{i}$ are $n$ disjoint section
 \begin{lemma}[Equivalence of Stability and Cardinality of Automorphism Group]
     An $n$-pointed map is Kontsevich stable if and only if it has a finite number of automorphisms.
 \end{lemma}
-\begin{proof}
-    \textcolor{red}{Add this proof later}
-\end{proof}
+%\begin{proof}
+%    \textcolor{red}{Add this proof later}
+%\end{proof}
 
 \par We now state the existence theorem for Kontsevich moduli spaces, without proof.
 
@@ -1070,17 +1076,17 @@ Since we are forgetting the map $\mu$, the map is invariant of the action of $G$
 \begin{lemma}
     The forgetful map $\eta : \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,n}$ is flat for $n \geq 3$.
 \end{lemma}
-\begin{proof}
-    \textcolor{red}{Add sketch later}
-\end{proof}
+%\begin{proof}
+%    \textcolor{red}{Add sketch later}
+%\end{proof}
 
-\subsection{Boundary Divisors}
+%\subsection{Boundary Divisors}
 
-\subsubsection{Properties}
-\subsubsection{Examples}
+%\subsubsection{Properties}
+%\subsubsection{Examples}
 
-\subsection{Some Examples}
-\textcolor{red}{[Potential section in Second Draft]}
+%\subsection{Some Examples}
+%\textcolor{red}{[Potential section in Second Draft]}
 
 \section{Kontsevich's Formula}
 
@@ -1092,7 +1098,7 @@ Before moving onto the problem, we will first explain why we are looking at $3d-
 
 \begin{remark}[Why $3d-1$ points?]
     \label{why3d1points}
- \textcolor{red}{Cite Eisenbud}
+ %\textcolor{red}{Cite Eisenbud}
 Any degree $d$ rational curve $C$ in $\mathbb{P}^{2}$ is given by a map:
 \begin{align*}
     \mathbb{P}^{1} &\to \mathbb{P}^{2}\\
@@ -1117,7 +1123,7 @@ Hence the question we now seek to answer is, how many degree $d$ curves pass thr
 \subsection{The formula}
 
 Although it's quite easy to compute the $d = 2$ case with classical methods, the computations for computing $N_{2}$ serve as instructive examples for the general case.
-We strongly recommed the reader to look at the computation for $n=2,\,3$ from \textcolor{red}{[cite kock's book]}, before reading the following proof of the general version.
+%We strongly recommed the reader to look at the computation for $n=2,\,3$ from \textcolor{red}{[cite kock's book]}, before reading the following proof of the general version.
 
 \begin{theorem}
     Let $N_d$ be as defined earlier, it satifies the following recursive formula:
@@ -1142,7 +1148,9 @@ We strongly recommed the reader to look at the computation for $n=2,\,3$ from \t
     \[
         Y := \nu_{1}^{-1}(L_{1}) \cap \nu_{2}^{-1}(L_{2}) \cap \nu_{3}^{-1}(Q_{1}) \cap \dots \cap \nu_{3d}^{-1}(Q_{3d-2}).
     \]
-    We will show in the next section \textcolor{red}{[cite tranversality lemma]} that the lines can be chosen such that $Y$ is a curve which intersects the boundary \textit{tranversally} and is fully contained in $\mathcal{M}^{*}_{0,3d}(\mathbb{P},d)$.
+    We will show in the next section 
+    %\textcolor{red}{[cite tranversality lemma]} 
+    that the lines can be chosen such that $Y$ is a curve which intersects the boundary \textit{tranversally} and is fully contained in $\mathcal{M}^{*}_{0,3d}(\mathbb{P},d)$.
     The next step again is to use the WDVV equations:
     \begin{equation}
         \label{WDVVformY}
