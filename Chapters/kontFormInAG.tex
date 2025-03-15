@@ -951,7 +951,7 @@ We denote with $D_{j}:= \mu^{*}l_{j}$ the inverse image divisor, and with $q_{j1
 \end{proof} 
 
 \begin{proposition}
-    Let $\tilde{C}$ with marks $p_{1},\allowbreak \dots,\allowbreak p_{n},\allowbreak q_{01},\allowbreak\dots,\allowbreak q_{0d} ,\allowbreakq_{11},\allowbreak \dots,\allowbreak q_{1d},\allowbreak q_{21},\allowbreak \dots,\allowbreak q_{2d}$ be a stable curve.
+    Let $\tilde{C}$ with marks $p_{1},\allowbreak \dots,\allowbreak p_{n},\allowbreak q_{01},\allowbreak \dots,\allowbreak q_{0d} ,\allowbreak q_{11},\allowbreak \dots,\allowbreak q_{1d},\allowbreak q_{21},\allowbreak \dots,\allowbreak q_{2d}$ be a stable curve.
     Define divisors $D_{j}:= \sum q_{jk}$.
     If the divisors are \textit{linearly equivalent} there exists an element $\mu \in \overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ such that the $(n+3d)$-curve constructed by the inverse image divisors of $\sum_{i}l_{i}$ is $\tilde{C}$.
 \end{proposition}
@@ -1017,7 +1017,7 @@ If $Q$ is a point in $\mathbb{P}^{2}$ then the inverse image $\nu_{i}^{-1}(Q)$ i
     (C,p_{1}, \dots, p_{n}, \mu) & \mapsto \left(\mu(p_{1}), \dots,\mu(p_{n}) \right).
 \end{align*}
 Although the individual component maps are flat, the total evaluation map is not flat.
-\end{{remark}
+\end{remark}
 
 \subsubsection{Forgetful Maps and Their Properties}
 Just like we did for pointed stable curves, for each subset of marks $B\subset A$ we can define forgetful maps $\overline{\mathcal{M}}_{0,A}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,B}(\mathbb{P}^{r},d)$ which forget the marks in $A \backslash B$.
@@ -1075,6 +1075,7 @@ Since we are forgetting the map $\mu$, the map is invariant of the action of $G$
 \end{proof}
 
 \subsection{Boundary Divisors}
+
 \subsubsection{Properties}
 \subsubsection{Examples}
 
@@ -1089,7 +1090,9 @@ We now have all the required prerequisites in our arsenal to derive Kontsevitch'
 The question we look to answer now is, how many degree $d$ curves in $\mathbb{P}^{2}$ pass through $3d-1$ points in \textit{general position}. 
 Before moving onto the problem, we will first explain why we are looking at $3d-1$ points in particular.
 
-\subsubsection{Why $3d-1$ points?} \textcolor{red}{Cite Eisenbud}
+\begin{remark}[Why $3d-1$ points?]
+    \label{why3d1points}
+ \textcolor{red}{Cite Eisenbud}
 Any degree $d$ rational curve $C$ in $\mathbb{P}^{2}$ is given by a map:
 \begin{align*}
     \mathbb{P}^{1} &\to \mathbb{P}^{2}\\
@@ -1099,16 +1102,126 @@ where $F,\,G,\,\text{and }H$ are degree $d$ homogenous polynomials which have no
 The vector space, $V$, of triples of degree $d$ homogenous polynomials (with no common roots) in $2$ variables is of dimension $3d+3$.
 We have a map $\psi: V \to \text{Hom}(\mathbb{P}^{1}, \mathbb{P}^{2})$, which identifies each triple $(f,g,h)$ with the curve given by $[f;g;h]$.
 This map is clearly surjective on the set of degree $d$ rational curves $C$ in $\mathbb{P}^{2}$
-The dimension of the fibre of each degree $d$ curve defined by $\mu : [x;y] &\mapsto [F(x,y);G(x,y);H(x,y)]$ is of dimension 4.
+The dimension of the fibre of each degree $d$ curve defined by $\mu : [x;y] \mapsto [F(x,y);G(x,y);H(x,y)]$ is of dimension 4.
 Since composing with an automorphism of $\mathbb{P}^{1}$ gives the same curve, this contributes to three to the dimension of the fibre, secondly, the curve is defined upto a scalr multiple of polynomials, which contributes to the fourth dimension of the fibre.
 This shows that the space of degree $d$ curves in $\mathbb{P}^{2}$ is of dimension $3d-1$.
 Implying the largest number, $n$, for which there might exist non zero number of degree $d$ curves passing through $n$ points in general position is $n = 3d-1$.
 Hence the question we now seek to answer is, how many degree $d$ curves pass through $3d-1$ points?
+   
+\end{remark}
 
 \begin{definition}
     We denote with $N_{d}$ the number of degree $d$ curves that pass through $3d-1$ points in general position.
 \end{definition}
 
-\subsection{The $d = 2$ case}
+\subsection{The formula}
 
+Although it's quite easy to compute the $d = 2$ case with classical methods, the computations for computing $N_{2}$ serve as instructive examples for the general case.
+We strongly recommed the reader to look at the computation for $n=2,\,3$ from \textcolor{red}{[cite kock's book]}, before reading the following proof of the general version.
 
+\begin{theorem}
+    Let $N_d$ be as defined earlier, it satifies the following recursive formula:
+    \begin{align*}
+        N_{d} + \sum_{\substack{d_{A}+d_{B} = d;\\ d_{A},d_{B} \geq 1}}
+\begin{pmatrix}
+        3d-4\\
+        3d_{A} - 1
+    \end{pmatrix}
+    d^{2}_{A} N_{d_{A}} N_{d_{B}}d_{A} d_{B}
+= \sum_{\substack{d_{A}+d_{B} = d;\\ d_{A},d_{B} \geq 1}}
+  \begin{pmatrix}
+        3d-4\\
+        3d_{A} - 2
+    \end{pmatrix} d_{A} N_{d_{A}}  d_{B} N_{d_{B}}  d_{A} d_{B}.
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    Conisder $\overline{\mathcal{M}}_{0,3d}(\mathbb{P}^{2},d)$ with marked points labeled as $m_{1}, m_{2}, p_{1}, \dots, p_{3d-2}$.
+    Just like in the $n=2$ case, let $L_{1}$ and $L_{2}$ be lines and $Q_{1},\dots, Q_{3d-2}$ be points in $\mathbb{P}^{2}$ in general position.
+    We again define $Y \subset \overline{\mathcal{M}}_{0,3d}(\mathbb{P}^{2},d)$ as the subset 
+    \[
+        Y := \nu_{1}^{-1}(L_{1}) \cap \nu_{2}^{-1}(L_{2}) \cap \nu_{3}^{-1}(Q_{1}) \cap \dots \cap \nu_{3d}^{-1}(Q_{3d-2}).
+    \]
+    We will show in the next section \textcolor{red}{[cite tranversality lemma]} that the lines can be chosen such that $Y$ is a curve which intersects the boundary \textit{tranversally} and is fully contained in $\mathcal{M}^{*}_{0,3d}(\mathbb{P},d)$.
+    The next step again is to use the WDVV equations:
+    \begin{equation}
+        \label{WDVVformY}
+        Y \cap D(m_{1}, m_{2} | p_{1}, p_{2}) \equiv Y \cap D(m_{1}, p_{1} | m_{2}, p_{2}).
+    \end{equation}
+    \textbf{\textit{I. Consider the left hand side of equation \ref{WDVVformY}}} 
+    \par We will refer to the subset containing $m_{1}$ and $m_{2}$ as $A$ and the subset containing $p_{1}$ and $p_{2}$ as $B$.
+    And the corresponding twigs will be referred to as $C_{A}$ and $C_{B}$.
+    \begin{enumerate}
+        \item The boundary divisor in consideration has a degree $0$ twig.
+        \begin{enumerate}
+            \item $d_{B} = 0$, then this would imply the two marked points $p_{1}$ and $p_{2}$ are the same - since $B$ is mapped to one point. This contradicts generality and hence is not possible.
+            \item $d_{A} = 0$, then the only relavant case is when all the $3d-4$ remaining points lie on twig $B$. 
+                Else, if any other point $p_{i}$ lies on $A$, then the marked point $Q_{i}$ corresponding to $p_{i}$ lies in the singleton set $L_{1}\cap L_{2}$, which again contradicts generality.
+                \par Therefore, the only possibility here is when all $3d-4$ points lie on $B$.
+                Since the image of twig $B$ is a curve of degree $d$ which passes through $3d-1$ points in general position, $L_{1}\cap L_{2}$, and $p_{1}, \dots, p_{3d-2}$, the number of possible corresponding curves is $N_{d}$.
+        \end{enumerate}
+    \item Both $d_{A}, d_{B} \geq 1$.
+        As established in remark \ref{why3d1points}, for there to be non zero degree $d$ curves passing through $n$ points in general position $n \leq 3d-1$.
+        We will now use this fact each of the twigs.
+        \begin{itemize}
+            \item Let $n_{A},\, n_{B}$ denote the number of spare marks on $A$ and $B$ respecively.
+            \item The total number of special points on $B$ is $n_{B}+2 \leq 3d_{B} - 1$.
+                Since $n_{A}+n_{B} = 3d-4$, and $d_{A} + d_{B} = d$, from the discussion on remark \ref{why3dpoints} we get:
+                \begin{align}
+                    3d-4 - n_{A} +2 &\leq 3d - 3d_{A} -1 \\
+                    \Rightarrow 3d_{A} - 1 &\leq n_{A}. \label{nAcond1}
+                \end{align}
+            By the same reasoning, we also know that the number of marked points on $A$ must be less than $3d_{A} - 1$, impyling:
+                \begin{align}
+                    n_{A} \leq 3d_{A} - 1. \label{nAcond2}
+                \end{align}
+            From equations \ref{nAcond1} and  \ref{nAcond2} it follows that there exist non-zero number of curves only for intersections with boundary divisors for which:
+                \begin{align*}
+                    n_{A} = 3d_{A} - 1.
+                \end{align*}
+            \item The number of such boundary divisors is $\binom{3d-4}{3d_{A}-1}$, and for each such boundary divisor there are $N_{d_{A}}$ and $N_{d_{B}}$ possibilities for the images of $C_{A}$ and $C_{B}$ respectively.
+            \item We now see how many ways can the lines $L_{1}$ and $L_{2}$ intersect with our image curve - that is the ways of placing the marks $m_{1}$ and $m_{2}$.
+                We make use of bezout's theorem - and conclude that there are $d_{A}$ ways of the image of $C_{A}$ meeting $L_{1}$, and similarly $L_{2}$.
+                Consequently, there are $d_{A}$ options for each $m_{i}$ and hence a possible of $d_{A}^{2}$ configurations.
+            \item Lastly, we look at number for ways the the images of $C_{A}$ and $C_{B}$ can intersect - again from Bezout's theorem it follows that there are $d_{A}\cdot d_{B}$ such possibilities.
+        \end{itemize}
+    \end{enumerate}
+    With this, the count of the left hand side is complete and we have obtained the expression:
+    \begin{align}
+        N_{d} + \sum_{\substack{d_{A}+d_{B} = d;\\ d_{A},d_{B} \geq 1}}
+\begin{pmatrix}
+        3d-4\\
+        3d_{A} - 1
+    \end{pmatrix}
+    d^{2}_{A} N_{d_{A}} N_{d_{B}}d_{A} d_{B}. \label{kontLHS}
+    \end{align}
+    \textbf{\textit{II. Consider the right hand side of equation \ref{WDVVformY}}}
+    \par We will refer to the subset containing $m_{1}$ and $p_{1}$ as $A$ and the subset containing $m_{2}$ and $p_{2}$ as $B$.
+    And the corresponding twigs will be referred to as $C_{A}$ and $C_{B}$.
+    \begin{enumerate}
+        \item Boundary divisors in consideration have a degree $0$ twig.
+            \par In this case, such divisor make zero contributeion to the count of curves since for any such divisor a marked point $p_{i}$ will lie on $L_{1}\cap L_{2}$, which contradicts the general position hypothesis.
+        \item Both $d_{A}, \, d_{B} \geq 1$. 
+            The observation from remark \ref{why3d1points} will again play a key role.
+            \begin{itemize}
+                \item Again, let $n_{A},\, n_{B}$ denote the number of spare marks on $A$ and $B$ respecively.
+                \item From remark \ref{why3d1points} the number of points in general the image of $C_B$ can pass through in general position is bounded above by $3d_{B} - 1$, implying:
+                    \begin{align}
+                        n_{B} + 1 &\leq 3d_{B} -1 \\
+                        \Rightarrow 3d-4 - n_{A} + 1 &\leq 3d - 3d_{A} - 1\\
+                        \Rightarrow n_{A} &\geq 3d - 2 \label{nAcondr1}.
+                    \end{align}
+                    Similarly, looking at the twig $C_{A}$ and its image we get the condition:
+                    \begin{align}
+                        n_{A} + 1 &\leq 3d_{A} -1 \\
+                        \Rightarrow n_{A} &\leq 3d_{A} - 2 \label{nAcondr2} 
+                    \end{align}
+                    So from equations \ref{nAcondr1} and \ref{nAcondr2}, it follows that there exist non-zero number of curves only for intersections with boundary divisors for which:
+                    \begin{equation*}
+                        n_{A} = 3d_{A} - 2.
+                    \end{equation*}
+                \item The number of such possible boundary divisors is $\binom{3d-4}{3d_{A}-2}$.
+
+            \end{itemize}
+    \end{enumerate}
+\end{proof}
