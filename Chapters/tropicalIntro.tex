@@ -9,21 +9,51 @@
     \end{definition}
 
 \subsection{Tropical plane curves}
+Just like in algebraic geometry, our source of geometric objects in the tropical world comes from polynomials.
+We will look at how polynomials behave on the tropical semiring to get an idea of the geometric objects we will soon be dealing with.
+For any polynomial $f  = \sum_{i}c_{i}x^{i}\in \mathbb{R}[x]$, the standard polynomial ring, the tropical analougue, $\text{trop}(f)$ is:
+\begin{align*}
+    \text{trop}(f) &= \bigoplus_{i}c_{i}\odot x^{\odot i}\\
+                   &= \text{min}_{i}(c_{i} + i \cdot x),
+\end{align*}
+a piecewise linear function from $\mathbb{R}$ to $\mathbb{R}$.
+\par \textcolor{red}{Insert Image of piecewise linear function}
+\par Just like how we study the roots of polynomials in algrbaic geometry, in tropical geometry we care about the points in the domain where the tropical polynomial is \textit{not linear}.
+This will be justified in \textcolor{red}{[remark about valuation of roots]} and the fundamental theorem in later sections.
+\par The tropical polynomial in $2$ variables serve as a more instructive example to understand what the set of non-differentiable points look like. 
+\textcolor{red}{[Add diagram and stuff for two variable polynomials]}
+
+\begin{remark}
+    \label{rmkOnTropPol}
+    Note that the tropicalisation of polynomials in the rest of the thesis will be slightly different from the tropicalisations considered in this section.
+    From now on we will be dealing with valuations and when we move the tropical world we will consider the valuations of the coeffiecients instead. 
+    This will be elaborated upon in the next section.
+\end{remark}
+
 \subsection{Valuations and Varieties}
     \begin{definition}
         For a field $K$ we define the valuation $\emph{val}$ as a function $\emph{val}: K \to \mathbb{R}\cup \{\infty\}$ such that:
         \begin{enumerate}
             \item $\emph{val}(a) = \infty \Leftrightarrow a = 0$
             \item $\emph{val}(ab) = \emph{val}(a)+ \emph{val}(b)$
-            \item $\emph{val(a+b)} \geq min(\emph{val}(a),\emph{val}(b))$
+            \item $\emph{val(a+b)} \geq \emph{min}(\emph{val}(a),\emph{val}(b))$
         \end{enumerate}
-        The image of $\emph{val}$ is an additive subgroup $\Gamma_{\emph{val}} \subset \mathbb{R}$, called the value group.
+        The image of $\emph{val}$ is an additive subgroup, $\Gamma_{\emph{val}} \subset \mathbb{R}$, called the value group.
+        \par An important assumption we make is that $1 \in \Gamma_{\text{val}}$. 
+    Further, we define $K^{\circ} := \{a \in K: \emph{val}(a)\geq 0\}$, and $K^{\circ \circ} := \{a \in K: \emph{val}(a)> 0\}$. 
+    And the residue field $\tilde{K} := K^{\circ}/K^{\circ \circ}$.
     \end{definition}
 
     \begin{lemma}
         \label{vallemma}
         When $\text{val}(a) \neq \text{val}(b)$ for $a,b \in K$, then $\text{val}(a+b)= \text{min}(\text{val}(a),\text{val}(b))$.
     \end{lemma}
+    It's not hard to see that the algebraic structure induced on the image of the valuation map is almost same as the algrbaic structure on the tropical semiring. 
+    This observation motivates us to define tropicalisation of a polynomial with respect to a given valuation (as hinted in \ref{rmkOnTropPol}).
+    For $f = \sum_{i}c_{i}x^{i} \in K[x]$ a polynomial in a valued field $(K, \text{val})$, the valued tropicalisation is defined as
+    \[
+        \text{trop}_{\text{val}}(f) = \text{min}_{i}(\text{val}(c_{i}) + i \cdot x).
+    \]
 
     \begin{lemma}
         Suppose $K$ is an algebraically closed valued field, then the value group $\Gamma_{\emph{val}}$ is divisible and dense in $\mathbb{R}$.
@@ -79,8 +109,9 @@ Section $2.3$ \cite{maclagan2015introduction} concisely summarises the requisite
     \end{itemize}
     Although defined as a fan, regular subdivisions are usually defined for polyhedral complexes.
     \end{definition}
-    Suppose you have a polyhedron $P$ given by $\text{conv}(u_i: 1\leq i\leq r)$, then we look at the vectors $v_i = (u_i,1)$. The regular subdivision of $v_1,\dots,v_r$ with respect to a weight vector $w = (w_1, \cdots, w_r)$ can be interpreted as projection of the bottom faces of the polytope $P_w = \text{conv}\{(u_i,w_i): 1\leq i\leq r\}$. That is in the polytope $P_w$ consider the faces $F$ whose normal vector has positive final coordinates and project them onto the first $r$ coordinates, this gives the regular subdivision of $P$ with respect to $w$.
-
+    Suppose you have a polyhedron $P$ given by $\text{conv}(u_i: 1\leq i\leq r)$, we look at the vectors $v_i = (u_i,1)$. 
+    The regular subdivision of $v_1,\dots,v_r$ with respect to a weight vector $w = (w_1, \cdots, w_r)$ can be interpreted as projection of the bottom faces of the polytope $P_w = \text{conv}\{(u_i,w_i): 1\leq i\leq r\}$. 
+    That is, in the polytope $P_w$ consider the faces $F$ whose normal vector has positive final coordinates and project them onto the first $r$ coordinates, this gives the regular subdivision of $P$ with respect to $w$.
 
 \section{Tropical Hypersurfaces}
 
@@ -190,8 +221,8 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
         \end{align*}
         Therefore, $\text{trop}(g)(w_{n}) = \text{trop}(f)(\textbf{w})$, implying:
         \begin{align*}
-            \text{in}_{w_{n}}(g)(x_{n}) =& \sum_{\textbf{u}: \text{val}(c_{\textbf{u}}) + \text{val}(\textbf{y}^{\textbf{u}'}) + w_{n}\cdot u_{n} = \text{trop}(g)(w_{n})} \overline{t^{-\text{val}(c_{\textbf{u}})}c_{\textbf{u}}t^{-\textbf{u}'\cdot \textbf{w}'}y^{\textbf{u}'}}x^{u_n}_{n} \\
-            =& \sum_{\textbf{u}: \text{val}(c_{\textbf{u}}) + \textbf{w} \cdot \textbf{u} = \text{trop}(g)(w_{n})}\overline{t_{-\text{val}(c_{\textbf{u}})}c_{\textbf{u}}}\alpha^{\textbf{u}'}x^{u_{n}}_{n}\\
+            \text{in}_{w_{n}}(g)(x_{n}) =& \sum_{\substack{\textbf{u}:\, \text{val}(c_{\textbf{u}}) + \text{val}(\textbf{y}^{\textbf{u}'}) \\+ w_{n}\cdot u_{n} = \text{trop}(g)(w_{n})}} \overline{t^{-\text{val}(c_{\textbf{u}})}c_{\textbf{u}}t^{-\textbf{u}'\cdot \textbf{w}'}y^{\textbf{u}'}}x^{u_n}_{n} \\
+            =& \sum_{\substack{\textbf{u}:\, \text{val}(c_{\textbf{u}}) + \textbf{w} \cdot \textbf{u} \\= \text{trop}(g)(w_{n})}}\overline{t_{-\text{val}(c_{\textbf{u}})}c_{\textbf{u}}}\alpha^{\textbf{u}'}x^{u_{n}}_{n}\\
             =& ~ \text{in}_{\textbf{w}}(f)(\alpha_{1}, \dots, \alpha_{n-1}, x_{n}).
         \end{align*}
         So from $\text{in}_{\textbf{w}}(f)(\alpha) = 0$ we get $\text{in}_{w_{n}}(g)(\alpha_{n}) = 0$.
