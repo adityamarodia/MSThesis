@@ -26,8 +26,19 @@ The moduli spaces of tropical curves aren't as well behaved as moduli spaces of 
 In fact, the moduli space of tropical curves isn't even a tropical variety.
 Further, we don't have a rich theory of divisors to rely upon for tropical varieties. 
 But we do have enough tools in the tropical world to sketch out a proof of the curve counting formula in the spirit of Chapter 2.
+\par To define an equivalent of the space of stable maps we need some sort of parametrisation of tropical curves. 
+Since plane tropical curves resemble graphs we parametrise them with a set of graphs.
+We then define moduli spaces of these graphs, and and their parametrisations - taking inspiration from $\overline{\mathcal{M}}_{0,n}$ and $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d)$ respectively.
+Although the modulis spaces we construct don't have nice properties like a theory of divisors, we can still define evalutation and forgetful maps like earlier.
+The existence of these maps allows us to, in essence, mirror the proof from Chapter 2 via the following ideas.
 \begin{enumerate}
-    \item kk
+    \item We first consider the Moduli space of parametrisations of plane tropical curves.
+    \item Let $\overline{\mathcal{M}}_{0,4}^{\text{trop}}$ denote the space of the graphs, which parametrise tropical curves with $4$ marked points, with $\eta$ being the forgetful map to this moduli space.
+    \item We combine steps $3$ and $4$ from above to define a map,
+        \begin{align*}
+            \text{ev}_{1}^{1} \times \text{ev}_{2}^{2} \times \text{ev}_{2} \times \dots \times \text{ev}_{n} \times \eta.
+        \end{align*}
+    \item We show that the degree of this map counts curves in a similar manner as those of intersection divisors, and by using the fact that its degree is contsant we derive Kontsecivh's formula.
 \end{enumerate}
 
 \section{The Prerequisites}
