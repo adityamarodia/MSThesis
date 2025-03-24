@@ -33,7 +33,7 @@ Although the modulis spaces we construct don't have nice properties like a theor
 The existence of these maps allows us to, in essence, mirror the proof from Chapter 2 via the following ideas.
 \begin{enumerate}
     \item We first consider the Moduli space of parametrisations of plane tropical curves.
-    \item Let $\overline{\mathcal{M}}_{0,4}^{\text{trop}}$ denote the space of the graphs, which parametrise tropical curves with $4$ marked points, with $\eta$ being the forgetful map to this moduli space.
+    \item Let $\overline{\mathcal{M}}_{0,4}^{\text{trop}}$ denote the space of the graphs which parametrise tropical curves with $4$ marked points, with $\eta$ being the forgetful map to this moduli space.
     \item We combine steps $3$ and $4$ from above to define a map,
         \begin{align*}
             \text{ev}_{1}^{1} \times \text{ev}_{2}^{2} \times \text{ev}_{2} \times \dots \times \text{ev}_{n} \times \eta.
@@ -54,6 +54,8 @@ We have to be careful and consider ideas which help us make similar manipulation
 
 \subsection{Tropical curves and their Moduli}
 
+We formally define the notion of a graph which will be essential to defining the parametrisation of tropical curves we discussed earlier in the chapter.
+
 \begin{definition}[Graphs]
     A graph $G$ is a pair $(V,E)$ of sets of vertices and edges.
     Where each element of the set of edges $E$ is a tuple of vertices $\{v_{i},v_{j}\}$ for $v_{i} \neq v_{j}$ in $V$. 
@@ -61,30 +63,66 @@ We have to be careful and consider ideas which help us make similar manipulation
     The valence of a vertex $v$, $\nu(v)$, is defined as the number of edges incident to $v$, that is: $\nu(v):=|\{e \in E: v\in e\}|$.
 \end{definition}
 
+\begin{remark}
+    We will only be dealing with connected graphs in this chapter, hence all graphs are assumed to be connected.
+\end{remark}
+
 \begin{definition}[Graph without tips]
     For a graph $G = (V,E)$ the, if we define $\mathcal{V}_{1} = \{v \in V: \nu(v) =1  \}$, then for $V':= V\backslash \mathcal{V}_{i}$ the tuple $\tilde{G} = (V',E)$ will be referred to as a graph without tips. 
     Every edge incident to vertices in the set $\mathcal{V}_{1}$ will be referred to as an end of the graph $\tilde G$.
     Further, for each end of the graph there exists only one corresponding flag.
 \end{definition}
 
-\begin{remark}
-    From now on, when we refer to graphs, we mean a graph without tips.
-\end{remark}
 
 \begin{definition}[Metric Graph]
-    Consider a pair $(G,l)$, where $l$ is a function $E \to \mathbb{R}_{+} \cup \infty$, and $G$ a graph (without tips).
-    Here, $l(e) = \infty$ \textbf{iff} $e$ is an end of the graph $G$.
-For each edge $e$ consider the interval $I_{e} = [0,l(e)]\subset \mathbb{R}$ (or $[0,\infty)$).
+    Consider a pair $(G,l)$, where $G$ is a graph (without tips), and $l$ is a function $E \to \mathbb{R}_{>0} \cup \{\infty\}$ such that $l(e) = \infty$ \textbf{iff} $e$ is an end of the graph $G$.
 \end{definition}
+
+\begin{definition}[Topological Graphs assosiated to Metric Graphs]
+    Consider a metric graph $(G,l)$.
+    For each edge $e$ (that's not an end) we choose an abritary ordering given by flags $F_{e}$ and define boundary maps $\partial_{1}$ and $\partial_{2}$ as projection onto the first and second coordinates respectively. 
+    If $e$ is an end we define the boundary map, $\partial$, as it's adjacent vertex in the graph $G$.
+    \par For each edge $e \in (G,l)$ in a metric graph there exists an interval $I_{e}$, 
+    \begin{align*}
+        I_e := 
+        \begin{cases}
+            [0,l(e)]\,& \text{if }e \text{ is not an end,}\\
+            [0,\infty)\, & \text{if }e \text{ is an end}.
+        \end{cases}
+    \end{align*}
+        \par Similarly, we can define boundary maps $\tilde \partial_{1}(I_{e}) = 0$ and $\tilde \partial_{2}(I_{e}) = l(e)$ on the bounded intervals, and  $\tilde \partial (e) = 0$ on the ends. 
+        Finally, the topological graph, $\tilde G$, is defined as $\tilde G:=\coprod_{e \in E}I_{e}/\sim$, where:
+        \begin{align*}
+            \tilde \partial_{i} (I_{e}) \sim \tilde \partial_{j}(I_{e'}) \, \text{ if }\, \partial_{i} (e) =\partial_{j}(e'),
+        \end{align*}
+        where $\tilde \partial_{i}$ and $\partial_{j}$ are any of the three discussed boundary maps. Note that the topological graph $\tilde G$ is also a metric space.
+\end{definition}
+
+\begin{remark}[Conventions and Notation]
+    We refer to topological graphs as just graphs for the rest of this chapter. 
+    Hence, when we talk about valence of a vertex of a (topological) graph we mean the valence of the vertex in the underlying combinatorial graph.
+    \par For any graph $G$, $G^{1}$ will now denote the set of intervals (edges) of $G$, $G^{1}_{0}$ the set of bounded edges, and $G^{1}_{\infty}$ the set of ends.
+\end{remark}
+
+We now define the equivalent of a family of $\mathbb{P}^{1}$'s, which were used to parametrise curves in $\mathbb{P}^{2}$ for tropical cruves.
 
 \begin{definition}[Abstract Tropical Curves]
-    aa
+    An abstract tropical curves is a (topological) graph $\Gamma$ of genus $0$ whose vertices have valence greater than $3$.
+    An $n$-pointed tropical curve is a tuple $(\Gamma, x_{1}, \dots, x_{n})$, where $\Gamma$ is an abstract tropical curve, with $x_{i} \in \Gamma^{1}_{\infty}$ being distinct ends of $\Gamma$.
 \end{definition}
+
+Since abstract tropical curves are topological spaces it's easy to define isomorphism between them.
+Two $n$-pointed abstract tropical curves, $(\Gamma, x_{1}, \dots, x_{n})$ and $(\Gamma', x'_{1}, \dots, x'_{n})$, are isomorphic if there exists a homeomorphism $\phi: \Gamma \to \Gamma'$ such that $\phi(x_{i}) = x_{i}'$ for all $1\leq i\leq n$, 
+and the restriction $\phi |_{e}$ is an affine map of slope $\pm 1$ for all $e \in \Gamma^{1}$.
+
+\par We now define the tropical counterpart of moduli of $n$-pointed curves $\overline{\mathcal{M}}_{0,n}$.
 
 \begin{definition}[Moduli of Abstract Tropical curves]
-    
+    The space of all abstract tropical curves with exactly $n$ ends, upto isomorphism, is denoted $M_{n}$. 
+    Note that this is \textbf{not} the space of $n$-pointed tropical curves, but rather the space of cruves with $n$ ends.
 \end{definition}
 
+Finally, we give an alternate, but equivalent description of plane tropical curves, first introduced in chapter 1.
 \begin{definition}[Plane Tropical Curves]
     
 \end{definition}
