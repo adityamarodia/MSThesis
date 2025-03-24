@@ -1,8 +1,144 @@
 \section{Introduction}
-\subsection{Mikhailkin's Correspondence Result}
+In 2005 Grigory Mikhailkin showed that the number of degree $d$ plane tropical curves passing through $3d-1$ points, $N^{\text{trop}}_{d}$ is same as the number of plane rational curves $N_{d}$.
+This result brought tropical geometry into the eyes of the wider mathematical community, and also gave rise to a new array of research problems.
+In this chapter we are going to look at Gathmann and Markwig's work which proved Kontsevich's curve counting formula for tropical curves without making use of Mikhailkin's correspondence result.
+
 \subsection{Overview of Proof Idea}
+Before we show how to proceed with this count of tropical curves, it's instructive to look at the proof from the previous chapter for general ideas.
+The proof in for rational plane curves in chapter 2 followed the following steps:
+\begin{enumerate}
+    \item For degree $d$ curves, we considered the moduli space $\overline{\mathcal{M}}_{0,3d}(\mathbb{P}^{2},d)$.
+    \item The subvariety $Y \subset \overline{\mathcal{M}}_{0,d}(\mathbb{P}^{2},d)$ defined by:
+        \[
+            Y:= \nu_{1}^{-1}(L_{1}) \cap \nu_{2}^{-1}(L_{2}) \cap \nu_{3}^{-1}(Q_{1}) \cap \dots \cap \nu_{3d}^{-1}(Q_{3d-2}),
+        \]
+        corresponds to the set of degree $d$ curves passing through the lines $L_{1}$ and $L_{2}$ and points $Q_{i}$.
+    \item For the forgetful map, $\eta: \overline{\mathcal{M}}_{0,3d}(\mathbb{P}^{2},d)\to \overline{\mathcal{M}}_{0,4}$, look at the inverse image divisors of $D(m_{1}, m_{2}|p_{1}, p_{2})$ and $D(m_{1}, p_{1}|p_{2}, m_{2})$.
+        Since these divisors are linearly equivalent we get the relation, 
+        \[
+            Y \cap D(m_{1}, m_{2} | p_{1}, p_{2}) \equiv Y \cap D(m_{1}, p_{1} | m_{2}, p_{2}).
+        \]
+    \item Equating the degrees of the divisors on the two sides of the above relation we obtain Kontsevich's formula.
+\end{enumerate}
+
+Ideally we would like to repeat these same steps in the tropical setting to obtain the curve counting formula, but we lack the tools to do so.
+The moduli spaces of tropical curves aren't as well behaved as moduli spaces of rational plane curves.
+In fact, the moduli space of tropical curves isn't even a tropical variety.
+Further, we don't have a rich theory of divisors to rely upon for tropical varieties. 
+But we do have enough tools in the tropical world to sketch out a proof of the curve counting formula in the spirit of Chapter 2.
+\begin{enumerate}
+    \item kk
+\end{enumerate}
+
 \section{The Prerequisites}
+The enumerative problem we are going to tackle just considers tropical curves in $\mathbb{R}^{2}$.
+As we saw in \textcolor{red}{chapter $1$}, these tropical curves just look like plane graphs.
+We use this observation to give an equivalent definiton of tropical curves in $\mathbb{R}^{2}$.
+This description of tropical curves will also make it easier for us to draw motivation from ideas discussed in the previous chapter, like the space of stable maps.
+
+\par In the tropical world, the moduli spaces aren't tropical varieties themselves. 
+This is in contrast with the picture of rational plane curves.
+A consequence of this disconnect between the two worlds is that we can't exploit the properties of divisors like we did earlier.
+We have to be careful and consider ideas which help us make similar manipulations with tropical moduli spaces.
+
 \subsection{Tropical curves and their Moduli}
+
+\begin{definition}[Graphs]
+    A graph $G$ is a pair $(V,E)$ of sets of vertices and edges.
+    Where each element of the set of edges $E$ is a tuple of vertices $\{v_{i},v_{j}\}$ for $v_{i} \neq v_{j}$ in $V$. 
+    For every edge $\{v_{i},v_{j}\} \in E$, there exists multiple orderings $(v_{i},v_{j})$ and $(v_{j},v_{i})$. We refer to each such ordering of the edge as a flag.
+    The valence of a vertex $v$, $\nu(v)$, is defined as the number of edges incident to $v$, that is: $\nu(v):=|\{e \in E: v\in e\}|$.
+\end{definition}
+
+\begin{definition}[Graph without tips]
+    For a graph $G = (V,E)$ the, if we define $\mathcal{V}_{1} = \{v \in V: \nu(v) =1  \}$, then for $V':= V\backslash \mathcal{V}_{i}$ the tuple $\tilde{G} = (V',E)$ will be referred to as a graph without tips. 
+    Every edge incident to vertices in the set $\mathcal{V}_{1}$ will be referred to as an end of the graph $\tilde G$.
+    Further, for each end of the graph there exists only one corresponding flag.
+\end{definition}
+
+\begin{remark}
+    From now on, when we refer to graphs, we mean a graph without tips.
+\end{remark}
+
+\begin{definition}[Metric Graph]
+    Consider a pair $(G,l)$, where $l$ is a function $E \to \mathbb{R}_{+} \cup \infty$, and $G$ a graph (without tips).
+    Here, $l(e) = \infty$ \textbf{iff} $e$ is an end of the graph $G$.
+For each edge $e$ consider the interval $I_{e} = [0,l(e)]\subset \mathbb{R}$ (or $[0,\infty)$).
+\end{definition}
+
+\begin{definition}[Abstract Tropical Curves]
+    aa
+\end{definition}
+
+\begin{definition}[Moduli of Abstract Tropical curves]
+    
+\end{definition}
+
+\begin{definition}[Plane Tropical Curves]
+    
+\end{definition}
+
+\begin{definition}[Moduli of Tropical plane curves]
+    
+\end{definition}
+
+\begin{proposition}[Equivalence between the Two Definitions]
+    
+\end{proposition}
+
+\begin{definition}[Combinatorial Types]
+    
+\end{definition}
+
+\begin{lemma}[Finite number of Combinatorial types]
+    
+\end{lemma}
+
+\begin{lemma}
+    Every $3$-valent tropical curve with $n$ unbounded edges has $n-3$ bounded edges.
+\end{lemma}
+
+\begin{remark}[Tropical Moduli spaces are polyhedral complexes]
+    
+\end{remark}
+
 \subsection{Multilplicites and Evaluation Maps}
+
+\begin{definition}[Morphism between polyhedra]
+    
+\end{definition}
+
+\begin{definition}[Multiplicity of polyhedral morphisms]
+    
+\end{definition}
+
+\begin{definition}[Degree of a Polyhedral Morphism]
+    
+\end{definition}
+
+\begin{definition}[Evaluation Maps]
+    
+\end{definition}
+
+\begin{remark}[Degree of total evaluation counts number of curves]
+    
+\end{remark}
+
+\begin{definition}[Rigid plane tropical curves]
+    
+\end{definition}
+
+\begin{definition}[Multiplicity of a Plane tropical curve]
+    
+\end{definition}
 \subsection{Forgetful Maps}
+\begin{definition}[Forgetful map definition]
+    
+\end{definition}
+
+\begin{definition}[The total map we will use to define Kontsebich's formula]
+    
+\end{definition}
+
+Some properties of the map $\pi$ And what can it count?
 \section{Kontsevich's Formula}
