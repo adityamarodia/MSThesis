@@ -34,10 +34,11 @@ The existence of these maps allows us to, in essence, mirror the proof from Chap
 \begin{enumerate}
     \item We first consider the Moduli space of parametrisations of plane tropical curves.
     \item Let $\overline{\mathcal{M}}_{0,4}^{\text{trop}}$ denote the space of the graphs which parametrise tropical curves with $4$ marked points, with $\eta$ being the forgetful map to this moduli space.
-    \item We combine steps $3$ and $4$ from above to define a map,
+    \item To deal with the lack of divisors, we combine steps $3$ and $4$ from above to define a map,
         \begin{align*}
-            \text{ev}_{1}^{1} \times \text{ev}_{2}^{2} \times \text{ev}_{2} \times \dots \times \text{ev}_{n} \times \eta.
+            \pi = \text{ev}_{1}^{1} \times \text{ev}_{2}^{2} \times \text{ev}_{2} \times \dots \times \text{ev}_{n} \times \eta,
         \end{align*}
+        considering the intersections of $Y$ with element of $\eta^{-1}\overline{\mathcal{M}}_{0,4}$ directly insted.
     \item We show that the degree of this map counts curves in a similar manner as those of intersection divisors, and by using the fact that its degree is contsant we derive Kontsecivh's formula.
 \end{enumerate}
 
@@ -100,8 +101,10 @@ We formally define the notion of a graph which will be essential to defining the
 
 \begin{remark}[Conventions and Notation]
     We refer to topological graphs as just graphs for the rest of this chapter. 
-    Hence, when we talk about valence of a vertex of a (topological) graph we mean the valence of the vertex in the underlying combinatorial graph.
-    \par For any graph $G$, $G^{1}$ will now denote the set of intervals (edges) of $G$, $G^{1}_{0}$ the set of bounded edges, and $G^{1}_{\infty}$ the set of ends.
+    Hence, when we talk about valence of a vertex of a (topological) graph, $G$, we mean the valence of the vertex in the underlying combinatorial graph, and this set of vertices is denoted $G^{0}$.
+    \par $G^{1}$ will now denote the set of intervals (edges) of $G$, $G^{1}_{0}$ the set of bounded edges, and $G^{1}_{\infty}$ the set of ends. 
+    Similarly, flags of $G$ refer to the flags of the underlying combinatorial graph, and the set of flags is denoted $G'$. 
+    Futher, if $F$ is a flag, then $[F]$ denotes its corresponding edge.
 \end{remark}
 
 We now define the equivalent of a family of $\mathbb{P}^{1}$'s, which were used to parametrise curves in $\mathbb{P}^{2}$ for tropical cruves.
@@ -124,20 +127,53 @@ and the restriction $\phi |_{e}$ is an affine map of slope $\pm 1$ for all $e \i
 
 Finally, we give an alternate, but equivalent description of plane tropical curves, first introduced in chapter 1.
 \begin{definition}[Plane Tropical Curves]
-    
+    An $n$-marked plane tropical curve is a tuple $(\Gamma, x_{1}, \dots, x_{n}, h)$ where $(\Gamma, x_{1}, \dots, x_{n})$ is a $n$-marked abstract tropical curve, and $h:\Gamma \to \mathbb{R}^{2}$ a continuous map such that:
+    \begin{itemize}
+        \item For $e \in \Gamma^{1}$, choose a flag $F_{e}$ and let $w$ be the first coordinate of this flag. Paramaterise the edge $e$ such that $\tilde\partial_{1}(I_{e})$ (as in the definition of topological graphs) is $w$.
+            Then $h|_{e}(t)= a + t\cdot v$, where $t \in I_{e}$, $h(w) = a\in \mathbb{R}^{2}$, $v \in \mathbb{Z}^{2}$. 
+            \par Note that if $e$ is a bounded edge, then we can choose another flag $F_{e}'$, whose first coordinate is the other incident vertex $w'$.
+            Then we choose the opposite parametrisation of ${e}$ and get $h|_{e'}(t) = h(w')+ t \cdot (-v)$.
+            \par The vector $v$, in the restriction of $h$ onto $e$ with respect to the parametrisation given by flag $F$, is called the direction of $F$ and denoted $v(F)$.
+        \item For each flag $F$, let $\partial F$ denote the first coordinate of the flag, then for any vertex $V \in \Gamma$:
+            \begin{align*}
+            \sum_{\substack{F \in \Gamma'; \\ \partial F  = V}} v(F) = 0.
+            \end{align*}
+        \item And, if $F$ is a flag of a marked end $x_{1},\dots, x_{n}$, $v(F) = 0$.
+            That is, the ends $x_{1}, \dots, x_{n}$, are all marked to a point.
+    \end{itemize}
 \end{definition}
 
-\begin{definition}[Moduli of Tropical plane curves]
-    
+We can now similarly define the notion of isomorphism for plane tropical curves. 
+The map $\phi: (\Gamma, x_{1}, \dots, x_{n}, h) \to (\Gamma', x_{1}', \dots, x_{n}', h')$ is an isomorphism of plane tropical curves if it is an isomorphism at the level of abstract tropical curves and $h = h' \circ \phi$.
+
+\begin{definition}[Degree and Moduli of Plane Tropical Curves]
+    The degree of a $n$-pointed tropical curve is defined to be the set $\Delta = \{v(F):[F] \in \Gamma^{1}_{\infty} \setminus \{x_{1}, \dots,x_{n} \} \}$.
+    If this set consists only of vectors $\{(1,0),\,(0,1),\,(-1,-1)\}$ $d$ times, then we define the degree as just $d$.
+    \par The set of n-pointed plane tropical curves, upto isomorphism, of degree $\Delta$ (or $d$) is denoted $M_{n, \Delta}$ (or $M_{n,d}$).
 \end{definition}
+
+The space $M_{n,d}$ is the tropical counterpart of the space of stable maps into $\mathbb{R}^{2}$ of degree $2$, $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$.
 
 \begin{proposition}[Equivalence between the Two Definitions]
-    
+    For every place tropical curve $(\Gamma,h)$ there exists a polynomial $f \in \mathbb{R}[x,y]$, such that $\text{trop}(V(f)) = h (\Gamma)$.
 \end{proposition}
+\begin{proof}[Rough Sketch]
+    To show this equivalence we use the inverse of the structure theorem established in chapter 1, \textcolor{red}{[cite it]}, for tropical hypersurfaces.
+\end{proof}
 
 \begin{definition}[Combinatorial Types]
-    
+    The combinatorial type of a $n$-pointed abstract tropical curve $(\Gamma, x_{1},\dots, x_{n})$ is the homeomoephism class of $\Gamma$ which preserves the marked points $x_{i}$'s.
+    Remember that two curves were said to be isomorphic if the lengths of the edges were also preserved.
+    Implying that the combinatorial type of a curve contains the tropical curves with varying (non-zero )edge lengths in the same class.
+    \par For a $n$-pointed tropical plan curve, the combinatorial type is the data of the combinatorial type of the underlying abstract curve and the set of directions $\{v(F): F \in \Gamma'\}$.
 \end{definition}
+
+These combinatorial types help us understand the stratification of the tropical moduli $M_{n}$ and $M_{n,\Delta}$. 
+For a combinatoial type $\alpha$ we denote the corresponding subset of $M_{n}$ and $M_{n,\Delta}$ containing curves of type $\alpha$ with $M^{\alpha}_{n}$ and $M^{\alpha}_{n,\Delta}$. 
+Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spaces is:
+\begin{align*}
+    \text{codim}(\alpha) = \sum_{V \in \Gamma^{0}} (\nu(V)-3).
+\end{align*}
 
 \begin{lemma}[Finite number of Combinatorial types]
     
