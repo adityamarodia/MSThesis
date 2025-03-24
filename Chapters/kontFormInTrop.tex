@@ -169,6 +169,7 @@ The space $M_{n,d}$ is the tropical counterpart of the space of stable maps into
 \end{definition}
 
 These combinatorial types help us understand the stratification of the tropical moduli $M_{n}$ and $M_{n,\Delta}$. 
+They are the tropical counterparts of "labeled configurations" \textcolor{red}{[cite defn]} for raional plane curves.
 For a combinatoial type $\alpha$ we denote the corresponding subset of $M_{n}$ and $M_{n,\Delta}$ containing curves of type $\alpha$ with $M^{\alpha}_{n}$ and $M^{\alpha}_{n,\Delta}$. 
 Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spaces is:
 \begin{align*}
@@ -190,23 +191,59 @@ Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spac
 \subsection{Multilplicites and Evaluation Maps}
 
 \begin{definition}[Morphism between polyhedra]
-    
+   For two polyhedra $X$ and $Y$, a map $f:X \to Y$ is called a polyhedral morphism if for each cell $X_{i}\subset X$, $f(X_{i})$ is contained in only one cell of $Y$, and $f|_{X_{i}}$ is a linear map. 
 \end{definition}
 
 \begin{definition}[Multiplicity of polyhedral morphisms]
-    
+    Let $X$ and $Y$ be polyhdera of same pure dimension, with $f:X\to Y$ a morphism. 
+    For $Q\in X$ such that both $Q$ and $f(Q)$ are in general position, around $Q$, $f$ looks like a map between vector spaces of same dimension.
+    We then define the absolute value of the determinant of this linear map as the multiplicity of $f$ at $Q$, $\text{mult}_{f}(Q)$.
+    It's easy to see that this multiplicity is the same for all elements of the cell which contains $Q$, so we also refer to $\emph{mult}_{f}(Q)$ as the multiplicity of the cell.
 \end{definition}
 
 \begin{definition}[Degree of a Polyhedral Morphism]
-    
+    Let $X$ and $Y$ be polyhdera of same pure dimension, with $f:X\to Y$ a morphism. 
+    We say a point $Q \in Y$ is said to be in $f$-general position if $Q$ is in general position in $Y$ and all elements of $f^{-1}(Q)$ are in general posisition in $X$.
+    Then the degree of $f$ at $Q$ is defined as:
+    \[
+        \emph{deg}_{f}(Q):= \sum_{P \in f^{-1}(Q)}\emph{mult}_{f}(P).
+    \]
+    In the following remark we explain why this sum is well defined.
 \end{definition}
 
+\begin{remark}
+    Firstly, note that the polyhedra $X$ and $Y$ are finite dimensional, hence they both have a finite number of cells. 
+    So a finite number of cells contain the points of $f^{-1}(Q)$ (for $Q\in Y$).
+    Via linearity of $f$ on each cell (of $X$) it follows that if a cell contains multiple elements of $f^{-1}(Q)$ then the determinant of the linear map is zero on that cell. 
+    Hence the multiplicity of $f$ on cells containing multiple points of $f^{-1}(Q)$ is $0$.
+    This leaves us with a finite number of cells, on which the map $f$ is injective, hence has non-zero multiplicity. 
+    Implying that the above sum is well-defined.
+\end{remark}
+
+Evaluation maps for tropical curves are defined in the same manner as for rational plane curves.
 \begin{definition}[Evaluation Maps]
-    
+    For each marked point $x_{i}$ on a $n$-pointed plane tropical curve, $(\Gamma,x_{1},\dots,x_{n},h)$ we define the evaluation map $\emph{ev}_{i}:M_{\Delta, n} \to \mathbb{R}^{2}$ as:
+    \[
+        (\Gamma,x_{1},\dots,x_{n},h) \to h(x_{i}).
+    \]
+    We denote with $\emph{ev}_{i}^{1}$ and $\emph{ev}_{i}^{2}$ the composition of the evaluation map with the projection onto the first and second coordinates respectively.
+    \par The total evaluation map is defined as:
+    \[
+        \emph{ev} := \emph{ev}_{1} \times \dots \times \emph{ev}_{n}:M_{\Delta, n} \to \mathbb{R}^{2n}: M_{\Delta, n} \to (h(x_{1}),\dots,h(x_{n})).
+    \]
 \end{definition}
+
+\begin{remark}[The Evaluation map is a morphism of polyhedra]
+    
+\end{remark}
 
 \begin{remark}[Degree of total evaluation counts number of curves]
-    
+    From \textcolor{red}{prev lemma}, when $n = |\Delta|-1$, both $M_{\Delta, n}$ and $\mathbb{R}^{2}$ have the same dimension. We then define the following number,
+    \begin{align*}
+        N_{\Delta}(P) := \text{deg}_{\text{ev}}(P),
+    \end{align*}
+    for $P \in \mathbb{R}^{2n}$ in $\text{ev}$-general position.
+    \par This number counts the number of curves $C$ of degree $\Delta$ passing through the points $P$, where each curve is given multiplicity $\text{mult}_{\text{ev}}(C)$.
 \end{remark}
 
 \begin{definition}[Rigid plane tropical curves]
@@ -217,13 +254,76 @@ Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spac
     
 \end{definition}
 \subsection{Forgetful Maps}
+
+Remember that forgetting marks (and the map $\mu$) for rational plane curves induced forgetful maps $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,m}(\mathbb{P}^{r},d)$ and $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,m}$ for $m<n$.
+We now look at how one can forget marks (and the map $h$) in the context of plane tropical curves to obtain maps on the respective moduli spaces.
 \begin{definition}[Forgetful map definition]
     
 \end{definition}
 
-\begin{definition}[The total map we will use to define Kontsebich's formula]
+\begin{remark}[Forgetful maps are morphism of polyhedra]
+    
+\end{remark}
+
+\begin{definition}[The total map we will use to define Kontsevich's formula]
     
 \end{definition}
 
-Some properties of the map $\pi$ And what can it count?
+\begin{proposition}
+    The degrees $\text{deg}_{\pi}(P)$, for $P$ in $\pi$-general position, is independent of $P$.
+\end{proposition}
+\begin{proof}
+    Since $\pi$ is a product of polyhedral morphisms, it follows that $\pi$ is also a morphism of polyhedra.
+    As a consequence $\pi$ locally (on a cell) is an invertible linear map - hence a local isomorphism. 
+    Therefore, $\text{deg}_{\pi}(P)$ is locally constant.
+    \par We now need to check that the value $\text{deg}_{\pi}$ attains the same value on each maximal dimensional cell. 
+    Since the polyhedral complex of the image is finite dimensional, it has a finite number of cells, and hence the set of points in $\pi$-general position are the complement of a codimension $1$ polyhedral complex. 
+    That is the top dimensional cells in the image are separated by codimension $1$ walls, and we need to check if passing across any such wall conserves the degree of $\pi$.
+    \par Since this wall is of codimension $1$ it follows from the definition that every element of the wall corresponds to a curve with just a single $4$-valent vertex (with the other vertices having valence $3$).
+    \par \textcolor{red}{[Finish this proof]}
+\end{proof}
+
+
 \section{Kontsevich's Formula}
+
+When we studied the moduli spaces of rational curves reducible curves played an important role in constructing the moduli space, and consequently in deriving Kontsevich's curve counting formula.
+We will now introduce a similar notion of \textit{reducibility} for plane tropical curves, which will motivate the next lemma. 
+
+\par Let $(\Gamma, x_{1}, \dots,x_{n}, h)$ be a degree $d$ plane tropical curve such that there exists a bounded edge $e \in \Gamma_{0}^{1}$ which is mapped to a single point under $h$.
+Further, assume that there exist atleast one bounded edge on either side of $e$.
+This allows us to split the graph, $\Gamma$ into two, $\Gamma_{1}$ and $\Gamma_{2}$.
+Let $v_{1}$ and $v_{2}$ denote the two verticed adjacent to $e$ in the graph $\Gamma$.
+Let $U_{i}$ denote the connected compnent of the graph $\Gamma \setminus \{e\}$ containing the vertex $v_{i}$ (for $i = 1,\,2$).
+Each $U_{i}$ in its own right a graph. 
+Construct $\Gamma_{i}$ by adding an \textit{end} $R_{i}$ to each component $U_{i}$ such that $R_{i}$ is adjacent to the vertex $v_{i}$, that is, 
+\begin{align*}
+    \Gamma_{i} = U_{i} \cup \{R_{i}\}~~~\text{for }i=1,\,2.
+\end{align*}
+Clearly these graphs are also abstracted tropical curves. 
+Now identify $m_{i}$ marked points on each $\Gamma_{i}$ - the marked points $x_{1}, \dots, x_{n}$ which lie on each component $U_{i}$ along with the ends $R_{i}$.
+Since $R_{i}$ are marked points on each $\Gamma_{i}$ they will be mapped to a point under the map $h$ and hence we have maps $h_{i}$ from each component abstract tropical curve into $\mathbb{R}^{2}$.
+This finally gives us two pointed plane tropical curves, $C_{1}$ and $C_{2}$, which we obtained from splitting the original curve at a contracted bounded edge.
+Further, via the balancing condition it's easy to see that if $C_{1}$ and $C_{2}$ have degrees $d_{1}$ and $d_{2}$, respectively, then $d_{1} + d_{2}=d$.
+
+\begin{remark}
+    Plane tropical curves $C$ which satisfy the assumptions used to construct the two component curves above are said to be \textit{reducible}.
+\end{remark}
+
+\begin{lemma}[about existence of contracted bounded edges]
+    
+\end{lemma}
+
+The next lemma formalies a counting argument we repeatedly used in the proof of Kontsevich's formula to eliminate boundary divisors with zero contribution.
+Making use of the remark \ref{why3d1points} we were repeatedly able impose bounds on the degree of the twigs of the boundary divisors.
+The following lemma impose a similar restriction on the number of marked points on each component of a reducible plane tropical curve $C$.
+
+\begin{lemma}
+   Let $P = (a,b, p_{3}, \dots, p_{n}, z) \in \mathbb{R}^{2n-2} \times M_{4}$ be a point in $\pi$-general poisition such that the $M_{4}$ coordinate corresponds to a type (A) curve with large lentgth coordinate. 
+   If $C \in \pi^{-1}(P)$, then either of the following is true:
+   \begin{enumerate}
+       \item $x_{1}$ and $x_{2}$ are adjacent to the same vertex. This vertex maps to $(a,b)$ under $h$.
+       \item $C$ is reducible and decomposes uniquely into components $C_{1}$ and $C_{2}$ of degrees $d_{1}$ and $d_{2}$. 
+           The marks $x_{1}$ and $x_{2}$ lie on the same component $C_{1}$, and $x_{3}$ and $x_{4}$ lie on the same component $C_{2}$.
+           Further, $3d_{1}-1$ of the remaining marks lie on $C_{1}$.
+   \end{enumerate}
+\end{lemma}
