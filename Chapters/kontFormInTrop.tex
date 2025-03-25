@@ -191,7 +191,7 @@ The space $M_{n,d}$ is the tropical counterpart of the space of stable maps into
 \end{definition}
 
 These combinatorial types help us understand the stratification of the tropical moduli $M_{n}$ and $M_{n,\Delta}$. 
-They are the tropical counterparts of "labeled configurations" \textcolor{red}{[cite defn]} for raional plane curves.
+They are the tropical counterparts of ``labeled configurations" \textcolor{red}{[cite defn]} for rational plane curves.
 For a combinatoial type $\alpha$ we denote the corresponding subset of $M_{n}$ and $M_{n,\Delta}$ containing curves of type $\alpha$ with $M^{\alpha}_{n}$ and $M^{\alpha}_{n,\Delta}$. 
 Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spaces is:
 \begin{align*}
@@ -199,15 +199,55 @@ Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spac
 \end{align*}
 
 \begin{lemma}[Finite number of Combinatorial types]
-    
+    \textcolor{red}{Add this after looking at chapter 1}
 \end{lemma}
 
 \begin{lemma}
     Every $3$-valent tropical curve with $n$ unbounded edges has $n-3$ bounded edges.
 \end{lemma}
+\begin{proof}
+    Say $G$ is a $3$-valent tropical curve with $n$ unbounded edges. 
+    Clearly, $G$ is a connected tree graph, so if $G$ has $k$ number of vertices, it has $k-1$ bounded edges. 
+    Let $b$ denote the number of bounded edges in $G$, then, $b = k-1$. 
+    Further, the sum of valences of all vertices in $G$ counts the bounded edges twice and the unbounded edges once.
+    Since all vertices are $3$-valent, we get:
+    \begin{align*}
+        3k &= 2b + n \\
+        \Rightarrow 3(b+1) &= 2b + n\\
+        \Rightarrow b &= n-3.
+    \end{align*}
+    Thus proving our claim that $G$ has $n-3$ bounded edges.
+\end{proof}
 
-\begin{remark}[Tropical Moduli spaces are polyhedral complexes]
-    
+The following proposition formalises the earlier comment that combinatorial types induce a stratification on the moduli spaces $M_{n}$ (and $M_{\Delta, n}$).
+
+\begin{proposition}
+    The subset $M^{\alpha}_{n} \subset M_{n}$ (and $M^{\alpha}_{\Delta,n} \subset M_{\Delta,n}$) are ubounded open convex polyhedra in a real vector space. 
+    Additionaly,
+    \begin{align*}
+        \text{dim}M_{n}^{\alpha} &= n-3-\text{codim}\alpha,\\
+        \text{dim}M^{\alpha}_{\Delta, n} &= |\Delta| - 1 + n - \text{codim}\alpha.
+    \end{align*}
+\end{proposition}
+\begin{proof}
+    Firstly, note that the curves in $M^{\alpha}_{n}$, with $\text{codim}\alpha = 0$, are parametrised by the lengths of bounded edges - that is lengths of bounded edges act as coordinates on $M^{\alpha}_{n}$.
+    Hence $\text{dim}M_{n} = n-3$ follows from the previous lemma.
+    When we change combinatorial types and move up a codimension we are increasing the valence of a vertex by $1$, we contract a bounded edge.
+    Contracting a bounded edge is equivalent to losing one coordinate - lowering dimension - hence,
+    \[
+        \text{dim}M_{n}^{\alpha} &= n-3-\text{codim}\alpha.\\
+    \]
+    \par The argument for $M^{\alpha}_{\Delta,n}$ also is very similar.
+    For $\text{codim}\alpha = 0$, curves with combinatorial type $\alpha$ have $|\Delta|+n$ unbounded edges, hence $|\Delta| + n - 3$ bounded edges.
+    Now the space $M^{\alpha}_{\Delta,n}$ has two additional dimensions, which account for the coordinates of the root vertex under the map $h$, hence $\text{dim}M_{\alpha}_{\Delta,n} = |\Delta| + n - 1$ when $\text{codim}\alpha = 0$.
+    Consquently,
+    \[
+        \text{dim}M^{\alpha}_{\Delta, n} &= |\Delta| - 1 + n - \text{codim}\alpha.
+    \]
+\end{proof}
+
+\begin{remark}    
+    It now follows that the moduli spaces $M_{n}$ (and $M_{\Delta, n}$) are finite polyhedra since they are formed by gluing finite number of polyherda - the spaces $M^{\alpha}_{n}$ (and $M_{\Delta,n}^{\alpha}$). 
 \end{remark}
 
 \subsection{Multilplicites and Evaluation Maps}
@@ -279,7 +319,7 @@ Evaluation maps for tropical curves are defined in the same manner as for ration
     Again, consided a $3$-valent plane tropical curve $C$.
     The multiplicity at a vertex $w$ of $C$ is defined as $|\emph{det}(v_{1},v_{2})|$, where $v_{1}$ and $v_{2}$ are directions of any two distinct incident flags at $v$.
     This is independent of the choice of flags due to the balancing condition, $\sum_{i}v_{i} = 0$.
-    The product all all vertex multiplicities of the curve $C$ is called the multiplicity of the curve $C$, denoted $\emph{mult}(C)$
+    The product all all vertex multiplicities of the curve $C$ is called the multiplicity of the curve $C$, denoted $\emph{mult}(C)$.
 \end{definition}
 \subsection{Forgetful Maps}
 
