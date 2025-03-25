@@ -269,11 +269,17 @@ Evaluation maps for tropical curves are defined in the same manner as for ration
 \end{remark}
 
 \begin{definition}[Rigid plane tropical curves]
-    
+    Let $C = (\Gamma, x_{1},\dots, x_{n}, h) \in M_{\Delta, n}$ be a $3$-valent plane tropical curve. 
+    A subgraph $S \subset \Gamma$ is called a string if doesn't intesect with $\overline{\{x_{i}\}}$ for all $1 \leq i \leq n$.
+    It's easy to see that if $C$ has a string, then the entire combinatorial type too has a string.
+    Hence, we call a combinatorial type $\alpha$ rigid, if for any member curve $C$ the underlying graph $\Gamma$ has no strings.
 \end{definition}
 
 \begin{definition}[Multiplicity of a Plane tropical curve]
-    
+    Again, consided a $3$-valent plane tropical curve $C$.
+    The multiplicity at a vertex $w$ of $C$ is defined as $|\emph{det}(v_{1},v_{2})|$, where $v_{1}$ and $v_{2}$ are directions of any two distinct incident flags at $v$.
+    This is independent of the choice of flags due to the balancing condition, $\sum_{i}v_{i} = 0$.
+    The product all all vertex multiplicities of the curve $C$ is called the multiplicity of the curve $C$, denoted $\emph{mult}(C)$
 \end{definition}
 \subsection{Forgetful Maps}
 
@@ -294,16 +300,25 @@ We now look at how one can forget marks (and the map $h$) in the context of plan
 \begin{proposition}
     The degrees $\text{deg}_{\pi}(P)$, for $P$ in $\pi$-general position, is independent of $P$.
 \end{proposition}
-\begin{proof}
+\begin{proof}[Sketch of proof]
     Since $\pi$ is a product of polyhedral morphisms, it follows that $\pi$ is also a morphism of polyhedra.
     As a consequence $\pi$ locally (on a cell) is an invertible linear map - hence a local isomorphism. 
     Therefore, $\text{deg}_{\pi}(P)$ is locally constant.
     \par We now need to check that the value $\text{deg}_{\pi}$ attains the same value on each maximal dimensional cell. 
     Since the polyhedral complex of the image is finite dimensional, it has a finite number of cells, and hence the set of points in $\pi$-general position are the complement of a codimension $1$ polyhedral complex. 
     That is the top dimensional cells in the image are separated by codimension $1$ walls, and we need to check if passing across any such wall conserves the degree of $\pi$.
-    \par Since this wall is of codimension $1$ it follows from the definition that every element of the wall corresponds to a curve with just a single $4$-valent vertex (with the other vertices having valence $3$).
-    \par \textcolor{red}{[Finish this proof]}
+    \par Since this wall is of codimension $1$ it follows from the definition that every element of the wall corresponds to a curve with just a single $4$-valent vertex (with the other vertices having valence $3$). 
+    Consider an aribritary such wall in the image, and suppose that the combinatorial type of elements in the wall is $\alpha$, then there exist three possible combinatorial types, $\alpha_{1},\, \alpha_{2},\,\alpha_{3}$, such that $\alpha$ lies on their boundary.
+    This can be seen in the following diagram, illustrating the neighbourhood of the curve around the $4$-valent vertex, denoted $\alpha$, in the moduli space:
+    \par \textcolor{red}{add image}
+    \par We assume that all four neighbouring edges of $V$ - $E_{1}$, $E_{2}$, $E_{3}$, $E_{4}$ - are bounded (since the proof for the cases where either of them are unbounded is almost exactly the same). 
+    \par Let $A$ denote the matrix for the map $\pi|_{\alpha}$ and $A_{i}$ the matrices for $\pi|_{\alpha_{i}}$.
+    \par \textcolor{red}{finish this proof}
 \end{proof}
+
+\begin{example}[Looking at $M_{4}$]
+    
+\end{example}
 
 
 \section{Kontsevich's Formula}
@@ -332,8 +347,14 @@ Further, via the balancing condition it's easy to see that if $C_{1}$ and $C_{2}
 \end{remark}
 
 \begin{lemma}[about existence of contracted bounded edges]
-    
+    Let $d \geq 2$, $n=3d$, and $P \in \mathbb{R}^{2n-2}\times M_{4}$ be in $\pi$-general position such that the $M_{4}$ coordinate of $P$ is of type (A), (B), or (C), with large length coordinate, then:
+    \begin{itemize}
+        \item every plane tropical curve $C \in \pi^{-1}(P)$ with $\text{mult}_{\pi}(C) \neq 0$ has a contracted bounded edge.
+    \end{itemize}
 \end{lemma}
+\begin{proof}
+\textcolor{red}{cite paper}
+\end{proof}
 
 The next lemma formalies a counting argument we repeatedly used in the proof of Kontsevich's formula to eliminate boundary divisors with zero contribution.
 Making use of the remark \ref{why3d1points} we were repeatedly able impose bounds on the degree of the twigs of the boundary divisors.
@@ -368,5 +389,13 @@ The following lemma impose a similar restriction on the number of marked points 
                 \text{mult}_{\pi}(C) = \text{mult}_{\text{ev}}(C_{1}) \cdot \text{mult}_{\text{ev}}(C_{2}) \cdot (C_{1}\cdot C_{2})_{R_{1} = R_{2}} \cdot (C\cdot L_{1})_{x_{1}} \cdot (C\cdot L_{2})_{x_{2}},
             \]
     \end{enumerate}
-    where $R_{1}=R_{2}$ corresponds to the point of intersection of the curves $C_{1}$ and $C_{2}$ obtained by splitting $C$ along the contracted bounded edge, and $(C_{1}\dot L_{i})$
+    where $R_{1}=R_{2}$ corresponds to the point of intersection of the curves $C_{1}$ and $C_{2}$ obtained by splitting $C$ along the contracted bounded edge, and $(C_{j}\cdot L_{i})_{x_{i}}$ denotes the $i^{\text{th}}$ coordinated of the direction vector of $C_{j}$ at $x_{i}$.
 \end{proposition}
+\begin{proof}
+    aaa
+\end{proof}
+
+We can finally prove Kontsevich's formula for plane tropical curves.
+\begin{theorem}
+    aa
+\end{theorem}
