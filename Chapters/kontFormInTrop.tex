@@ -133,15 +133,27 @@ Finally, we give an alternate, but equivalent description of plane tropical curv
             Then $h|_{e}(t)= a + t\cdot v$, where $t \in I_{e}$, $h(w) = a\in \mathbb{R}^{2}$, $v \in \mathbb{Z}^{2}$. 
             \par Note that if $e$ is a bounded edge, then we can choose another flag $F_{e}'$, whose first coordinate is the other incident vertex $w'$.
             Then we choose the opposite parametrisation of ${e}$ and get $h|_{e'}(t) = h(w')+ t \cdot (-v)$.
-            \par The vector $v$, in the restriction of $h$ onto $e$ with respect to the parametrisation given by flag $F$, is called the direction of $F$ and denoted $v(F)$.
-        \item For each flag $F$, let $\partial F$ denote the first coordinate of the flag, then for any vertex $V \in \Gamma$:
+        \item The integral vector $v$, in the restriction of $h$ onto $e$ with respect to the parametrisation given by flag $F$, is called the direction of $F$ and denoted $v(F)$.
+                    \item For each flag $F$, let $\partial F$ denote the first coordinate of the flag, then for any vertex $V \in \Gamma$:
             \begin{align*}
-            \sum_{\substack{F \in \Gamma'; \\ \partial F  = V}} v(F) = 0.
+                \sum_{\substack{F \in \Gamma'; \\ \partial F  = V}} v(F) = 0.
             \end{align*}
         \item And, if $F$ is a flag of a marked end $x_{1},\dots, x_{n}$, $v(F) = 0$.
             That is, the ends $x_{1}, \dots, x_{n}$, are all marked to a point.
     \end{itemize}
 \end{definition}
+
+\begin{remark}[Multiplicity of Edges]
+    A distiniction here from the tropical curves we saw in Chapter 1 is that we haven't assigned any "weights" to the edges.
+    But one can easily fix this, define the integral vector of $v(F)$ to be the \textit{direction of the flag $F$}, denote it with $\tilde v (F)$.
+    We then have the relation $v(F) = m_{F}\tilde v(F)$ for any flag $F$.
+            It's easy to see that if $F$ and $F'$ correspond to the same edge then $m_{F} = m_{F'}$, hence we can define this scaling factor at the level of edges, 
+            \[
+                m_{e}:= m_{F},
+            \]
+            where $e = [F]$. And we refer to $m_{e}$ as the multiplicity of the edge $e$.
+            \par Although, in the context of this chapter we will not be making use of edge multiplicities, and will hence follow the convention introduced in the previous definition.
+\end{remark}
 
 We can now similarly define the notion of isomorphism for plane tropical curves. 
 The map $\phi: (\Gamma, x_{1}, \dots, x_{n}, h) \to (\Gamma', x_{1}', \dots, x_{n}', h')$ is an isomorphism of plane tropical curves if it is an isomorphism at the level of abstract tropical curves and $h = h' \circ \phi$.
@@ -160,6 +172,16 @@ The space $M_{n,d}$ is the tropical counterpart of the space of stable maps into
 \begin{proof}[Rough Sketch]
     To show this equivalence we use the inverse of the structure theorem established in chapter 1, \textcolor{red}{[cite it]}, for tropical hypersurfaces.
 \end{proof}
+
+\begin{definition}[Intersection Multiplicity for tropical curves]
+    Consider two n-marked plane tropical curves, $C_{1}:=(\Gamma, x_{1}, \dots, x_{n}, h)$ and $C_{2} = (\tilde\Gamma, \tilde{x}_{1}, \dots, \tilde{x}_{n}, \tilde h)$.
+    Suppose $P \in C_{1} \cap C_{2} \subset \mathbb{R}^{2}$. 
+    Say $P$ lies on the edge $e_{1}$ of $C_{1}$ and $e_{2}$ of $C_{2}$, choose any flags $F_{1}$ and $F_{2}$ of $e_{1}$ and $e_{2}$ respectively, then we define the intersection multiplicity of $C_{1}$ and $C_{2}$ at the point $P$ as:
+    \begin{align*}
+        (C_{1}\cdot C_{2})_{P} :=  |v(F_{1}) \times v(F_{2})| \in \mathbb{Z}.
+    \end{align*}
+    Here, $|v(F_{1}) \times v(F_{2})|$ is the norm of the cross product of two integral vectors.
+\end{definition}
 
 \begin{definition}[Combinatorial Types]
     The combinatorial type of a $n$-pointed abstract tropical curve $(\Gamma, x_{1},\dots, x_{n})$ is the homeomoephism class of $\Gamma$ which preserves the marked points $x_{i}$'s.
@@ -318,6 +340,7 @@ Making use of the remark \ref{why3d1points} we were repeatedly able impose bound
 The following lemma impose a similar restriction on the number of marked points on each component of a reducible plane tropical curve $C$.
 
 \begin{lemma}
+    \label{reduCntLem}
    Let $P = (a,b, p_{3}, \dots, p_{n}, z) \in \mathbb{R}^{2n-2} \times M_{4}$ be a point in $\pi$-general poisition such that the $M_{4}$ coordinate corresponds to a type (A) curve with large lentgth coordinate. 
    If $C \in \pi^{-1}(P)$, then either of the following is true:
    \begin{enumerate}
@@ -327,3 +350,23 @@ The following lemma impose a similar restriction on the number of marked points 
            Further, $3d_{1}-1$ of the remaining marks lie on $C_{1}$.
    \end{enumerate}
 \end{lemma}
+
+\begin{proposition}[converse of previous lemma]
+    
+\end{proposition}
+
+
+\begin{proposition}
+    Consider a point $P$ in $\mathbb{R}^{2n-2}\times M_{4}$, and let $C \in \pi^{-1}(P)$, then either of the following is true:
+    \begin{enumerate}
+        \item if $C$ is of type $1.$ from lemma \ref{reduCntLem}, if we denote with $C'$ the curve obrained by forgetiing the mark $x_{1}$ and $\text{ev}$ denotes the evaluation map for the remaining marks:
+            \[
+                \text{mult}_{\text{ev}}(C') = \text{mult}_{\pi}(C);
+            \]
+        \item if $C$ is of type $2.$ from lemma \ref{reduCntLem} then:
+            \[
+                \text{mult}_{\pi}(C) = \text{mult}_{\text{ev}}(C_{1}) \cdot \text{mult}_{\text{ev}}(C_{2}) \cdot (C_{1}\cdot C_{2})_{R_{1} = R_{2}} \cdot (C\cdot L_{1})_{x_{1}} \cdot (C\cdot L_{2})_{x_{2}},
+            \]
+    \end{enumerate}
+    where $R_{1}=R_{2}$ corresponds to the point of intersection of the curves $C_{1}$ and $C_{2}$ obtained by splitting $C$ along the contracted bounded edge, and $(C_{1}\dot L_{i})$
+\end{proposition}
