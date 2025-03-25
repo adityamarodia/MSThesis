@@ -351,9 +351,34 @@ We now look at how one can forget marks (and the map $h$) in the context of plan
     Consider an aribritary such wall in the image, and suppose that the combinatorial type of elements in the wall is $\alpha$, then there exist three possible combinatorial types, $\alpha_{1},\, \alpha_{2},\,\alpha_{3}$, such that $\alpha$ lies on their boundary.
     This can be seen in the following diagram, illustrating the neighbourhood of the curve around the $4$-valent vertex, denoted $\alpha$, in the moduli space:
     \par \textcolor{red}{add image}
-    \par We assume that all four neighbouring edges of $V$ - $E_{1}$, $E_{2}$, $E_{3}$, $E_{4}$ - are bounded (since the proof for the cases where either of them are unbounded is almost exactly the same). 
+
+    \par Let $C$ be a reprsentative curve for the combinatorial type $\alpha$.
+    We assume that all four neighbouring edges of $V$ - $E_{1}$, $E_{2}$, $E_{3}$, $E_{4}$ - are bounded (since the proof for the cases where either of them are unbounded is almost exactly the same). 
     \par Let $A$ denote the matrix for the map $\pi|_{\alpha}$ and $A_{i}$ the matrices for $\pi|_{\alpha_{i}}$.
-    \par \textcolor{red}{finish this proof}
+    We need to show that $\text{det}A_{1} = \text{det}A_{3} =\text{det}A_{3}$.
+    To do this we look at the following component of the matrix $A_{1}$:
+    \[
+        \begin{bmatrix}
+            \cdots & w & l_{1} & l_{2} & l_{3} & l_{4} & l^{\alpha_{1}}\\
+            \text{marked points through $E_{1}$} & I_{2} & v_{1} & 0 & 0 & 0 & 0\\
+            \text{marked points through $E_{2}$} & I_{2} & 0 & v_{2} & 0 & 0 & v_{2} + v_{3}\\
+            \text{marked points through $E_{3}$} & I_{2} & 0 & 0 & v_{3} & 0 & v_{2} + v_{3}\\
+            \text{marked points through $E_{4}$} & I_{2} & 0 & 0 & 0 & v_{4} & 0\\
+            \text{coordinate of }M_{4} & 0 & * & * & * & * & **
+        \end{bmatrix},
+    \]
+    here, $w$ is the coordinate of the root vertex, and $l_{i}$ and $v_{i}$ the lengths and directions of the edges $E_{i}$. Further, in the last column, $l_{\alpha_{1}}$ is the length of the "new" edge in the combinatorial type $\alpha_{1}$.
+    It's easy to see that the matrices $A_{i}$ for $i =2,\,3$ will differ from the above matrix only in the last column - with length of the new bounded edge and direction vectors appropriately changed.
+    And the last row just corresponds to the $M_{4}$ coordinate, with $*$ and $**$'s either being $0$ or $1$.
+    \par We calculate the determinant on a case by case basis - with each case corresponding to the number of $E_{i}$'s preserved under the forgetful map to $M_{4}$. 
+    Here we only look at the case all $4$ of the edges are preserved under the forgetful map and leave the reader to refer to \textcolor{red}{[Gathmann Markwig CITE]} for the other cases.
+    \par Suppose $\text{ft}_{4}(C)$ is a curve of type (D) - then the other three combinatorial types $\alpha_{1},\, \alpha_{2},\,\alpha_{3}$ are mapped to curves of types (A), (B), and (C) under the forgetful map.
+    Hence, the length parameter of the added edge in curves of types (A), (B), and (C) comes just from the last column of the matrices $A_{i}$.
+    That is, in $A_{1}$ (and $A_{2}$, $A_{3}$) $* = 0$, and $** = 1$.
+    It follows that the determinant of all $A_{i}$'s depends on all but the last columns othe component of the matrix we considered above, implying:
+    \[
+        \text{det}A_{1} = \text{det}A_{2} =\text{det}A_{3}.
+    \]
 \end{proof}
 
 \begin{example}[Looking at $M_{4}$]
@@ -386,7 +411,8 @@ Further, via the balancing condition it's easy to see that if $C_{1}$ and $C_{2}
     Plane tropical curves $C$ which satisfy the assumptions used to construct the two component curves above are said to be \textit{reducible}.
 \end{remark}
 
-\begin{lemma}[about existence of contracted bounded edges]
+\begin{lemma}
+    \label{redCond}
     Let $d \geq 2$, $n=3d$, and $P \in \mathbb{R}^{2n-2}\times M_{4}$ be in $\pi$-general position such that the $M_{4}$ coordinate of $P$ is of type (A), (B), or (C), with large length coordinate, then:
     \begin{itemize}
         \item every plane tropical curve $C \in \pi^{-1}(P)$ with $\text{mult}_{\pi}(C) \neq 0$ has a contracted bounded edge.
@@ -411,10 +437,40 @@ The following lemma impose a similar restriction on the number of marked points 
            Further, $3d_{1}-1$ of the remaining marks lie on $C_{1}$.
    \end{enumerate}
 \end{lemma}
+\begin{proof}
+    From lemma \ref{redCond}, if $C \in \pi^{-1}(P)$ with $\text{mult}_{\pi}(C) \neq 0$, then $C$ has atleast one bounded contracted edge.
+    It's also true that there can exists only one such edge, else if there existed $2$ bounded contracted edges, we would have $2n-3$ coordinates (in $M_{d,n}$) determining $2n-2$ coordinates in the image, implying $\text{mult}_{\pi}(C) = 0$, which is a contradiction.
+    Call the unique contracted bounded edge $E$.
+    We claim that $E$ lies in the image of the forgetful map $\text{ft}_{4}(C)$.
+    Because if this wasn't true, the $M_{4}$ coordinate of $P$ wouldn't have a large length parameter - contradicting the hypothesis.
+    \par If $x_{1}$ and $x_{2}$ are incident at $E$, the curve $C$ is not reducible (by definition).
+    Therefore $x_{1}$ and $x_{2}$ are mapped to the same point $(a,b) \in \mathbb{R}^{2}$.
+    \par If $x_{1}$ and $x_{2}$ are not incident at $E$, then there exists a bounded edge on either side of $E$, making $C$ reducible.
+    Say $C$ splits into component $C_{1}$ and $C_{2}$, and $x_{1},\,x_{2}$ lie on the component $C_{1}$.
+    Then, $x_{1}$ and $x_{2}$ can't be incident on the same vertex in $C_{1}$ - since then, $C_{1}$ would have a bounded contracted edge, implying $C$ has a bounded contracted edge other than $E$, which we proved was not possible.
+    \par We now need to count the number of marks on each component $C_{1}$ and $C_{2}$.
+    Let $n_{1}$ and $n_{2}$ denote the number of remaining marks from $x_{5}, \dots, x_{n}$ which lie on $C_{1}$ and $C_{2}$, respectively.
+    If $n_{1} = 3d_{1} - 1$, then since $n = 3d_{1} + 3d_{2} = n_{1}+n_{2}+4$, we also get the condition $n_{2} = 3d_{2} - 3$.
+    Now suppose $n_{1} \geq 3d_{1}$:
+    \begin{itemize}
+        \item The image of $C_{1}$ under $h$ has $2n_{1}+6\geq 3d_{1} + n_{1} + 5 $ coordinates - $2$ from the root vertex, and $2$ coordinates for every marked point.
+        \item But since the underlying graph of $C_{1}$ has $3d_{1}+ n_{1}+ 2$ unbounded ends, there exist $3d_{1}+ n_{1} -1 $ number of bounded edges.
+        \item Hence, we are trying to determine more than $3d_{1} + n_{1} + 5$ entries from $3d_{1}+ n_{1} +1$ coordinates, implying $\text{mult}_{\pi}(C_{1}) = 0$, which is a contradiction.
+    \end{itemize}
+    Therefore $n_{1} \leq 3d_{1}-1$.
+    Similarly, we can show that $n_{2} \leq 3d_{2}-3$.
+    But since $n_{1}+n_{2} = (3d_{1}-1) + (3d_{2}-3)$, the previous inequalities become equalities, implying $n_{1} = 3d_{1}-1$, thus finishing the proof.
+\end{proof}
 
-\begin{proposition}[converse of previous lemma]
-    
-\end{proposition}
+This result motivates us to ask if we can count $\pi$-multiplicities of the curve $C$ by bounting $\pi$-multiplicities of its components?
+In the following remark we show that this is indeed possible.
+
+\begin{remark}
+    To be able to count $\pi$-multiplicites of $C$ with its component curves we need to see if this decomposition is unique?
+    That is, if $C_{1}$ and $C_{2}$ are plane tropical curves of degrees $d_{1}$ and $d_{2}$, with $d_{1}+d_{2}=d$, such that there exists a point $ P = (a,b, p_{3}, \dots, p_{n}, z) \in \mathbb{R}^{2n-2} \times M_{4}$ 
+    with $z$ having large length coordinate, $C_{1}$ passing through lines $L_{1} = \{x = a\}$, $L_{2} = \{y = b\}$ and $3d_{1}-1$  marks form $p_{5},\dots, p_{n}$, and $C_{2}$ passes through $p_{3}$, $p_{4}$ and the remaining $3d_{2}-3$ marks - does there exist a unique curve $C$ whose components are $C_{1}$ and $C_{2}$?
+    \par It indeed does! Check \textcolor{red}{[Gathmann-Markwig]} for the details.
+\end{remark}
 
 
 \begin{proposition}
@@ -436,6 +492,3 @@ The following lemma impose a similar restriction on the number of marked points 
 \end{proof}
 
 We can finally prove Kontsevich's formula for plane tropical curves.
-\begin{theorem}
-    aa
-\end{theorem}
