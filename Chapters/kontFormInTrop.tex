@@ -82,7 +82,7 @@ We formally define the notion of a graph which will be essential to defining the
 \begin{definition}[Topological Graphs assosiated to Metric Graphs]
     Consider a metric graph $(G,l)$.
     For each edge $e$ (that's not an end) we choose an abritary ordering given by flags $F_{e}$ and define boundary maps $\partial_{1}$ and $\partial_{2}$ as projection onto the first and second coordinates respectively. 
-    If $e$ is an end we define the boundary map, $\partial$, as it's adjacent vertex in the graph $G$.
+    If $e$ is an end we define the boundary map, $\partial_{0}$, as it's adjacent vertex in the graph $G$.
     \par For each edge $e \in (G,l)$ in a metric graph there exists an interval $I_{e}$, 
     \begin{align*}
         I_e := 
@@ -91,7 +91,7 @@ We formally define the notion of a graph which will be essential to defining the
             [0,\infty)\, & \text{if }e \text{ is an end}.
         \end{cases}
     \end{align*}
-        \par Similarly, we can define boundary maps $\tilde \partial_{1}(I_{e}) = 0$ and $\tilde \partial_{2}(I_{e}) = l(e)$ on the bounded intervals, and  $\tilde \partial (e) = 0$ on the ends. 
+        \par Similarly, we can define boundary maps $\tilde \partial_{1}(I_{e}) = 0$ and $\tilde \partial_{2}(I_{e}) = l(e)$ on the bounded intervals, and  $\tilde \partial_{0} (e) = 0$ on the ends. 
         Finally, the topological graph, $\tilde G$, is defined as $\tilde G:=\coprod_{e \in E}I_{e}/\sim$, where:
         \begin{align*}
             \tilde \partial_{i} (I_{e}) \sim \tilde \partial_{j}(I_{e'}) \, \text{ if }\, \partial_{i} (e) =\partial_{j}(e'),
@@ -302,7 +302,7 @@ Evaluation maps for tropical curves are defined in the same manner as for ration
 \begin{remark}[Degree of total evaluation counts number of curves]
     From \textcolor{red}{prev lemma}, when $n = |\Delta|-1$, both $M_{\Delta, n}$ and $\mathbb{R}^{2}$ have the same dimension. We then define the following number,
     \begin{align*}
-        N_{\Delta}(P) := \text{deg}_{\text{ev}}(P),
+        N^{\text{trop}}_{\Delta}(P) := \text{deg}_{\text{ev}}(P),
     \end{align*}
     for $P \in \mathbb{R}^{2n}$ in $\text{ev}$-general position.
     \par This number counts the number of curves $C$ of degree $\Delta$ passing through the points $P$, where each curve is given multiplicity $\text{mult}_{\text{ev}}(C)$.
@@ -466,6 +466,7 @@ This result motivates us to ask if we can count $\pi$-multiplicities of the curv
 In the following remark we show that this is indeed possible.
 
 \begin{remark}
+    \label{convReduCnt}
     To be able to count $\pi$-multiplicites of $C$ with its component curves we need to see if this decomposition is unique?
     That is, if $C_{1}$ and $C_{2}$ are plane tropical curves of degrees $d_{1}$ and $d_{2}$, with $d_{1}+d_{2}=d$, such that there exists a point $ P = (a,b, p_{3}, \dots, p_{n}, z) \in \mathbb{R}^{2n-2} \times M_{4}$ 
     with $z$ having large length coordinate, $C_{1}$ passing through lines $L_{1} = \{x = a\}$, $L_{2} = \{y = b\}$ and $3d_{1}-1$  marks form $p_{5},\dots, p_{n}$, and $C_{2}$ passes through $p_{3}$, $p_{4}$ and the remaining $3d_{2}-3$ marks - does there exist a unique curve $C$ whose components are $C_{1}$ and $C_{2}$?
@@ -474,6 +475,7 @@ In the following remark we show that this is indeed possible.
 
 
 \begin{proposition}
+    \label{multCntProp}
     Consider a point $P$ in $\mathbb{R}^{2n-2}\times M_{4}$, and let $C \in \pi^{-1}(P)$, then either of the following is true:
     \begin{enumerate}
         \item if $C$ is of type $1.$ from lemma \ref{reduCntLem}, if we denote with $C'$ the curve obrained by forgetiing the mark $x_{1}$ and $\text{ev}$ denotes the evaluation map for the remaining marks:
@@ -491,4 +493,56 @@ In the following remark we show that this is indeed possible.
     aaa
 \end{proof}
 
-We can finally prove Kontsevich's formula for plane tropical curves.
+We now (finally) derive Kontsevich's formula for plane tropical curves.
+\begin{theorem}
+    The number $N_{d}^{\text{trop}}$, for $d>1$, satisfies the following reccurence relation,
+    \begin{align*}
+        N^{\text{trop}}_{d} = \sum_{\substack{d_{1}+d_{2}=d;\\ d_{1},\,d_{2}\geq1}}
+        \left( d_{1}^{2}d_{2}^{2} \binom{3d-4}{3d_{1}-2} - d_{1}^{3}d_{2}\binom{3d-4}{3d_{1}-1} \right) N^{\text{trop}}_{d_{1}}N^{\text{trop}}_{d_{2}}.
+    \end{align*}
+\end{theorem}
+\begin{proof}
+    As hinted at the start of this section, we compute the degree of $\pi$ at two different points in $\mathbb{R}^{2n-2}\times M_{4}$, and equate them to arrive at the formula.
+    Consider points $\mathcal{P} = (a,b,p_{3}, \dots, p_{n},z)$ and $\mathcal{P}' = (a',b',p_{3}', \dots, p_{n}',z')$ in $\mathbb{R}^{2n-2}\times M_{4}$ in $\pi$-general position. 
+    We choose these points such that $z$ and $z'$ correspond to curves of type (A), and type (B) respectively.
+    \par \textit{\textbf{I.} Computing the degree at $\mathcal{P}$}, $\text{deg}_{\pi}(\mathcal{P})$.
+    \par As discussed in lemma \ref{reduCntLem}, curves in $\pi^{-1}(P)$ can be of two types - we call them type $1$ and type $2$ curves.
+    The multiplicity of $\pi$ at type $1$ curves, counts number of degree $d$ curves passeing though the $3d-2$ marks, $p_{3}, \dots, p_{n}$, and the point $(a,b) \in \mathbb{R}^{2}$.
+    That is the $\pi$-multiplicity at type $1$ curves counts the number of degree $d$ curves passing through $3d-1$ points (with $\text{ev}$-multiplicity), which by definition is the number $N^{\text{trop}}_{d}$.
+    \par Now consider curves of type 2.
+    From remark \ref{convReduCnt} we can compute the $\pi$-multiplicity of $C$ by computing $\pi$ multiplicities of the components $C_{1}$ and $C_{2}$ appropriately (following proposition \ref{multCntProp}).
+    We will also need to account for the number of such decompositions possible to compute the multiplicity; again from remark \ref{convReduCnt}, the data of the component curves $(C_{1},C_{2},x_{1},\dots,x_{n},P,Q)$ are characterised by the following properties:
+    \begin{enumerate}
+        \item $\text{deg}C_{1} = d_{1}$ and $\text{deg}C_{2} = d_{2}$, such that $d_{1}+d_{2}=d$.
+        \item $x_{1}$ and $x_{2}$ are marked points on $C_{1}$ that map to $L_{1}$ and $L_{2}$.
+        \item $x_{3}$ and $x_{4}$ are marked points on $C_{1}$ that map to $p_{3}$ and $p_{4}$.
+        \item $x_{5},\dots,x_{n}$ map to $p_{5},\dots,p_{n}$, with $3d_{1}-1$ of them lying on $C_{1}$.
+        \item $P \in C_{1}$ and $Q \in C_{2}$ are mapped to the same point in $\mathbb{R}^{2}$.
+    \end{enumerate}
+    From $4.$ above, there are $\binom{3d-4}{3d_{1}-1}$ possible ways of distributing the marks.
+    For each such distribution of marks, from the previous proposition, the multiplicity is given by the expression:
+    \begin{align*}
+        \text{mult}_{\text{ev}}(C_{1}) \cdot \text{mult}_{\text{ev}}(C_{2}) \cdot (C_{1}\cdot C_{2})_{P=Q} \cdot (C\cdot L_{1})_{x_{1}} \cdot (C\cdot L_{2})_{x_{2}}.
+    \end{align*}
+    Using B\'{e}zout's theorem for tropical curves we can compute each of the intersection multiplicites above.
+    \begin{itemize}
+        \item $\text{mult}_{\text{ev}}(C_{1}) = N^{\text{trop}}_{d_{1}}$.
+        \item $\text{mult}_{\text{ev}}(C_{2}) = N^{\text{trop}}_{d_{2}}$.
+        \item $(C_{1}\cdot C_{2})_{P=Q} = d_{1}d_{2}$.
+        \item $(C\cdot L_{1})_{x_{1}} = d_{1}$.
+        \item $(C\cdot L_{2})_{x_{2}} = d_{1}$.
+    \end{itemize}
+    Hence, it follows:
+    \begin{align*}
+        \text{deg}_{\pi}(\mathcal{P}) = N_{d}^{\text{trop}} + \sum_{\substack{d_{1}+d_{2}=d;\\ d_{1},\,d_{2}\geq1}}
+        d_{1}^{3}d_{2}\binom{3d-4}{3d_{1}-1}  N^{\text{trop}}_{d_{1}}N^{\text{trop}}_{d_{2}}.
+    \end{align*}
+    \par \textit{\textbf{II.} Computing the degree at $\mathcal{P}'$}, $\text{deg}_{\pi}(\mathcal{P}')$.
+    \par We can repeat the same steps as for part \textit{\textbf{I.}} and deduce that:
+    \begin{align*}
+        \text{deg}_{\pi}(\mathcal{P}') =  \sum_{\substack{d_{1}+d_{2}=d;\\ d_{1},\,d_{2}\geq1}}
+        d_{1}^{2}d_{2}^{2}\binom{3d-4}{3d_{1}-2}  N^{\text{trop}}_{d_{1}}N^{\text{trop}}_{d_{2}}.
+    \end{align*}
+
+    Since degree of $\pi$ is independent of points $\mathcal{P}$ in general position, Kontsevich's equation follows.
+\end{proof}
