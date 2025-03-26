@@ -378,6 +378,12 @@ For each $w \in \Gamma_{\text{val}}^{n+1}$ we define the set:
     The closure of this set with respect to the euclidean topology is given by $\overline{C_{I}[w]}$.
 \end{definition}
 
+\begin{proposition}
+    \label{finInIdProp}
+    $I\subset K[x_{0},\dots,x_{n}]$ be a homogenous ideal.
+    There exist only finitely many distinct monomial ideal $\text{in}_{w}(I)$ as $w$ varies over $\mathbb{R}^{n+1}$.
+\end{proposition}
+
 The set $\overline{C_{I}[w]}$ is a $\Gamma_{\text{val}}$-rational polyhedron, with a lineality space given by $\mathbb{R}\textbf{1}:= \text{span}\{(1,1,\dots,1)\}$.
 Since we don't care about the lineality space, we identify with $\overline{C_{I}[w]}$ the space $\overline{C_{I}[w]} / \mathbb{R}\textbf{1}$. 
 As we vary $w$ across $\mathbb{R}^{n+1}$, we can glue $\overline{C_{I}[w]}$ to from a polyhedral comples - we prove this in theorem \ref{grobCompThe}.
@@ -387,7 +393,32 @@ As we vary $w$ across $\mathbb{R}^{n+1}$, we can glue $\overline{C_{I}[w]}$ to f
     The maximal cells of $\Sigma_{F}$ is of the form $\sigma = \{w \in \mathbb{R}^{n+1}: F(w) = a + w \cdot u\}$, where $a\odot x^{\odot u}$ is an element in the polynomial $F$.
 \end{definition}
 
-For an homogenous ideal 
+\begin{remark}
+    Given an ideal $I$ we can construct a polynomial $g$ such that if $w \in \text{relint}(\sigma)$ where $\sigma$ is a maximal cell of $\Sigma_{\text{trop}(g)}$, then $\sigma = \overline{C_I[w]}$ for $w \in \mathbb{R}^{n+1}$. 
+    We now describe the construction of the polynomial $g$. 
+    \begin{itemize}
+        \item For a $r \times s$ matrix $A$, and a cardinality $r$ subset $J$ of the set of columns of $A$, we denote with $A^{J}$ the $r \times r$ submatrix corresponding to the columns indexed by $J$.
+        \item Let $I \subset K[x_{0}, \dots, x_{n}]$ be a homogenours ideal, and for $d \in \mathbb{Z}_{>0}$, let $\mathcal{S}_{d}:=\{f_{1},\dots, f_{r}\}$ be a basis for $K$-the submodule $I_{d}\subset I$ of degree $d$ elements of $I$.
+        \item We know that every homogenous polynomial of degree $d$ on $n+1$ variables has $\binom{n+d}{n}$ coefficients. 
+            Let $H_{d}$ be an indexing set for the $\binom{n+d}{n}$ coefficients.
+            Let $A_{d}$ be a $r \times \binom{n+d}{n}$ matrix, with rows indexed by $\mathcal{S}_{d}$ and columns indexed by $H_{d}$; thus, $A_{ij}$ is the $j^{\text{th}}$ coefficient of the polynomial $f_{i}$.
+        \item Consider the vector:
+            \begin{align*}
+                P(I_{d}) := (\text{det}(A_{d}^{J}))_{ J \in \{{J \subset H_{d}: |J| = r}\}}.
+            \end{align*}
+            We call $P(I_{d})$ the Pl\"{u}cker coodrinates of the point $I_{d}$ in the grassmanian $G(r, H_{d})$ (space of dimension $r$ subspaces in $|H_{d}|$-dimensional vector space).
+        \item It's easy to see that the Pl\"{u}cker coordinate, $P(I_{d})$, of the matrix $A_{d}$ is independent of the choice of the basis set $\mathcal{S}_{d}$.
+        \item For each $d$ we define the polynomial:
+            \begin{equation*}
+                g_{d}:=\sum_{J \in \{{J \subset H_{d}: |J| = r}\}} \text{det}(A^{J}_{d}) \prod_{u \in J}x^{u}.
+            \end{equation*}
+        \item Since there exist a finite number of initial monomial ideals (from proposition \ref{finInIdProp}), there exists a $D \in \mathbb{Z}_{>0}$ such that $\text{in}_{w}(I)$has generators of degree less that $D$.
+        \item Finally the polynomial $g$ is defined as:
+            \begin{align*}
+                g = \prod_{d = 1}^{D} g_{d}.
+            \end{align*}
+    \end{itemize}
+\end{remark}
 
 \begin{theorem}
     \label{grobCompThe}
