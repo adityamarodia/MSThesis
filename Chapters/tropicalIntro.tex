@@ -19,7 +19,7 @@ For any polynomial $f  = \sum_{i}c_{i}x^{i}\in \mathbb{R}[x]$, the standard poly
 a piecewise linear function from $\mathbb{R}$ to $\mathbb{R}$.
 \par \textcolor{red}{Insert Image of piecewise linear function}
 \par Just like how we study the roots of polynomials in algrbaic geometry, in tropical geometry we care about the points in the domain where the tropical polynomial is \textit{not linear}.
-This will be justified in \textcolor{red}{[remark about valuation of roots]} and the fundamental theorem in later sections.
+This will be justified in remark \ref{rootValRmk} and the fundamental theorem in later sections.
 \par The tropical polynomial in $2$ variables serve as a more instructive example to understand what the set of non-differentiable points look like. 
 \textcolor{red}{[Add diagram and stuff for two variable polynomials]}
 
@@ -51,9 +51,16 @@ This will be justified in \textcolor{red}{[remark about valuation of roots]} and
     It's not hard to see that the algebraic structure induced on the image of the valuation map is almost same as the algrbaic structure on the tropical semiring. 
     This observation motivates us to define tropicalisation of a polynomial with respect to a given valuation (as hinted in \ref{rmkOnTropPol}).
     For $f = \sum_{i}c_{i}x^{i} \in K[x]$ a polynomial in a valued field $(K, \text{val})$, the valued tropicalisation is defined as
-    \[
+    \begin{equation*}
         \text{trop}_{\text{val}}(f) = \text{min}_{i}(\text{val}(c_{i}) + i \cdot x).
-    \]
+    \end{equation*}
+    \begin{remark}
+        \label{rootValRmk}
+    We now make a key observation. For any tropical polynomial (tropicalisation of a standard polynomial) in one variable, we refer to the points where it's not differentiable as its \textbf{roots}. 
+    Suppose $f(x) = \prod_{i=1}^{n}(x-\lambda_i) \in K[x]$, where $K$ is some valued field, then $\text{trop}(f) = \sum_{i=1}^{n}\text{min}(\text{val}(x),\text{val}(\lambda_i))$. 
+    It's clear that the \textbf{``roots"} of $\text{trop}(f)$ are $\text{val}(\lambda_i)$.
+    This relation between the two types of \textit{roots} will be further generalised, and will lead to the \textit{fundamental theorem of tropical geometry}.
+    \end{remark}
 
     \begin{lemma}
         Suppose $K$ is an algebraically closed valued field, then the value group $\Gamma_{\emph{val}}$ is divisible and dense in $\mathbb{R}$.
@@ -62,6 +69,15 @@ This will be justified in \textcolor{red}{[remark about valuation of roots]} and
     \begin{lemma}
         When $K$ is an algebraically closed valued field, the surjection $K^{*} \twoheadrightarrow \Gamma_{\emph{val}}$ splits.
     \end{lemma}
+
+    The splitting is a map $\phi: \Gamma_{\text{val}} \to K^{*}$, but we always denote $\phi(w)$ with $t^w$. This notation is inspired from the splitting in the case where $K$ is the field of Puiseux series.
+    \par Other than the standard affine and projective spaces, in tropical geometry we often deal with \textit{n-dimensional algebraic tori}: $T^{n}_{K} := T^n = (K^{*})^n$. 
+    The coordinate ring of $T^{n}$ is $K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$, the ring of laurent polynomials. 
+    Zero set of ideals in the laurent polynomial ring define varieties in $T^n$, these varieties are called \textbf{very affine varieties}.
+    Just like for affine spaces we can define a Zariski topology on $T^{n}$.
+    \par We now have the inclusions $i: T^{n} \hookrightarrow \mathbb{A}^n$ and $j: \mathbb{A}^{n} \hookrightarrow \mathbb{P}^{n}$. 
+    The affine closure of a very affine variety $X$ is $\overline{i(X)}$, and the projective closure of a affine variety $X$ is $\overline{j(X)}$. 
+    For an ideal $I \subset K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$, define $I_{\text{aff}}:= I \cap K[x_{1},\dots,x_{n}]$.
 
     \begin{proposition}
         For $I \subset K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$ let $X = V(I) \subset T^n$, then $V(I_{\text{aff}}) = \overline{i(X)}$.
@@ -75,9 +91,8 @@ This will be justified in \textcolor{red}{[remark about valuation of roots]} and
         This set is dense in $T^n$ with respect to the Zariski topology.
     \end{proposition}
 \subsection{Polyhedral Geometry}
-
-Section $2.3$ \cite{maclagan2015introduction} concisely summarises the requisite polyhedral geometry pretty well. We will only discuss the construction of the regular subdivision in this report.
-   Before moving onto the theory of groebner basis and tropical varieties we will define some basic notions from polyhedral geometry.
+We now very quickly go through some elementray definitions and constructions in Polyhedral Geometry. 
+This section very closely follows the exposition in section 2.3 of \cite{maclagan2015introduction}.
    \par A set $X\subset \mathbb{R}^{n}$ is said to be \textbf{convex} if for any two points in $X$ the line connecting those two points also lies in $X$. 
    The \textbf{convex hull}, conv$(U)$, of a set $U\subset \mathbb{R}^{n}$ is the smallest convex set containg $U$.
    When $U$ is a finite set $\text{conv}(U)$ is a \textbf{polytope}. 
@@ -141,8 +156,8 @@ Section $2.3$ \cite{maclagan2015introduction} concisely summarises the requisite
     \end{align*}
     It's clear that for a laurent polynomial $f$: $V(\text{trop}(f)) = \text{trop}(V(f))$
 
-\subsection{Kapranov's Theorem}
-In this section we will discuss Kapranov's Theorem, which gives various characterisations for a tropical hypersurface.
+    That next theorem gives various characterisations for a tropical hypersurface.
+    The generalisation of this theorem to varieties of higher codimensions is called the \textit{fundamental theorem of Tropical Geometry}.
     \begin{theorem}[Kapranov's Theorem]
     Let $K$ be an algebraically closed field with a non-trivial valuation. Fix a laurent polynomial $f \in K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$. The following sets are the same:
     \begin{enumerate}
@@ -191,8 +206,22 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
         \end{align*}
         Setting $y = b_{j}/a_{j}$ we get $f(y) = 0$, and $\overline{t^{-\text{val}(y)}y} = \alpha$, proving the base case.
         \par \textit{Inducting on n}. Consider $n>1$.       
-        \par Let $\phi^{*}_{l}$ be the automorphism on $ K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$ from the change of variables lemma \textcolor{red}{[cite change of var lemma]}.
-        If $\textbf{y}\in T^{n}$ satisfies:
+        We first show that there exists an automorphism on $\phi \in K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$ such that $\phi(f)$, when seen as a polynomial in $x_{n}$, has coefficients which are monomials in $ K[x_{1}^{\pm1}, \dots, x_{n-1}^{\pm1}]$. 
+        It's easy to construct such a automorphism:
+        \begin{itemize}
+            \item Choose $l \in \mathbb{Z}_{>0}$.
+            \item Define $\phi^{*}_{l}: K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}] \to  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$ as:
+                \begin{align*}
+                    x_{i} &\mapsto x_{i}x_{n}^{l^{i}}~~\text{for }1\leq i\leq n-1\\
+                    x_{n} &\mapsto x_{n}.
+                \end{align*}
+            \item Any monomial in the polynomial $f$ can be expressed as $x^{\textbf{u}}x_{n}^{r}$, where $\textbf{u} \in \mathbb{Z}^{n-1}$, and:
+                \[
+                    \phi^{*}_{l}(x^{\textbf{u}}x_{n}^{r}) = x^{\textbf{u}}x_{n}^{r+\sum_{i=1}^{n-1}l_{i}}.
+                \]
+            \item It's clear now that we can choose $l$ large enough such that each monomial of $f$ under $\phi^{*}_{l}$ has a unique exponent in $x_{n}$.
+        \end{itemize}
+        \par Hence, we have found an automorphism $\phi^{*}_{l}$ which satisfies the required propeties. If $\textbf{y}\in T^{n}$ satisfies:
         \begin{align*}
             \phi^{*}_{l}(f)(\textbf{y}) &= 0\\
             \text{val}({y}_{i}) &= w_{i} - l^{i}w_{n} \\
@@ -205,9 +234,9 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
             \overline{t^{-w_{i}}y'_{i}} &= \alpha_{i}.
         \end{align*}
         Therefore we can replace $f$ with $\phi^{*}_{l}(f)$.
-        From \textcolor{red}{lemma} it follows that when $f$ is regarded as a polynomial in $x_{n}$, all coefficients are monomials in $ K[x_{1}^{\pm1}, \dots, x_{n-1}^{\pm1}]$.
+        By construction of $\phi^{*}_{l}$, we know that when $f$ is regarded as a polynomial in $x_{n}$, all coefficients are monomials in $ K[x_{1}^{\pm1}, \dots, x_{n-1}^{\pm1}]$.
         \par Consider the set $\mathcal{V} := \{(y_{1},\dots, y_{n-1})\in T^{n-1}: \text{val}(y_{i}) = w_{i},\,\overline{ t^{-w_{i}}y_{i}} = \alpha_{i} \}$.
-        From proposition \ref{densenessprop}, we know that the set $\mathcal{Y}$ is Zariski dense in $T^{n-1}$.
+        From proposition \ref{densenessprop}, we know that the set $\mathcal{V}$ is Zariski dense in $T^{n-1}$.
         Additionaly, for each such point $\textbf{y}\in \mathcal{Y}$ the polyomial defined by $g(x_{n}) = f(y_{1},\dots, y_{n-1}, x_{n})$ is non-zero.
         For $\textbf{u} \in \mathbb{Z}^{n}$ we denote with $\textbf{u}'\in \mathbb{Z}^{n-1}$ the projection of $\textbf{u}$ onto the first $n-1$ coordinates. 
         \par With $\textbf{u} = (\textbf{u}',i)$, the polynomial $g$ has the form,
@@ -227,12 +256,20 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
         \end{align*}
         So from $\text{in}_{\textbf{w}}(f)(\alpha) = 0$ we get $\text{in}_{w_{n}}(g)(\alpha_{n}) = 0$.
         From the $n=1$ case there exists a $y_{n} \in K^{*}$ such that $\text{val}(y_n) = w_n$, $\overline{t^{-\text{val}(w_{n})}y_{n}} = \alpha_{n}$, and $g(y_{n}) = 0$, implying $f(y_1,\dots,y_n) = 0$.
-        Therefore we have found the required point $y \in V(f)$.
+        Therefore, we have found the required point $y \in V(f)$.
+        \par We are now left with the last claim of the proposition - if $f$ is an irreducible polynomial the set $\mathcal{Y} = \{\textbf{y}\in V(f): \text{val}(\textbf{y}) = \textbf{w},\, \overline{t^{-w_{i}}y_{i}} = \alpha_{i},\, 1\leq i\leq n\}$ is dense in $V(f)$.
+        For each point $(y_{1},\dots, y_{n-1}) \in \mathcal{V}$ we constructed a point $\textbf{y} = (y_{1},\dots, y_{n-1}, y_{n}) \in \mathcal{Y}$.
+        Now consider any $g \in I(\mathcal{Y})$ (that is $g(y)= 0$ for all $y \in \mathcal{Y}$), if we show that $g\in \langle f \rangle$, then denseness follows.
+        We know that $\mathcal{V}$ is dense in $T^{n-1}$.
+        As a consequence, the projection of $\mathcal{Y}$ onto the first $n-1$ coordinates can't be the solution set of any polynomial in $ K[x_{1}^{\pm1}, \dots, x_{n-1}^{\pm1}]$.
+        Hence, the ideal $\langle f,g \rangle$ contains no non-trivial polynomial in $ K[x_{1}^{\pm1}, \dots, x_{n-1}^{\pm1}]$.
+        Since $f$ is irreducible, it follows that $g = h \cdot f$ for some laurent polynomial $f$, implying $g \in\langle f \rangle$.
+        Therefore, $\mathcal{Y}$ is dense in $V(f)$.
+
  %       \par \textcolor{red}{Finish last statement of prrof}
 
     \end{proof}
 
-\subsection{Structure Theorem?}
     \begin{theorem}
         For $f \in K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$, and $\text{trop}(V(f)) = |\Delta|$. Where $\Delta$ is a pure $\Gamma_{val}^n-$rational polyhedral complex of dimension $n-1$, more specifically:
         \begin{equation*}
@@ -277,7 +314,6 @@ In this section we will discuss Kapranov's Theorem, which gives various characte
        \par So $w\in \text{trop}(f)(v)$ \textbf{iff} $\text{face}_{(w,1)}(P_{val})$ is a \textit{not} a vertex. 
        Implying, $w \in D^{[n-1]}$.
    \end{proof}
-\subsection{Combinatorial Description of Tropical Curves}
 
 \section{Gr\"{o}bner and Tropical Bases}  
     \begin{lemma}
