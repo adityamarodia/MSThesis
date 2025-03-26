@@ -354,6 +354,7 @@ The reasoning behind this is explained in remark \ref{whyHomoRmk}.
     \end{remark}
 
     \begin{proposition}
+        \label{ininIdeal}
         For a homogeonous ideal $I \in K[x_0,\dots,x_n]$ and $w,v \in \mathbb{R}^{n+1}$ there exists $\varepsilon >0$ such that for all $0<\varepsilon ' < \varepsilon$:
         \begin{equation*}
             \text{in}_{v}(\text{in}_{w}(I)) = \text{in}_{w + \varepsilon 'v}(I).
@@ -371,7 +372,7 @@ We continue to work with homogenous ideals over a field which admits a splitting
 
 \begin{definition}
     Consider a homogenous ideal $I \subset K[x_{0},\dots, x_{n}]$.
-For each $w \in \Gamma_{\text{val}}^{n+1}$ we define the set:
+For each $w \in \Gamma_{\text{val}}^{n+1}$ we define the polyhedra:
 \begin{equation*}
     C_{I}[w] := \{w' \in \mathbb{R}^{n+1}: \text{in}_{w}(I) = \text{in}_{w'}(I)\}.
 \end{equation*}
@@ -384,9 +385,18 @@ For each $w \in \Gamma_{\text{val}}^{n+1}$ we define the set:
     There exist only finitely many distinct monomial ideal $\text{in}_{w}(I)$ as $w$ varies over $\mathbb{R}^{n+1}$.
 \end{proposition}
 
-The set $\overline{C_{I}[w]}$ is a $\Gamma_{\text{val}}$-rational polyhedron, with a lineality space given by $\mathbb{R}\textbf{1}:= \text{span}\{(1,1,\dots,1)\}$.
-Since we don't care about the lineality space, we identify with $\overline{C_{I}[w]}$ the space $\overline{C_{I}[w]} / \mathbb{R}\textbf{1}$. 
+\begin{remark}
+    \label{facePolyRmk}
+If for $w \in \mathbb{R}^{n+1}$ the ideal $\text{in}_{w}(I)$ is not a monomial ideal, there exists a $w'\in \mathbb{R}^{n+1}$, such that:
+\begin{itemize}
+    \item $\text{in}_{w'}(I)$ is a monomial ideal.
+    \item $\overline{C_{I}[w']}$ is a proper face of the polyhedra $\overline{C_{I}[w]}$.
+\end{itemize}
+Additionaly, the set $\overline{C_{I}[w]}$ is a $\Gamma_{\text{val}}$-rational polyhedron, with a lineality space given by $\mathbb{R}\textbf{1}:= \text{span}\{(1,1,\dots,1)\}$. 
+We refer the reader to theorem 2.5.2 of \cite{maclagan2015introduction} for the proof of this claim.
+\par Since we don't care about the lineality space, we identify with $\overline{C_{I}[w]}$ the space $\overline{C_{I}[w]} / \mathbb{R}\textbf{1}$. 
 As we vary $w$ across $\mathbb{R}^{n+1}$, we can glue $\overline{C_{I}[w]}$ to from a polyhedral comples - we prove this in theorem \ref{grobCompThe}.
+\end{remark}
 
 \begin{definition}
     Let $F: \mathbb{R}^{n+1}\to \mathbb{R}$ be a tropical polynomial function, we denote with $\Sigma_{F}$ the coarsest polyhedral complex, such that $F$ is linear on each cell of $\Sigma_{F}$.
@@ -418,14 +428,31 @@ As we vary $w$ across $\mathbb{R}^{n+1}$, we can glue $\overline{C_{I}[w]}$ to f
                 g = \prod_{d = 1}^{D} g_{d}.
             \end{align*}
     \end{itemize}
+    We refer the reader to theorem 2.5.7 of \cite{maclagan2015introduction} for the proof of the claim made at the start of this remark.
 \end{remark}
 
 \begin{theorem}
     \label{grobCompThe}
     The polyhedra formed by gluing $\overline{C_{I}[w]}$ while varying $w\in\mathbb{R}^{n+1}$ forms a $\Gamma_{\text{val}}$-rational polyhedral complex.
 \end{theorem}
+\begin{proof}[Sketch of Proof]
+    From the previous remark it follows that the top-dimensional cells of the ($\Gamma_{\text{val}}$-rational) polyhedral complex $\Sigma_{\text{trop(g)}}$ are $\overline{C_{I}(w)}$, for $w \in \mathbb{R}^{n+1}$ and $\text{in}_{w}(I)$ a monomial ideal.
+    For $v \in \mathbb{R}^{n+1}$,
+    \[
+        \text{in}_{v}\text{in}_{w}(I) = \text{in}_{w}(I),
+    \]
+    since $\text{in}_{w}(I)$ is a monomial ideal. 
+    From proposition \ref{ininIdeal} it follows that $\text{in}_{w}(I) = \text{in}_{w + \varepsilon v}(I)$, for small $\varepsilon >0$.
+    This implies that $\overline{C_{I}[w]}$ is of full dimension ( in $\Sigma_{\text{trop(f)}}$).
+    It's also obvious that the set of top dimensional cells, $\overline{C_{I}[w]}$, where $\text{in}_{w}(I)$ is a monominal ideal are all disjoint and finite.
+    From the claim made in remark \ref{facePolyRmk} it follows that if $\text{in}_{w'}I$ is not a monomial ideal, it is a proper face of some top dimensional cell of $\Sigma_{\text{trop(g)}}$, hence proving the theorem.
+\end{proof}
 
 \subsection{Tropical Bases}
+
+Until now we have develoved the theory of Gr\"{o}bner basis for homogenous ideals.
+But to work with tropical varieties we need to extend these results for ideals in the Laurent polynomial ring. 
+In this section we look at Gr\"obner theory for the Laurent polynomial ring and introduce the idea of tropical morphisms.
 
 A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \textit{finite generating set} such that, if for all $w \in \mathbb{R}^{n}$:
     \begin{align*}
