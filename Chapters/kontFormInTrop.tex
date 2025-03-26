@@ -33,7 +33,7 @@ Although the modulis spaces we construct don't have nice properties like a theor
 The existence of these maps allows us to, in essence, mirror the proof from Chapter 2 via the following ideas.
 \begin{enumerate}
     \item We first consider the Moduli space of parametrisations of plane tropical curves.
-    \item Let $\overline{\mathcal{M}}_{0,4}^{\text{trop}}$ denote the space of the graphs which parametrise tropical curves with $4$ marked points, with $\eta$ being the forgetful map to this moduli space.
+    \item Let $\overline{M}_{0,4}^{\text{trop}}$ denote the space of the graphs which parametrise tropical curves with $4$ marked points, with $\eta$ being the forgetful map to this moduli space.
     \item To deal with the lack of divisors, we combine steps $3$ and $4$ from above to define a map,
         \begin{align*}
             \pi = \text{ev}_{1}^{1} \times \text{ev}_{2}^{2} \times \text{ev}_{2} \times \dots \times \text{ev}_{n} \times \eta,
@@ -44,14 +44,14 @@ The existence of these maps allows us to, in essence, mirror the proof from Chap
 
 \section{The Prerequisites}
 The enumerative problem we are going to tackle just considers tropical curves in $\mathbb{R}^{2}$.
-As we saw in \textcolor{red}{chapter $1$}, these tropical curves just look like plane graphs.
+As we saw in Chapter \ref{chapTrop}, these tropical curves look like plane graphs.
 We use this observation to give an equivalent definiton of tropical curves in $\mathbb{R}^{2}$.
-This description of tropical curves will also make it easier for us to draw motivation from ideas discussed in the previous chapter, like the space of stable maps.
+This description of tropical curves will also make it easier for us to use ideas discussed in the previous chapter, like the space of stable maps.
 
 \par In the tropical world, the moduli spaces aren't tropical varieties themselves. 
-This is in contrast with the picture of rational plane curves.
+This is in contrast with the picture of schemes.
 A consequence of this disconnect between the two worlds is that we can't exploit the properties of divisors like we did earlier.
-We have to be careful and consider ideas which help us make similar manipulations with tropical moduli spaces.
+We have to be careful and consider ideas which help us at similar conclusions for tropical moduli spaces.
 
 \subsection{Tropical curves and their Moduli}
 
@@ -170,7 +170,12 @@ The space $M_{n,d}$ is the tropical counterpart of the space of stable maps into
     For every place tropical curve $(\Gamma,h)$ there exists a polynomial $f \in \mathbb{R}[x,y]$, such that $\text{trop}(V(f)) = h (\Gamma)$.
 \end{proposition}
 \begin{proof}[Rough Sketch]
-    To show this equivalence we use the inverse of the structure theorem established in chapter 1, \textcolor{red}{[cite it]}, for tropical hypersurfaces.
+    This equivalence almost directly follows from the converse of the structure theorem for tropical hypersurfaces (theorem \ref{convStruc}). 
+    By definition, the polyhedral complex $h(\Gamma)\subset \mathbb{R}^{2}$ is balanced at $h(v)$, for all vertices $v$ of $\Gamma$.
+    The only problematic vertices of the polyhedral complex are the points where two unbounded edges intersect.
+    To see if the complex is balanced at these points, we split the unbounded edge, $h(e)$ into two edges, giving them the same multiplicites but opposite direction vectors. 
+    This implies that the balancing condition at each vertex is satisfied. 
+    Hence $h(\Gamma)$ is a tropical hypersurface in $\mathbb{R}^{2}$.
 \end{proof}
 
 \begin{definition}[Intersection Multiplicity for tropical curves]
@@ -191,7 +196,7 @@ The space $M_{n,d}$ is the tropical counterpart of the space of stable maps into
 \end{definition}
 
 These combinatorial types help us understand the stratification of the tropical moduli $M_{n}$ and $M_{n,\Delta}$. 
-They are the tropical counterparts of ``labeled configurations" \textcolor{red}{[cite defn]} for rational plane curves.
+They are the tropical counterparts of ``labeled configurations" (definition \ref{lblCnf}) for rational plane curves.
 For a combinatoial type $\alpha$ we denote the corresponding subset of $M_{n}$ and $M_{n,\Delta}$ containing curves of type $\alpha$ with $M^{\alpha}_{n}$ and $M^{\alpha}_{n,\Delta}$. 
 Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spaces is:
 \begin{align*}
@@ -199,10 +204,18 @@ Futher, the codimension of combinatorial type $\alpha$ in any of the moduli spac
 \end{align*}
 
 \begin{lemma}[Finite number of Combinatorial types]
-    \textcolor{red}{Add this after looking at chapter 1}
+    For all $n$ and $\Delta$ there exist only a finite number of combinatorial types in the spacec $M_{n}$ and $M_{\Delta,n}$.
 \end{lemma}
+\begin{proof}[Rough Sketch of Proof]
+    This is obvious for $M_{n}$ (we can have only so many graphs on a finite number of vertices).
+    For $M_{\Delta,n}$, from theorem \ref{trpisNewtTh}, $h(\Gamma)$ is dual to the regular subdivision of the newton polygon of some polynomial $f$.
+    This implies that the absolute values of the entries of the direction vectors $v(F)$ ae bounded by the size of the polygon, and hence the size of $\Delta$.
+    Since $v(F)$ are integral vectors, only finitely many such can exist.
+\end{proof}
+
 
 \begin{lemma}
+    \label{graphLem}
     Every $3$-valent tropical curve with $n$ unbounded edges has $n-3$ bounded edges.
 \end{lemma}
 \begin{proof}
@@ -249,6 +262,11 @@ The following proposition formalises the earlier comment that combinatorial type
 \begin{remark}    
     It now follows that the moduli spaces $M_{n}$ (and $M_{\Delta, n}$) are finite polyhedra since they are formed by gluing finite number of polyherda - the spaces $M^{\alpha}_{n}$ (and $M_{\Delta,n}^{\alpha}$). 
 \end{remark}
+
+\begin{example}[Looking at $M_{4}$]
+    A $4$-marked plane tropical curve, can have four possible combinatorial types: 
+\end{example}
+
 
 \subsection{Multilplicites and Evaluation Maps}
 
@@ -300,7 +318,7 @@ Evaluation maps for tropical curves are defined in the same manner as for ration
 \end{remark}
 
 \begin{remark}[Degree of total evaluation counts number of curves]
-    From \textcolor{red}{prev lemma}, when $n = |\Delta|-1$, both $M_{\Delta, n}$ and $\mathbb{R}^{2}$ have the same dimension. We then define the following number,
+    From lemma \ref{graphLem}, when $n = |\Delta|-1$, both $M_{\Delta, n}$ and $\mathbb{R}^{2}$ have the same dimension. We then define the following number,
     \begin{align*}
         N^{\text{trop}}_{\Delta}(P) := \text{deg}_{\text{ev}}(P),
     \end{align*}
@@ -325,17 +343,32 @@ Evaluation maps for tropical curves are defined in the same manner as for ration
 
 Remember that forgetting marks (and the map $\mu$) for rational plane curves induced forgetful maps $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,m}(\mathbb{P}^{r},d)$ and $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{r},d) \to \overline{\mathcal{M}}_{0,m}$ for $m<n$.
 We now look at how one can forget marks (and the map $h$) in the context of plane tropical curves to obtain maps on the respective moduli spaces.
-\begin{definition}[Forgetful map definition]
-    
+
+\begin{definition}[Forgetting the map and some points]
+    Let $n\geq m$, and $C = (\Gamma, x_{1},\dots, x_{n},h) \in M_{\Delta,n}$.
+    \par Let $C(m)$ be the minimal connected subgraph of $\Gamma$ which contains the undbounded edges $x_{1}, \dots, x_{m}$.
+    It's clear that $C(m)$ can't contain vertices of valence $1$.
+    And at vertices of valence $2$, we ``straighten" the graph - that is, replace the two neighnouring edges of lengths $l_{1},\,l_{2}$ with one edge of length $l_{1} + l_{2}$.
+    The resulting graph clearly lies in $\mathcal{M}_{m}$, and we denote it by $\emph{ft}_{m}(C)$.
 \end{definition}
 
-\begin{remark}[Forgetful maps are morphism of polyhedra]
-    
+\begin{remark}
+    The ``straightening" process described in the aboce definition is the tropical analougue of \textit{stabilisation}. 
+    We stablisied twigs with less that $3$ marks by contracting them to a point; here we \textit{stabilised} vertices of valence less than $3$ by straightening the graph at that point. 
 \end{remark}
 
-\begin{definition}[The total map we will use to define Kontsevich's formula]
-    
+\begin{remark}[Forgetful maps are morphism of polyhedra]
+    It's obvious that forgetful maps are morphisms of polyhedra, since we are wither forgetting coordinates (projections), or straightening (adding two coordinates), which are both linear maps. 
+\end{remark}
+
+\begin{definition}[The total map]
+    Fix $d\geq 2$, $n =3d$, we define the total map:
+    \begin{align*}
+        \pi:= \emph{ev}^{1}_{1} \times\emph{ev}^{2}_{2} \times\emph{ev}_{3} \times \dots \emph{ev}_{n} \times \emph{ft}_{4}: M_{\Delta, n} \to \mathbb{R}^{2n-2} \times M_{4}.
+    \end{align*}
 \end{definition}
+This map will help us consider intersection of arbritary tropical curves with, with lines $L_{1}$, $L_{2}$, and points $Q_{3}, \dots, Q_{n}$ in general position (like in the case of rational plane curves). 
+This map also encodes the data of the inverse image of boundary divisors of $\mathcal{M}_{4}$ (which we used to deduce Kontsevich's formula for rational plane curves).
 
 \begin{proposition}
     The degrees $\text{deg}_{\pi}(P)$, for $P$ in $\pi$-general position, is independent of $P$.
@@ -371,7 +404,7 @@ We now look at how one can forget marks (and the map $h$) in the context of plan
     It's easy to see that the matrices $A_{i}$ for $i =2,\,3$ will differ from the above matrix only in the last column - with length of the new bounded edge and direction vectors appropriately changed.
     And the last row just corresponds to the $M_{4}$ coordinate, with $*$ and $**$'s either being $0$ or $1$.
     \par We calculate the determinant on a case by case basis - with each case corresponding to the number of $E_{i}$'s preserved under the forgetful map to $M_{4}$. 
-    Here we only look at the case all $4$ of the edges are preserved under the forgetful map and leave the reader to refer to \textcolor{red}{[Gathmann Markwig CITE]} for the other cases.
+    Here we only look at the case all $4$ of the edges are preserved under the forgetful map and leave the reader to refer to \cite{GATHMANNwdvv} for the other cases.
     \par Suppose $\text{ft}_{4}(C)$ is a curve of type (D) - then the other three combinatorial types $\alpha_{1},\, \alpha_{2},\,\alpha_{3}$ are mapped to curves of types (A), (B), and (C) under the forgetful map.
     Hence, the length parameter of the added edge in curves of types (A), (B), and (C) comes just from the last column of the matrices $A_{i}$.
     That is, in $A_{1}$ (and $A_{2}$, $A_{3}$) $* = 0$, and $** = 1$.
@@ -381,9 +414,6 @@ We now look at how one can forget marks (and the map $h$) in the context of plan
     \]
 \end{proof}
 
-\begin{example}[Looking at $M_{4}$]
-    
-\end{example}
 
 
 \section{Kontsevich's Formula}
@@ -419,7 +449,7 @@ Further, via the balancing condition it's easy to see that if $C_{1}$ and $C_{2}
     \end{itemize}
 \end{lemma}
 \begin{proof}
-\textcolor{red}{cite paper}
+    Refer to Proposition 5.1 inProposition 5.1 in  \cite{GATHMANNwdvv} for the proof.
 \end{proof}
 
 The next lemma formalies a counting argument we repeatedly used in the proof of Kontsevich's formula to eliminate boundary divisors with zero contribution.
@@ -470,7 +500,7 @@ In the following remark we show that this is indeed possible.
     To be able to count $\pi$-multiplicites of $C$ with its component curves we need to see if this decomposition is unique?
     That is, if $C_{1}$ and $C_{2}$ are plane tropical curves of degrees $d_{1}$ and $d_{2}$, with $d_{1}+d_{2}=d$, such that there exists a point $ P = (a,b, p_{3}, \dots, p_{n}, z) \in \mathbb{R}^{2n-2} \times M_{4}$ 
     with $z$ having large length coordinate, $C_{1}$ passing through lines $L_{1} = \{x = a\}$, $L_{2} = \{y = b\}$ and $3d_{1}-1$  marks form $p_{5},\dots, p_{n}$, and $C_{2}$ passes through $p_{3}$, $p_{4}$ and the remaining $3d_{2}-3$ marks - does there exist a unique curve $C$ whose components are $C_{1}$ and $C_{2}$?
-    \par It indeed does! Check \textcolor{red}{[Gathmann-Markwig]} for the details.
+    \par It indeed does! Check remark 5.4 of \cite{GATHMANNwdvv} for the details.
 \end{remark}
 
 
@@ -490,7 +520,7 @@ In the following remark we show that this is indeed possible.
     where $R_{1}=R_{2}$ corresponds to the point of intersection of the curves $C_{1}$ and $C_{2}$ obtained by splitting $C$ along the contracted bounded edge, and $(C_{j}\cdot L_{i})_{x_{i}}$ denotes the $i^{\text{th}}$ coordinated of the direction vector of $C_{j}$ at $x_{i}$.
 \end{proposition}
 \begin{proof}
-    aaa
+    Refer to \cite{GATHMANNwdvv} for the proof.
 \end{proof}
 
 We now (finally) derive Kontsevich's formula for plane tropical curves.

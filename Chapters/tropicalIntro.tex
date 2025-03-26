@@ -269,6 +269,7 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
     \end{proof}
 
     \begin{theorem}
+        \label{trpisNewtTh}
         For $f \in K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$, and $\text{trop}(V(f)) = |\Delta|$. Where $\Delta$ is a pure $\Gamma_{val}^n-$rational polyhedral complex of dimension $n-1$, more specifically:
         \begin{equation*}
             \Delta = \left(\text{dual}\left(\text{r-subdiv}_{\text{val}(c_u)}\left(\text{Newt}(f)\right)\right)\right)^{[n-1]}
@@ -582,8 +583,15 @@ The following theorem generalises Kapranov's theorem to arbritary tropical varie
     \end{proof}
 
     \begin{theorem}[Structure Theorem for Tropical Varieties]
+        \label{StrucTh}
         Let $X$ be an \textit{irreducible d-diminsional} subvariety of $T^{n}$. Then, trop$(X)$ is the support of a balanced-weighted $\Gamma_{\text{val}}-$rational purely d-dimensional polyhedral complex, which is connected through codimension $1$.
     \end{theorem}
+    For hypersurfaces, a converse of the structure theorem exists, which we formalise in the next proposition.
+
+    \begin{proposition}
+        \label{convStruc}
+        Let $\Sigma$ be a weighted balanced $\Gamma_{\text{val}}$ rational polyhedral complex in $\mathbb{R}^{n}$, of pure dimensiion $n-1$. Then there exists a laurent polynomial $f \in  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$ such that $|\Sigma|= \text{trop}(V(f))$.
+    \end{proposition}
 
 \section{Berkovich Analytic Spaces}
 \subsection{The Berkovich Analytification}
