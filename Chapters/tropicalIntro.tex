@@ -197,7 +197,7 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
         \par \textit{Base Case.} Consider $n = 1$.
         \par We can multiply by a unit and assume that $f = \sum_{i=0}^{s}c_{i}x^{i}$ such that $c_{0}, c_{s}\neq0$. 
         Since we are working in an algebraically closed field $K$, $f = \prod^{s}_{j=1} (a_{j}x-b_{j})$. 
-        From \textcolor{red}{[cite lemma from next seciton]}, $\text{in}_{w}(f) = \prod^{s}_{j=1} \text{in}_{w}(a_{j}x-b_{j})$. 
+        Then, $\text{in}_{w}(f) = \prod^{s}_{j=1} \text{in}_{w}(a_{j}x-b_{j})$. 
         Since $\alpha \in \tilde{K}$ and $\text{in}_{w}f(\alpha)=0$, there exists $j$ such that $\text{in}_{w}(a_{j}x-b_{j})(\alpha) = 0$.
         Futher, since $w \in B$, the initial form $\text{in}_{w}(f)$ is not a monomial.
         This implies that $\text{in}_{w}(a_{j}x-b_{j})$ is not a monomial, hence:
@@ -454,19 +454,47 @@ Until now we have develoved the theory of Gr\"{o}bner basis for homogenous ideal
 But to work with tropical varieties we need to extend these results for ideals in the Laurent polynomial ring. 
 In this section we look at Gr\"obner theory for the Laurent polynomial ring and introduce the idea of tropical morphisms.
 
-A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \textit{finite generating set} such that, if for all $w \in \mathbb{R}^{n}$:
-    \begin{align*}
-        \exists ~f \in I~\text{such that }\text{trop}(f)(w)&~\text{achieves minimum only once}\\
-                                                          & \textbf{iff}\\
-        \exists ~g \in \mathcal{T}~\text{such that }\text{trop}(g)(w)&~\text{achieves minimum only once}.
-    \end{align*}
+\begin{definition}
+    For a ideal $I \subset  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$, we define the ideal $I_{\emph{proj}}$ in $K[x_{1},\dots,x_{n}]$ in the following manner:
+    \begin{itemize}
+        \item Choose an basis $\{f_{1},\dots,f_{r}\}$ of $I$ such that $f_{i} \in K[x_{1}, \dots, x_{n}]$ for all $i$.
+        \item Let $\tilde f_{i} \in K[x_{0},\dots, x_{n}]$ denote the homogenisation of $f_{i}$, then:
+            \[
+                I_{\emph{proj}} = \langle \tilde f_{1}, \dots, \tilde f_{r} \rangle.
+            \]
+    \end{itemize}
+\end{definition}
+The following proposition formally defines a way to move between the ideals $I$ and $I_{\text{proj}}$.
 
-    Before stating the fundamental and structure theorem for arbritary tropical varieties we define the notion of a tropical morphism.
-    Remember that a morphism of algebraic groups $\phi : T^{n}\to T^{m}$ induces a monomial map $\phi^{*}:K[x_1^{\pm 1}, \dots, x_m^{\pm 1}]\to K[z_1^{\pm 1}, \dots, z_n^{\pm 1}]$. 
-    We can also represent this monomial map as a map $\phi^{*}: \mathbb{Z}^{m}\to \mathbb{Z}^{n}$ where $\phi^{*}(e_i) = u$ for $\phi^{*}(x_i) = z^u$. We now define the \textbf{tropicalization of $\phi$} as the map
-    \begin{equation*}
-        \text{trop}(\phi): \text{Hom}(\mathbb{Z}^{n},\mathbb{Z})\cong \mathbb{Z}^{n} \to \text{Hom}(\mathbb{Z}^{m},\mathbb{Z})\cong \mathbb{Z}^{m}
-    \end{equation*}
+\begin{proposition}
+    Let $I \subset  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$ an ideal, $w \in \mathbb{R}^{n+1}$.
+    Then, $\text{in}_{w}(I)$ can be obtained from $\text{in}_{(0,w)}(I_{\text{proj}})$ by setting $x_{0} = 1$.
+    Further, every element $h \in \text{in}_{w}(I)$ is of the form $x^{\textbf{u}}g$, for $x^{\textbf{u}}$ is a laurent monomial, and $g = f(1, x_{1},\dots, x_{n})$ for some $f \in \text{in}_{(0,w)}(I_{\text{proj}})$.
+\end{proposition}
+
+\begin{definition}
+   Assume $K$ is any valued field.
+   A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \textit{finite generating set} such that, if for all $w \in \mathbb{R}^{n}$:
+    \begin{align*}
+        \exists ~f \in I~\text{such that }&\emph{trop}(f)(w)~\text{achieves minimum only once},\\
+                                                          &~~~~\textbf{if and only if}\\
+        \exists ~g \in \mathcal{T}~\text{such that }&\emph{trop}(g)(w)~\text{achieves minimum only once}.
+    \end{align*}
+\end{definition}
+
+\begin{remark}
+    Theroem 2.6.6 of \cite{maclagan2015introduction} proves that for any valued field $K$,the ideal $I \subset  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$ admits a finite tropical basis.
+\end{remark}
+
+Until now we have looked at how very affine varieties behave under the tropicalisation.
+We finally see how we can translate the morphisms of very affine varieties into the tropical world.
+    \par Remember that a morphism of algebraic groups $\phi : T^{n}\to T^{m}$ induces a monomial map $\phi^{*}:K[x_1^{\pm 1}, \dots, x_m^{\pm 1}]\to K[z_1^{\pm 1}, \dots, z_n^{\pm 1}]$. 
+    We can also represent this monomial map as a map $\phi^{*}: \mathbb{Z}^{m}\to \mathbb{Z}^{n}$ where $\phi^{*}(e_i) = u$ for $\phi^{*}(x_i) = z^u$. 
+    We define the \textbf{tropicalization of $\phi$} as the map:
+    \begin{align*}
+        \text{trop}(\phi): \text{Hom}(\mathbb{Z}^{n},\mathbb{Z})\cong \mathbb{Z}^{n} &\to \text{Hom}(\mathbb{Z}^{m},\mathbb{Z})\cong \mathbb{Z}^{m},\\
+        f &\mapsto f \circ \phi^{*}.
+    \end{align*}
 
 
 \section{Arbritary Tropical varieties}
@@ -491,16 +519,15 @@ A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \t
 \section{Berkovich Analytic Spaces}
 \subsection{The Berkovich Analytification}
     In this section the norm $|\cdot |:K \to \mathbb{R}$ is defined as $|x| = \text{exp}(-\text{val}(x))$. This norm is \textit{non-archimedian}, that is: 
-mm
     \begin{itemize}
         \item $|a| = 0$ \textbf{iff} $a=0$
         \item $|ab| = |a||b|$
         \item $|a+b| \leq |a|+|b|$
     \end{itemize}
-    We also assume $K$ is complete in this section.
+    We also assume $K$ is complete with respect to this norm for the rest of this chapter.
     \begin{definition}
         Consider and affine scheme, $X = \text{Spec}(A)$, of finite type over $K$. 
-        The \textbf{Berkovich analytic space} $X^{an}$ is the set of seminorms on $A$ which extend the norm $|\cdot|$ on $K$. 
+        The \textbf{Berkovich analytic space}, $X^{an}$, is the set of seminorms on $A$ which extend the norm $|\cdot|$ on $K$. 
         So $p:A \to \mathbb{R}_{+}$ is a seminorm if:
         \begin{enumerate}
             \item $p(fg) = p(f)p(g)$
