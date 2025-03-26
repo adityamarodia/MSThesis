@@ -488,14 +488,54 @@ The following proposition formally defines a way to move between the ideals $I$ 
 
 Until now we have looked at how very affine varieties behave under the tropicalisation.
 We finally see how we can translate the morphisms of very affine varieties into the tropical world.
+
+\begin{definition}
     \par Remember that a morphism of algebraic groups $\phi : T^{n}\to T^{m}$ induces a monomial map $\phi^{*}:K[x_1^{\pm 1}, \dots, x_m^{\pm 1}]\to K[z_1^{\pm 1}, \dots, z_n^{\pm 1}]$. 
     We can also represent this monomial map as a map $\phi^{*}: \mathbb{Z}^{m}\to \mathbb{Z}^{n}$ where $\phi^{*}(e_i) = u$ for $\phi^{*}(x_i) = z^u$. 
     We define the \textbf{tropicalization of $\phi$} as the map:
     \begin{align*}
-        \text{trop}(\phi): \text{Hom}(\mathbb{Z}^{n},\mathbb{Z})\cong \mathbb{Z}^{n} &\to \text{Hom}(\mathbb{Z}^{m},\mathbb{Z})\cong \mathbb{Z}^{m},\\
+        \emph{trop}(\phi): \emph{Hom}(\mathbb{Z}^{n},\mathbb{Z})\cong \mathbb{Z}^{n} &\to \emph{Hom}(\mathbb{Z}^{m},\mathbb{Z})\cong \mathbb{Z}^{m},\\
         f &\mapsto f \circ \phi^{*}.
     \end{align*}
+\end{definition}
 
+    Sadly, the tropicalisation of morphisms is not functorial, but it almost is! - we will elaborate on this in \textcolor{red}{[cite morphism lemma]}.
+    We now look at a key property of $\text{trop}(\phi)$.
+    \begin{lemma}
+        Let $\phi^{*}:  K[x_{1}^{\pm1}, \dots, x_{m}^{\pm1}] \to  K[z_{1}^{\pm1}, \dots, z_{n}^{\pm1}]$ be a monomial map (it's induced from map between algebraic groups).
+        Let $I \subset  K[z_{1}^{\pm1}, \dots, z_{n}^{\pm1}]$ be an ideal, with $I':= \phi^{*-1}(I)$.
+        Then,
+        \begin{align*}
+            \phi^{*}(\text{in}_{\text{trop}(w)})(I') \subset \text{in}_{w}(I).
+        \end{align*}    
+        In particular, if $\text{in}_{w}(I) \neq \langle 1 \rangle$, then $\text{in}_{\text{trop}(w)}(I') \neq \langle 1 \rangle$.
+    \end{lemma}
+    \begin{proof}
+        Let $a_{i} \in \mathbb{Z}^{n}$, such that $\phi^{*}(x_{i}) = z^{a_{i}}$ for $1\leq i \leq m$.
+        Define the $n \times m$ matrix $A$ as:
+        \begin{align*} A:=
+            \begin{pmatrix}
+                \vdots & & \vdots& & \vdots \\
+                a_{1} & \hdots & a_{i}& \hdots & a_{m}\\
+                \vdots & & \vdots& & \vdots \\
+            \end{pmatrix}.
+        \end{align*}
+        Then, for $\textbf{u} \in \mathbb{Z}^{m}$, $\phi^{*}(x^{\textbf{u}}) = z^{A \textbf{u}}$.
+        Let $f = \sum c_{u}x^{u} \in I'$ and define, $W:= \text{trop}(f)(A^{T}w)$, then:
+        \begin{align*}
+            W &= \text{min}_{c_{u}\neq 0 }(\text{val}(c_{u}) + A^{T}w \cdot u) \\
+              &= \text{min}_{c_{u}\neq 0 }(\text{val}(c_{u}) + w \cdot Au) \\
+              &= \text{trop}(\phi^{*}(f))(w).
+        \end{align*}
+        Further, 
+        \begin{align*}
+            \phi^{*}(\text{in}_{\text{trop}(\phi)(w)}(f)) &= \phi^{*}\left( \sum_{\text{val}(c_{u}) + \text{trop}(\phi)(w) \cdot u = W} \overline{t^{-\text{val}(c_{u})}c_{u}}\cdot x^{u}\right)\\
+                                                          &= \phi^{*}\left( \sum_{\text{val}(c_{u}) + A^{T}w \cdot u = W} \overline{t^{-\text{val}(c_{u})}c_{u}}\cdot x^{u}\right)\\
+                                                          &= \sum_{\text{val}(c_{u}) + w \cdot Au = W} \overline{t^{-\text{val}(c_{u})}c_{u}} \cdot z^{Au}\\
+                                                          &= \text{in}_{w}(\phi^{*}(f)).
+        \end{align*}
+        Hence, $\phi^{*}(\text{in}_{\text{trop}(w)})(I') \subset \text{in}_{w}(I)$.
+    \end{proof}
 
 \section{Arbritary Tropical varieties}
 \subsection{Fundamental Theorem}
