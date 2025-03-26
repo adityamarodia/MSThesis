@@ -266,9 +266,6 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
         Hence, the ideal $\langle f,g \rangle$ contains no non-trivial polynomial in $ K[x_{1}^{\pm1}, \dots, x_{n-1}^{\pm1}]$.
         Since $f$ is irreducible, it follows that $g = h \cdot f$ for some laurent polynomial $f$, implying $g \in\langle f \rangle$.
         Therefore, $\mathcal{Y}$ is dense in $V(f)$.
-
- %       \par \textcolor{red}{Finish last statement of prrof}
-
     \end{proof}
 
     \begin{theorem}
@@ -286,7 +283,7 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
        Defining the following will be helpful:
        \begin{itemize}
            \item $\text{face}_v(P) = \{x \in P : x\cdot v \leq y \cdot v~ \text{for all } y \in P\}$. Here the vector $v$ is an inward pointing normal vector of the face.
-           \item $\pi: \mathbb{R}^{n+1} \to \mathbb{R}^n$ is projection onto first $n$-coords.
+           \item $\pi: \mathbb{R}^{n+1} \to \mathbb{R}^n$ projection onto first $n$-coords.
        \end{itemize}
        The regular subdivision of $P$ with weight vectors given by $c_u$ is the projection of the lower faces of $P_{\text{val}}$.
        A face is called a \textit{lower face} if it can be defined with a vector $v$ for which $v_{n+1} > 0$.
@@ -309,9 +306,8 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
        \begin{equation*}
            (u',c_{u'})\cdot \bar{v} \leq (u,c_u) \cdot \bar{v}~~~\forall u
        \end{equation*}
-       Which is precisely the condition required for $(u,c_u)$ to be a vertex of the face F defined by $\bar v$. 
-       And consequently for $u$ to be vertex of $\pi(F)$. 
-       Therefore for $\text{in}_{v}(f)$ is \textit{not} a monomial \textbf{iff} $\text{face}_v(P_{val})$ has more than vertex.
+       Which is precisely the condition required for $(u,c_u)$ to be a vertex of the face F defined by $\bar v$, and consequently for $u$ to be vertex of $\pi(F)$. 
+       Therefore $\text{in}_{v}(f)$ is \textit{not} a monomial \textbf{iff} $\text{face}_v(P_{val})$ has more than vertex.
        \par So $w\in \text{trop}(f)(v)$ \textbf{iff} $\text{face}_{(w,1)}(P_{val})$ is a \textit{not} a vertex. 
        Implying, $w \in D^{[n-1]}$.
    \end{proof}
@@ -499,9 +495,10 @@ We finally see how we can translate the morphisms of very affine varieties into 
     \end{align*}
 \end{definition}
 
-    Sadly, the tropicalisation of morphisms is not functorial, but it almost is! - we will elaborate on this in \textcolor{red}{[cite morphism lemma]}.
+Sadly, the tropicalisation of morphisms is not functorial, but it almost is! - we will elaborate on this in corollary \ref{morphCor}.
     We now look at a key property of $\text{trop}(\phi)$.
     \begin{lemma}
+        \label{tropMorLem}
         Let $\phi^{*}:  K[x_{1}^{\pm1}, \dots, x_{m}^{\pm1}] \to  K[z_{1}^{\pm1}, \dots, z_{n}^{\pm1}]$ be a monomial map (it's induced from map between algebraic groups).
         Let $I \subset  K[z_{1}^{\pm1}, \dots, z_{n}^{\pm1}]$ be an ideal, with $I':= \phi^{*-1}(I)$.
         Then,
@@ -538,8 +535,19 @@ We finally see how we can translate the morphisms of very affine varieties into 
     \end{proof}
 
 \section{Arbritary Tropical varieties}
-\subsection{Fundamental Theorem}
 
+In this section we look at the generalisations of the theorems discussed for hypersufaces earlier. 
+We refer the reader to sections 3.2 to 3.5 of \cite{maclagan2015introduction} for the detailed proofs.
+
+\begin{definition}
+    For an ideal $I \subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ the tropicalisation of the very affine variety $X = V(I)$ is defined as:
+    \[
+        \emph{trop}(X) = \bigcap_{f \in I}\emph{trop}(V(f))
+    \]
+    It's easy to see that if $\mathcal{T}$ is the tropical basis of $I$ then $\emph{trop}(X) = \bigcap_{f \in \mathcal{T}}\text{trop}(V(f))$.
+\end{definition}
+
+The following theorem generalises Kapranov's theorem to arbritary tropical varieties.
     \begin{theorem}[Fundamental Theorem of Tropical Algebraic Geometry]
         Let $K$ be algebraically closed with a non trivial valuation, and let $I \subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ with $X = V(I)$ a very affine variety. 
         Then the following three sets are the same:
@@ -550,11 +558,32 @@ We finally see how we can translate the morphisms of very affine varieties into 
         \end{enumerate}
         Further, if $X$ is irreducible and $w \in \Gamma_{\text{val}} \cap \text{trop}(X)$, then the set $\{y \in X: \text{val}(y) = w\}$ is Zariski dense in $X$.
     \end{theorem}
-\subsection{Structure Theorem}
+
+    A consequence of the fundamental theorem is the following corollary, which proves a very important property for tropicalisations of morphisms of varieties.
+    
+    \begin{corollary}
+        \label{morphCor}
+        Let $\phi: T^{n}\to T^{m}$ be a morphism of algebraic groups.
+        Let $X\subset T^{n}$ be a subvariety, then,
+        \begin{align*}
+            \text{trop}(\overline{\phi(X)}) = \text{trop}(\phi)(\text{trop}(X)),
+        \end{align*}
+        where $\overline{\phi(X)}$ is the Zariski closure.
+    \end{corollary}
+    \begin{proof}
+        Let $I = I(X)$, and $I' = \phi^{*-1}(I)$ (the ideal of $\overline{\phi(X)}$).
+        From lemma \ref{tropMorLem}, if $\text{in}_{w}(I) \neq \langle 1 \rangle$, then $\text{in}_{\text{trop}(\phi)(w)}(I) \neq \langle 1 \rangle$, implying $\text{trop}(\phi)(\text{trop}(X)) \subset \text{trop}(\overline{\phi(X)})$
+        \par For the reverse inclusion we use the Fundamental Theorem - 
+        $\text{trop}(\overline{\phi(X)})$ is the closure of the set $\{ \text{val}(z): z \in \overline{\phi(X)}\}$.
+        Since $\text{trop}(\phi)(\text{trop}(X))$ is a closed subset, we just need to show that if $w \in \Gamma_{\text{val}}^{m} \cap \text{trop}(\overline{\phi(X)})$, then $w \in \text{trop}(\phi)(\text{trop}(X))$.
+        We know that the set $\{z \in \overline{\phi(X)}: \text{val}(z)=w\}$ is Zariski dense in $\overline{\phi(X)}$. 
+        Hence there exists $z = \phi(y)$ for $y \in X$, with $\text{val}(z) = w$. 
+        Since $\text{val}(\phi(y)) = \text{trop}(\phi)(\text{val}(y))$, it follows that $w \in \text{trop}(\phi)(\text{trop}(X))$.
+    \end{proof}
+
     \begin{theorem}[Structure Theorem for Tropical Varieties]
         Let $X$ be an \textit{irreducible d-diminsional} subvariety of $T^{n}$. Then, trop$(X)$ is the support of a balanced-weighted $\Gamma_{\text{val}}-$rational purely d-dimensional polyhedral complex, which is connected through codimension $1$.
     \end{theorem}
-\subsection{Stable Intersection}
 
 \section{Berkovich Analytic Spaces}
 \subsection{The Berkovich Analytification}
@@ -593,4 +622,4 @@ We finally see how we can translate the morphisms of very affine varieties into 
     \par So for any affine scheme of finite type $X$, we define the \textbf{tropical variety associated to }$X$ as $\text{Trop}_v(X) = \text{trop}_v(X^{an})$. 
     This construction makes many tropical objects easier to deal with. 
     For example if $X$ is connected then we know $X^{an}$ is connected (see \cite{berkovich2012spectral}), since $\text{trop}$ is a continuous map it's image also must be connected, proving that the tropical variety is also connected.
-\subsection{Another Proof of the Fundamental Theorem}
+    Further, the proof of the Fundamental Theorem of Tropical Geometry also becomes much more simpler in this case.
