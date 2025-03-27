@@ -264,7 +264,64 @@ The following proposition formalises the earlier comment that combinatorial type
 \end{remark}
 
 \begin{example}[Looking at $M_{4}$]
-    A $4$-marked plane tropical curve, can have four possible combinatorial types: 
+    A $4$-marked plane tropical curve, can have four possible combinatorial types (see figure below - dotted lines correspond to marked points).
+    \begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.22\textwidth}
+            \begin{tikzpicture}
+                \node[inner sep = 0pt] at (0,0) {\includegraphics{Chapters/Images/nontrivM4.pdf}};
+                \node at (1.2,0.7) {$x_{3}$};
+                \node at (1.2,-0.7) {$x_{4}$};
+                \node at (-1.2,0.7) {$x_{1}$};
+                \node at (-1.2,-0.7) {$x_{2}$};
+                \node[above] at (0,0) {$l$};
+            \end{tikzpicture}
+            \caption{Type (A)}
+        \end{subfigure}
+         \begin{subfigure}[b]{0.22\textwidth}
+            \begin{tikzpicture}
+                \node[inner sep = 0pt] at (0,0) {\includegraphics{Chapters/Images/nontrivM4.pdf}};
+                \node at (1.2,0.7) {$x_{2}$};
+                \node at (1.2,-0.7) {$x_{4}$};
+                \node at (-1.2,0.7) {$x_{1}$};
+                \node at (-1.2,-0.7) {$x_{3}$};
+                \node[above] at (0,0) {$l$};
+            \end{tikzpicture}
+            \caption{Type (B)}
+        \end{subfigure}       
+        \begin{subfigure}[b]{0.22\textwidth}
+            \begin{tikzpicture}
+                \node[inner sep = 0pt] at (0,0) {\includegraphics{Chapters/Images/nontrivM4.pdf}};
+                \node at (1.2,0.7) {$x_{2}$};
+                \node at (1.2,-0.7) {$x_{3}$};
+                \node at (-1.2,0.7) {$x_{1}$};
+                \node at (-1.2,-0.7) {$x_{4}$};
+                \node[above] at (0,0) {$l$};
+            \end{tikzpicture}
+            \caption{Type (C)}
+        \end{subfigure}
+        \begin{subfigure}[b]{0.22\textwidth}
+            \begin{tikzpicture}
+                \node[inner sep = 0pt] at (0,0) {\includegraphics{Chapters/Images/trivM4.pdf}};
+                \node at (1.2,0.7) {$x_{2}$};
+                \node at (1.2,-0.7) {$x_{3}$};
+                \node at (-1.2,0.7) {$x_{1}$};
+                \node at (-1.2,-0.7) {$x_{4}$};
+            \end{tikzpicture}
+            \caption{Type (D)}
+        \end{subfigure}
+    \end{figure}
+    \par These combinatorial types play an important role for the rest of this chapter, and thus we will refer to them with the captions given below each figure.
+    \par The combinatorial types (A) to (C) have codimension $0$, and hence correspond to stratum of $M_{4}$ isomorphic to $\mathbb{R}_{>0}$, parametrised by the edge length $l$.
+    And the combinatorial type (D) with codimension $1$ corresponds to a single point in $M_{4}$. Thus, we have the following picture for $M_{4}$, with each unbounded edge corresponding to one of the types (A), (B), or (C).
+    \begin{center}
+       \begin{tikzpicture}
+           \draw (0,0) -- (0,2) node [left]{\emph{(A)}};
+           \draw (0,0) -- (2,-1)node [above]{\emph{(B)}};
+           \draw (0,0) -- (-2,-1)node [above]{\emph{(C)}};
+           \node at (0,0.2) [right]{\emph{(D)}};
+       \end{tikzpicture} 
+    \end{center}
 \end{example}
 
 

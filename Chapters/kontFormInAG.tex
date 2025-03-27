@@ -662,7 +662,23 @@ In this section we will classify the set of reducible curves, and discuss the pr
 \end{definition}
 
 \begin{example}
-    \textcolor{red}{[Add example of a labeled configuration]}
+    \label{exLabC}
+    Consider a curve in $\overline{\mathcal{M}}_{0,4}$, with marks $\{x_{1},\dots, x_{4}\}$. 
+    The labeled configuration given by the partitioning $\{\{x_{1}, x_{3}\},\{x_{2}, x_{4}\}\}$ looks like the figure below.
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (0.2,0.2) -- (2,2);
+            \draw (1,2) -- (2.8,0.2);
+            \node at (0.6,0.6) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (0.6,0.6) [left]{$x_{1}$};
+            \node at (1.2,1.2) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (1.2,1.2) [left]{$x_{3}$};
+            \node at (1.8,1.2) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (1.8,1.2) [right]{$x_{2}$};
+            \node at (2.4,0.6) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (2.4,0.6) [right]{$x_{4}$};
+        \end{tikzpicture}
+    \end{center}
 \end{example}
 
 \begin{definition}
@@ -680,10 +696,8 @@ In this section we will classify the set of reducible curves, and discuss the pr
     For a stable partition $S = A \cup B$ of the marked points, the divisor defined by the induced labeled configuration is denoted as $D(A|B)$.
     \par A general point of the divisor $D(A|B)$ is a curve with two twigs, such that the set of marks $A$ and $B$ are distributed among different twigs.
 \end{definition}
+The curve in example \ref{exLabC} is what a general point in the divisor $D(x_{1},x_{3}|x_{2},x_{4})$ of $\overline{\mathcal{M}}_{0,4}$ looks like.
 
-\begin{example}
-    \textcolor{red}{[Add an example for divisors]}
-\end{example}
 
 \begin{proposition}[The recursive structure of divisors]
     Each boundary cycle can be expressed as a finite product of moduli spaces of lower dimension. 
@@ -1113,6 +1127,7 @@ The boundary of $\mathcal{\overline{M}}_{0,b}(\mathbb{P}^{r},d)$ can be describe
     \par We call a $d$-weighted partition stable when $|A|\geq 2$ if $d_{A} = 0$, and $|B|\geq 2$ if $d_{B} = 0$.
 \end{definition}
 
+
 \begin{definition}[Boundary Divisor]
 For each stable $d$-weighted partition on the set of marks $\{x_{1},\dots,x_{n}\}$ there exists a divisor, denoted $D(A,B;d_{A}, d_{B})$.
 \par A general point of a divisor $D(A,B;d_{A}, d_{B})$ consists of a map $\mu$ from a tree with two twigs, $C = C_{A} \cup C_{B}$, such that,
@@ -1121,6 +1136,23 @@ For each stable $d$-weighted partition on the set of marks $\{x_{1},\dots,x_{n}\
     \item $\emph{deg}(\mu|_{C_{A}}) = d_{A}$, and $\emph{deg}(\mu|_{C_{B}}) = d_{B}$.
 \end{itemize}
 \end{definition}
+
+We visualise the divisor $D(A,B;d_{A}, d_{B})$ as the following picture.
+\begin{center}
+        \begin{tikzpicture}
+            \draw (0,0) -- (2,2);
+            \draw (1,2) -- (3,0);
+            \node at (0.3,0.3) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (0.75,0.75) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (1.2,1.2) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (2,1) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (2.6,0.4) [shape=circle, draw = black,fill = black, scale = 0.4]{};
+            \node at (0.5,1.2) []{$A$};
+            \node at (2.7, 1) []{$B$};
+            \node at (0.9,0.2) []{$d_{A}$};
+            \node at (2.2,0.2) []{$d_{B}$};
+        \end{tikzpicture}
+    \end{center}
 
 \begin{remark}
     Boundary divisors for the space of stable maps also admit a recursive structure.

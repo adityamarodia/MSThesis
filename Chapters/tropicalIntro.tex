@@ -17,11 +17,37 @@ For any polynomial $f  = \sum_{i}c_{i}x^{i}\in \mathbb{R}[x]$, the standard poly
                    &= \text{min}_{i}(c_{i} + i \cdot x),
 \end{align*}
 a piecewise linear function from $\mathbb{R}$ to $\mathbb{R}$.
-\par \textcolor{red}{Insert Image of piecewise linear function}
+
+\begin{example}
+    Consider the polynomial $f = x^{2} + x + 1$, then $\text{trop}(f) = \text{min}(2x,x,1)$. It's graph looks like the following.
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[blue] (0,0) -- (0.5,1);
+            \draw[blue] (0.5,1) -- (1.5,2);
+            \draw[blue] (1.5,2) -- (3,2);
+            \draw[Stealth-Stealth] (0,1) -- (3,1) node [below]{x} -- (3.5,1);
+            \draw[Stealth-Stealth] (0.5,0) -- (0.5, 2.8) node [left]{y} -- (0.5,3);
+            \draw[-*](0,1) -- (1.5,1) node [below]{$(1,0)$};
+            \draw[-*](0.5,0) -- (0.5,2) node [left]{$(0,1)$};
+        \end{tikzpicture}
+    \end{center}
+    A piecewise linear polynomial.
+\end{example}
+
 \par Just like how we study the roots of polynomials in algrbaic geometry, in tropical geometry we care about the points in the domain where the tropical polynomial is \textit{not linear}.
 This will be justified in remark \ref{rootValRmk} and the fundamental theorem in later sections.
 \par The tropical polynomial in $2$ variables serve as a more instructive example to understand what the set of non-differentiable points look like. 
-\textcolor{red}{[Add diagram and stuff for two variable polynomials]}
+
+\begin{example}
+    For a quadratic polynomial $f = ax^{2} + bxy + cy^{2} + dx + ey + g$, the tropicalisation looks like the tent aboce the plane in the figure below. 
+    With the ``roots"" described earlier as the projection onto the plane below.
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}
+            \node[inner sep = 0pt] at (0,0) {\includegraphics{Chapters/Images/tent.pdf}};
+        \end{tikzpicture}
+    \end{figure}
+\end{example}
 
 \begin{remark}
     \label{rmkOnTropPol}
