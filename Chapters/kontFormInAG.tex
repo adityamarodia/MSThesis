@@ -407,7 +407,7 @@ In general, for a good intersection theory to exist on our moduli space, it is n
             \draw[thick] (2.5,4) -- (5.5,4);
             \draw[thick] (2.5,5) -- (5.5,5);
             \draw[thick] (2.5,2.5) -- (5.7,5.7);
-            \draw[thick] (3.4,2.5) -- (3.4,5.5);
+            \draw[thick] (3.4,2.5) -- (3.4,5.7);
             %circles in the centre.
             \node[circle, draw = black, fill = white, scale = 0.4] at (3,3){};
             \node[circle, draw = black, fill = white, scale = 0.4] at (4,4){};
@@ -431,7 +431,8 @@ In general, for a good intersection theory to exist on our moduli space, it is n
             \node[left] at (1,3){$0$};
             \node[left] at (1,4){$1$};
             \node[left] at (1,5){$\infty$};
-            \node[below] at (3.4,2.5){$U_{q}$};
+            \node[above] at (3.4,5.7){$U_{q}$};
+            \node[above] at (1,6){$\mathbb{P}^{1}$};
         \end{tikzpicture}
     
     \end{center}
@@ -869,9 +870,37 @@ In the above factorisation of $\mu$, $\rho$ is a $k$-fold cover of $\mathbb{P}^{
 To establish a bound on the codimension of the complement of $W^{*}(r,d)$, we study the locus of maps associated with each factorisation of $d$ in the complement.
 In particular, we are looking for factorisations where the associated locus achieves the least possible codimension.
 
-\begin{lemma}[generalisation of Lemma 2.1.4 and 2.1.5 from Kock's book]
-    \textcolor{red}{Prove this lemma in notes and write it here}
+\begin{lemma}
+    The locus in $W(r,d)$ of $k$-fold covers of curves of degree $e$, for $d = ke$, is closed of codimension $(k-1)(e(r+1)-2)$.
 \end{lemma}
+\begin{proof}[Sketch of proof]
+    As discussed earlier, if a map $\mu$ lies in the locus, then it factors through $\mathbb{P}^{1}$ in the following manner,
+    \[
+        \begin{tikzcd}
+            \mathbb{P}^{1} & & \mathbb{P}^{r}\\
+                           & \mathbb{P}^{1} &
+            \arrow["\mu", from = 1-1, to = 1-3]
+            \arrow["\rho", from = 1-1, to = 2-2]
+            \arrow["\psi", from = 2-2, to = 1-3]
+        \end{tikzcd}.
+    \]
+    Here, $\pho$ is a $k$-fold cover of $\mathbb{P}^{1}$, and $\psi$ is a degree $e$ map birational to its image. We know that this factorisation is not unique (since $\text{Aut}(\mathbb{P}^{1})$ is non trivial).
+    This factorisation implies that the map:
+    \begin{align*}
+        W(1,k) \times W(r,e) &\to W(r,d)\\
+        (\rho, \psi) &\mapsto \psi \circ \rho,
+    \end{align*}
+    is surjective on the locus. 
+    Since the fiber over each point in $W(r,d)$ is of dimension $3$ ($\text{dim}\text{Aut}(\mathbb{P}^{1}) = 3$), the codimension of the locus is:
+    \begin{align*}
+        &\text{dim}(W(r,d)) + 3 - \text{dim}(W(1,k)) - \text{dim}(W(r,e))\\
+        &= rd + r + d + 3 - 2k - 1 - re - e -r\\
+        &= rke + ke - 2k - re + 2 -e\\
+        &= k(e(r+1)) - e(r+1) -2 (k-1)\\
+        &= (k-1)(e(r+1) -2).
+    \end{align*}
+    The idea behing why the locus is closed follows from the fact that any multiple cover of a line can't degenerate into a parametrisation of different.
+\end{proof}
 
 \begin{proposition}
     \label{birDim}
@@ -914,6 +943,11 @@ The following lemma hints at the likelyhood for the existence of a coarse moduli
     Then there exists only a finite number of automophisms $\phi$ of $\mathbb{P}^{1}$ such that $\mu = \mu \circ \phi$.
     If $\mu$ is birational onto its image, $\text{Aut}(\mu)$ is trivial.
 \end{lemma}
+\begin{proof}
+    Let $K \hookrightarrow L$ be the field extension on the function fields $K:=K(\mu(\mathbb{P}^{1}))$ and $L:=K(\mathbb{P}^{1})$.
+    Then there exists a natural identification between $\text{Aut}(\mu)$ and the group of automorphisms of $L$ fixing $K$.
+    If $\mu$ is birational onto int's image, then $L = K$, hence the automorphism group $\text{Aut}(\mu)$ is trivial.
+\end{proof}
 
 Notice that a consquence of the previous lemma is that the open set $W^{*}(r,d) \subset W(r,d)$ is precisely the set of automorphism free maps - since maps are birational onto their image if and only if the field extension is of degree $1$. 
 The set, 
@@ -986,9 +1020,6 @@ where $\pi$ is a flat family of trees, and $\sigma_{i}$ are $n$ disjoint section
 \begin{lemma}[Equivalence of Stability and Cardinality of Automorphism Group]
     An $n$-pointed map is Kontsevich stable if and only if it has a finite number of automorphisms.
 \end{lemma}
-\begin{proof}
-    \textcolor{red}{Add this proof later}
-\end{proof}
 
 \par We now state the existence theorem for Kontsevich moduli spaces, without proof.
 
