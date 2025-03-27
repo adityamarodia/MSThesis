@@ -72,7 +72,10 @@ This will be justified in remark \ref{rootValRmk} and the fundamental theorem in
 
     \begin{lemma}
         \label{vallemma}
-        When $\text{val}(a) \neq \text{val}(b)$ for $a,b \in K$, then $\text{val}(a+b)= \text{min}(\text{val}(a),\text{val}(b))$.
+        When $\text{val}(a) \neq \text{val}(b)$ for $a,b \in K$, then,
+        \[
+            \text{val}(a+b)= \text{min}(\text{val}(a),\text{val}(b)).
+        \]
     \end{lemma}
     It's not hard to see that the algebraic structure induced on the image of the valuation map is almost same as the algrbaic structure on the tropical semiring. 
     This observation motivates us to define tropicalisation of a polynomial with respect to a given valuation (as hinted in \ref{rmkOnTropPol}).
@@ -80,6 +83,7 @@ This will be justified in remark \ref{rootValRmk} and the fundamental theorem in
     \begin{equation*}
         \text{trop}_{\text{val}}(f) = \text{min}_{i}(\text{val}(c_{i}) + i \cdot x).
     \end{equation*}
+    When the valuation is evident from context, we drop the subscript $\text{val}$ in $\text{trop}_{\text{val}}(f)$ for notational conveniece.
     \begin{remark}
         \label{rootValRmk}
     We now make a key observation. For any tropical polynomial (tropicalisation of a standard polynomial) in one variable, we refer to the points where it's not differentiable as its \textbf{roots}. 
@@ -497,7 +501,7 @@ The following proposition formally defines a way to move between the ideals $I$ 
 
 \begin{definition}
    Assume $K$ is any valued field.
-   A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1}, \dots, x_n^{\pm 1}]$ is a \textit{finite generating set} such that, if for all $w \in \mathbb{R}^{n}$:
+   A tropical basis $\mathcal{T}\subset K[x_1^{\pm 1},\allowbreak \dots,\allowbreak x_n^{\pm 1}]$ is a \textit{finite generating set} such that, if for all $w \in \mathbb{R}^{n}$:
     \begin{align*}
         \exists ~f \in I~\text{such that }&\emph{trop}(f)(w)~\text{achieves minimum only once},\\
                                                           &~~~~\textbf{if and only if}\\
@@ -649,11 +653,18 @@ The following theorem generalises Kapranov's theorem to arbritary tropical varie
     Then $T:= \text{Spec}(K[M])$ is the multiplicative torus with character group $M$. 
     Let $N_{\mathbb{R}} = \mathbb{R} \otimes N = \text{Hom}(M,\mathbb{R})$. Then the \textbf{tropicalization map} is defined as:
     \begin{align*}
-        \text{trop}_v:T^{an} &\to N_{\mathbb{R}}\\
-        p &\mapsto \text{trop}_v(p)
+        \text{trop}_v:T^{an} &\to N_{\mathbb{R}},\\
+        p &\mapsto \text{trop}_v(p).
     \end{align*}
-    Such that for the character $\chi^u$ of $T$ corresponding to $u \in M$, $\langle u,\text{trop}_{v}(p)\rangle = -\text{log}(p(\chi^{u}))$. So if choose some coodinates $x_1, \to, x_n$ for $T^{n}$ then, $\text{trop}_v(p) = (-\text{log}(p(x_1)), \dots,\allowbreak -\text{log}(p(x_n)))$.
-    \par So for any affine scheme of finite type $X$, we define the \textbf{tropical variety associated to }$X$ as $\text{Trop}_v(X) = \text{trop}_v(X^{an})$. 
+    Such that for the character $\chi^u$ of $T$ corresponding to $u \in M$, 
+    \[
+        \langle u,\text{trop}_{v}(p)\rangle = -\text{log}(p(\chi^{u})).
+    \]
+    For a choice of coodinates $x_1, \to, x_n$ in $T^{n}$, 
+    \[
+        \text{trop}_v(p) = (-\text{log}(p(x_1)), \dots,\allowbreak -\text{log}(p(x_n))).
+    \]
+    \par So for any affine scheme of finite type, $X$, we define the \textbf{tropical variety associated to }$X$ as $\text{Trop}_v(X) = \text{trop}_v(X^{an})$. 
     This construction makes many tropical objects easier to deal with. 
     For example if $X$ is connected then we know $X^{an}$ is connected (see \cite{berkovich2012spectral}), since $\text{trop}$ is a continuous map it's image also must be connected, proving that the tropical variety is also connected.
     Further, the proof of the Fundamental Theorem of Tropical Geometry also becomes much more simpler in this case.

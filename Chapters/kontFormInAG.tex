@@ -1,4 +1,12 @@
+
+The goal of this chapter is to understand the proof of Kontsevich's curve counting formula.
+We start with studying some moduli theory - developing the language to understand Kontsevich's proof.
+We then look at various relevant moduli spaces and their properties, before stating and proving the curve counting formula.
+
+\par This chapter's exposition is majorly ispired from \cite{KockQcohom}. We also recommend the reader to refer to \cite{FPnotes} for details we don't prove during the course of this chapter.
+
 \section{Moduli Theory}
+
 \subsection{Introduction and Motivation}
 The goal of a moduli problem is to classify a collection of geometric objects upto some sort of equivalence.
 The \textit{geometric object} can vary significantly from one moduli problem to another. 
@@ -205,16 +213,16 @@ Then $(Y,U)$ is said to represent $S$.
     For this morphism, $\varphi_{\mathfrak{X}}$, consider the following diagram (with the element being chased on the right).
     \[
         \begin{tikzcd}
-            h_{M}(M) & & F(M) & & \text{id}_{M} && U/M\\
-            h_{M}(B) & & F(B) & & \varphi_{\mathfrak{X}} && \mathfrak{X}/B = F(\varphi_{\mathfrak{X}})(U/M) = \varphi_{\mathfrak{X}}^{*}U/B
+            h_{M}(M) & & F(M)  & \text{id}_{M} && U/M\\
+            h_{M}(B) & & F(B)  & \varphi_{\mathfrak{X}} && \mathfrak{X}/B = F(\varphi_{\mathfrak{X}})(U/M) = \varphi_{\mathfrak{X}}^{*}U/B
             \arrow["\mathcal{U}_{M}", from = 1-1, to = 1-3]
             \arrow["\mathcal{U}_{B}", from = 2-1, to = 2-3]
             \arrow["F(\varphi_{\mathfrak{X}})", from = 1-3, to = 2-3]
             \arrow["\_\circ \varphi_{\mathfrak{X}}", from = 1-1, to = 2-1]
-            \arrow["\mathcal{U}_{M}", mapsto, from = 1-5, to = 1-7]
-            \arrow["\mathcal{U}_{B}", mapsto, from = 2-5, to = 2-7]
-            \arrow["\_\circ \varphi_{\mathfrak{X}}", mapsto, from = 1-5, to = 2-5]
-            \arrow["F(\varphi_{\mathfrak{X}})", mapsto, from = 1-7, to = 2-7]
+            \arrow["\mathcal{U}_{M}", mapsto, from = 1-4, to = 1-6]
+            \arrow["\mathcal{U}_{B}", mapsto, from = 2-4, to = 2-6]
+            \arrow["\_\circ \varphi_{\mathfrak{X}}", mapsto, from = 1-4, to = 2-4]
+            \arrow["F(\varphi_{\mathfrak{X}})", mapsto, from = 1-6, to = 2-6]
         \end{tikzcd}
     \]
     Via commutativity of the above diagram it follows that $\mathfrak{X}/B = \varphi_{\mathfrak{X}}^{*}U/B$. 
@@ -534,7 +542,7 @@ Then the limit curve formed by a blowup in the universal family gives us the sta
         \item The restriction of $\varphi$ on $\varphi^{-1}(\mathfrak{X}\backslash \delta) \to \mathfrak{X}\backslash \delta$ is an isomorphism.
         \item $\varphi \circ \sigma'_{n+1} = \delta$, and $\varphi \circ \sigma'_{i} = \sigma_{i}$ for $i \leq n$.
     \end{itemize}
-    This family is unique upto isomorphism, and is called the \textbf{stabilisation} of $(\mathfrak{X}/B, \sigma_{1}, \dots, \sigma_{n})$. Further, stabilisation commutes with fibre products.
+    This family is unique upto isomorphism, and is called the \textbf{stabilisation} of $(\mathfrak{X}/B, \sigma_{1},\allowbreak \dots,\allowbreak \sigma_{n})$. Further, stabilisation commutes with fibre products.
 \end{proposition}
 
 \subsubsection{Forgetful Maps and Contraction}
@@ -631,8 +639,8 @@ Consider a point $p \in \overline{U}_{0,4}$; to this point we are going to assig
 Let $F_{p}$ denote the $4$-pointed curve $\pi^{-1}(\pi(p))$ where $\pi: \overline{U}_{4} \to \overline{\mathcal{M}}_{0,4}$.
 Then $p$ lies on the curve $F_{q}$; if $p$ doesn't overlap with any of the special points, then define $C_{p} := (F_{p},p)$, else if $p$ overlaps with a special point define $C_{p}$ to be the stabilisation of $(F_{p},p)$.
 If we interpret $C_{p}$ as it's corresponding point in $\overline{\mathcal{M}}_{0,5}$ we have established an \textit{injective} map $\overline{U}_{0,4} \to \overline{\mathcal{M}}_{0,5}$.
-\par It's easy to check the srujectivity of this map.
-Consider a $5$-pointed curve $(C,p_{1},\dots, p_{5})$, let $F_{q}$ be the four pointed curve obtained by forgetting the last point (contracting, if required).
+\par It's easy to check the surjectivity of this map.
+Consider a $5$-pointed curve $(C,p_{1},\allowbreak\dots,\allowbreak p_{5})$, let $F_{q}$ be the four pointed curve obtained by forgetting the last point (contracting, if required).
 That is, the $4$-pointed curve corresponding to the image of the curve under the forgetful map $\varepsilon : \overline{\mathcal{M}}_{0,5}\to \overline{\mathcal{M}}_{0,4}$.
 To obtain a point in the universal family $\overline{U}_{0,4}$, we consider the fibre over the point in $\overline{\mathcal{M}}_{0,4}$ and choose the point to be the image of $p_{5}$ under forgetting and contracting. 
 It's easy to see that this is an inverse to the previous map, and hence a bijection between $\overline{\mathcal{M}}_{0,5}$ and $\overline{U}_{0,4}$.
@@ -884,7 +892,7 @@ In particular, we are looking for factorisations where the associated locus achi
             \arrow["\psi", from = 2-2, to = 1-3]
         \end{tikzcd}.
     \]
-    Here, $\pho$ is a $k$-fold cover of $\mathbb{P}^{1}$, and $\psi$ is a degree $e$ map birational to its image. We know that this factorisation is not unique (since $\text{Aut}(\mathbb{P}^{1})$ is non trivial).
+    Here, $\rho$ is a $k$-fold cover of $\mathbb{P}^{1}$, and $\psi$ is a degree $e$ map birational to its image. We know that this factorisation is not unique (since $\text{Aut}(\mathbb{P}^{1})$ is non trivial).
     This factorisation implies that the map:
     \begin{align*}
         W(1,k) \times W(r,e) &\to W(r,d)\\
@@ -1077,7 +1085,7 @@ We denote with $D_{j}:= \mu^{*}l_{j}$ the inverse image divisor, and with $q_{j1
 \end{proposition}
 \begin{proof}
     Since the divisors $D_{j}$ are linearly equivalent, they arise from sections of the same line bundle, say $\mathcal{O}(D)$.
-    Let $\tilde{s}_{0},\, \tilde{s}_{1},\,\tilde{s}_{2}$ be the sections which give rise to $D_{0},\,D_{1},\,D_{2}$ respectively.
+    Let $\tilde{s}_{0},\, \tilde{s}_{1},\,\tilde{s}_{2}$ be the sections which give rise to $D_{0},\,\allowbreak D_{1},\,\allowbreak D_{2}$; respectively.
     Since these sections are disjoint, they define a morphism $\tilde{\mu}: \tilde C \to \mathbb{P}^{2}$ given by $x \mapsto [\tilde{s}_{0}(x);\tilde{s}_{1}(x);\tilde{s}_{2}(x)]$.
     We can choose a $\phi \in \text{Aut}(\mathbb{P}^{2})$ such that $(\phi \circ \tilde{\mu})^{*}l_{i} = \tilde{s}_{i}$ for the divisors $l_{i}$ defined by the linear forms $x_{i}$.
     If we now forget the $3d$ marked points and let $\mu := \phi \circ \mu$ be a map from $C$, the curve with $n$-marked points, then the $n+3d$-pointed curve induced by $\mu$ is same as the $\tilde{C}$ we started off with.
@@ -1199,7 +1207,7 @@ Since we are forgetting the map $\mu$, the map is invariant of the action of $G$
 The boundary of $\mathcal{\overline{M}}_{0,b}(\mathbb{P}^{r},d)$ can be described in ways similar to the boundary of $\overline{\mathcal{M}}_{0,n}$.
 
 \begin{definition}[$d$-weighted partition]
-    A $d$-weighted partition of a set $S = \{s_{1},\dots,s_{n}\}$ is a tuple $(A,B,d_{A},d_{B})$, where $A$, $B$ are disjoint subsets of $S$ such that $A \cup B = S$, and $d_{A} + d_{B} = d$.
+    A $d$-weighted partition of a set $S = \{s_{1},\allowbreak\dots,\allowbreak s_{n}\}$ is a tuple $(A,B,d_{A},d_{B})$, where $A$, $B$ are disjoint subsets of $S$ such that $A \cup B = S$, and $d_{A} + d_{B} = d$.
     \par We call a $d$-weighted partition stable when $|A|\geq 2$ if $d_{A} = 0$, and $|B|\geq 2$ if $d_{B} = 0$.
 \end{definition}
 
@@ -1411,5 +1419,5 @@ We strongly recommed the reader to look at the computation for $n=2,\,3$ from Ch
         3d_{A} - 2
         \end{pmatrix} d_{A} N_{d_{A}}  d_{B} N_{d_{B}}  d_{A} d_{B}.\label{kontRHS}.
     \end{align} 
-    From \ref{kontRHS}, \ref{kontLHS}, and \ref{WDVVformY} Kontsevitch's equation now follows.
+    Kontsevitch's equation now follows from \ref{kontRHS}, \ref{kontLHS}, and \ref{WDVVformY}.
 \end{proof}
