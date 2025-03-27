@@ -1,15 +1,16 @@
+This chapter introduces the field of Tropical Geometry. 
+After some definitions and examples we quickly build up to important themes in this subject - studying some fundamental theorem and their consquences.
 \section{Introduction and Examples}
-\subsection{Tropical Arithmetic}
+\subsection{Tropical Arithmetic and Polynomials}
     \begin{definition} The tropical semiring $(\mathbb{R} \cup \{\infty\}, \oplus, \odot)$, is defined as the semiring whose underlying set is $\mathbb{R}$ with the binary operations: 
         \begin{align*}
             x \oplus y &= \text{min}(x,y)\\
             x \odot y  &= x + y
         \end{align*}
-    We refer to $\oplus$ as the \textit{tropical sum}, and $\odot$ as the \textit{tropical product}. This can be a little confusing since the tropical product is defined as out usual notion of sum.
+    We refer to $\oplus$ as the \textit{tropical sum}, and $\odot$ as the \textit{tropical product}. 
     \end{definition}
 
-\subsection{Tropical plane curves}
-Just like in algebraic geometry, our source of geometric objects in the tropical world comes from polynomials.
+Like in algebraic geometry, our source of geometric objects in the tropical world comes from polynomials.
 We will look at how polynomials behave on the tropical semiring to get an idea of the geometric objects we will soon be dealing with.
 For any polynomial $f  = \sum_{i}c_{i}x^{i}\in \mathbb{R}[x]$, the standard polynomial ring, the tropical analougue, $\text{trop}(f)$ is:
 \begin{align*}
@@ -19,7 +20,7 @@ For any polynomial $f  = \sum_{i}c_{i}x^{i}\in \mathbb{R}[x]$, the standard poly
 a piecewise linear function from $\mathbb{R}$ to $\mathbb{R}$.
 
 \begin{example}
-    Consider the polynomial $f = x^{2} + x + 1$, then $\text{trop}(f) = \text{min}(2x,x,1)$. It's graph looks like the following.
+    Consider the polynomial $f = x^{2} + x + 1$, then in the tropical semiring this polynomial looks like: $\emph{min}(2x,x,1)$. Its graph looks like the following.
     \begin{center}
         \begin{tikzpicture}
             \draw[blue] (0,0) -- (0.5,1);
@@ -34,8 +35,8 @@ a piecewise linear function from $\mathbb{R}$ to $\mathbb{R}$.
     A piecewise linear polynomial.
 \end{example}
 
-\par Just like how we study the roots of polynomials in algrbaic geometry, in tropical geometry we care about the points in the domain where the tropical polynomial is \textit{not linear}.
-This will be justified in remark \ref{rootValRmk} and the fundamental theorem in later sections.
+\par In tropical geometry the points in the domain where the tropical polynomial is \textit{not linear} are referred to as the ``roots" of the function.
+The reasoning behind this terminology will be justified in remark \ref{rootValRmk} and the fundamental theorem in later sections.
 \par The tropical polynomial in $2$ variables serve as a more instructive example to understand what the set of non-differentiable points look like. 
 
 \begin{example}
@@ -60,9 +61,9 @@ This will be justified in remark \ref{rootValRmk} and the fundamental theorem in
     \begin{definition}
         For a field $K$ we define the valuation $\emph{val}$ as a function $\emph{val}: K \to \mathbb{R}\cup \{\infty\}$ such that:
         \begin{enumerate}
-            \item $\emph{val}(a) = \infty \Leftrightarrow a = 0$
-            \item $\emph{val}(ab) = \emph{val}(a)+ \emph{val}(b)$
-            \item $\emph{val(a+b)} \geq \emph{min}(\emph{val}(a),\emph{val}(b))$
+            \item $\emph{val}(a) = \infty \Leftrightarrow a = 0$,
+            \item $\emph{val}(ab) = \emph{val}(a)+ \emph{val}(b)$,
+            \item $\emph{val(a+b)} \geq \emph{min}(\emph{val}(a),\emph{val}(b))$.
         \end{enumerate}
         The image of $\emph{val}$ is an additive subgroup, $\Gamma_{\emph{val}} \subset \mathbb{R}$, called the value group.
         \par An important assumption we make is that $1 \in \Gamma_{\text{val}}$. 
@@ -86,7 +87,7 @@ This will be justified in remark \ref{rootValRmk} and the fundamental theorem in
     When the valuation is evident from context, we drop the subscript $\text{val}$ in $\text{trop}_{\text{val}}(f)$ for notational conveniece.
     \begin{remark}
         \label{rootValRmk}
-    We now make a key observation. For any tropical polynomial (tropicalisation of a standard polynomial) in one variable, we refer to the points where it's not differentiable as its \textbf{roots}. 
+For any tropical polynomial (tropicalisation of a standard polynomial) in one variable, we refer to the points where it's not differentiable as its \textbf{roots}. 
     Suppose $f(x) = \prod_{i=1}^{n}(x-\lambda_i) \in K[x]$, where $K$ is some valued field, then $\text{trop}(f) = \sum_{i=1}^{n}\text{min}(\text{val}(x),\text{val}(\lambda_i))$. 
     It's clear that the \textbf{``roots"} of $\text{trop}(f)$ are $\text{val}(\lambda_i)$.
     This relation between the two types of \textit{roots} will be further generalised, and will lead to the \textit{fundamental theorem of tropical geometry}.
@@ -103,9 +104,8 @@ This will be justified in remark \ref{rootValRmk} and the fundamental theorem in
     The splitting is a map $\phi: \Gamma_{\text{val}} \to K^{*}$, but we always denote $\phi(w)$ with $t^w$. This notation is inspired from the splitting in the case where $K$ is the field of Puiseux series.
     \par Other than the standard affine and projective spaces, in tropical geometry we often deal with \textit{n-dimensional algebraic tori}: $T^{n}_{K} := T^n = (K^{*})^n$. 
     The coordinate ring of $T^{n}$ is $K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$, the ring of laurent polynomials. 
-    Zero set of ideals in the laurent polynomial ring define varieties in $T^n$, these varieties are called \textbf{very affine varieties}.
-    Just like for affine spaces we can define a Zariski topology on $T^{n}$.
-    \par We now have the inclusions $i: T^{n} \hookrightarrow \mathbb{A}^n$ and $j: \mathbb{A}^{n} \hookrightarrow \mathbb{P}^{n}$. 
+    Zero set of ideals in the laurent polynomial ring define varieties in $T^n$, these varieties are called \textbf{very affine varieties}. We can also define a Zariski topology on $T^{n}$.
+    \par We have the inclusions $i: T^{n} \hookrightarrow \mathbb{A}^n$ and $j: \mathbb{A}^{n} \hookrightarrow \mathbb{P}^{n}$. 
     The affine closure of a very affine variety $X$ is $\overline{i(X)}$, and the projective closure of a affine variety $X$ is $\overline{j(X)}$. 
     For an ideal $I \subset K[x_{1}^{\pm 1},\dots,x_{n}^{\pm 1}]$, define $I_{\text{aff}}:= I \cap K[x_{1},\dots,x_{n}]$.
 
@@ -173,7 +173,7 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
         We can also define the initial form for a laurent polynomial $f$ in the same way.
     \end{definition}
 
-    It's easter to discuss properties of these initial forms once we understand their relation to tropical hypersurfaces.
+    It's easier to discuss properties of these initial forms once we understand their relation to tropical hypersurfaces.
     So before we further study these intial forms, we will first look at tropical hypersurfaces.
     \begin{definition}
         For a laurent polynomial $f \in  K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}] $, the tropical hypersurface $\emph{trop}(V(f))$ is the set:
@@ -188,7 +188,7 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
     It's clear that for a laurent polynomial $f$: $V(\text{trop}(f)) = \text{trop}(V(f))$
 
     That next theorem gives various characterisations for a tropical hypersurface.
-    The generalisation of this theorem to varieties of higher codimensions is called the \textit{fundamental theorem of Tropical Geometry}.
+    The generalisation of this theorem to varieties of higher codimensions is called the \textit{Fundamental Theorem of Tropical Geometry}.
     \begin{theorem}[Kapranov's Theorem]
     Let $K$ be an algebraically closed field with a non-trivial valuation. Fix a laurent polynomial $f \in K[x_{1}^{\pm1}, \dots, x_{n}^{\pm1}]$. The following sets are the same:
     \begin{enumerate}
@@ -199,7 +199,7 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
     Further, if $f$ is irreducible and $w \in \Gamma_{\text{val}} \cap \text{trop}(V(f))$, then the set $\{y \in V(f): \text{val}(y) = w\}$ is Zariski dense in $V(f)$.
     \end{theorem}
 
-    \begin{proof}[Sketch of proof]
+    \begin{proof}
         Showing $A$ = $B$ is straightforward. 
         If $x \in A$ then there exist atleast two $u_1,~u_2$ such that $\text{trop}(f)(x) = \text{val}(c_{u_{1}}) + u_{1}\cdot x = \text{val}(c_{u_{2}}) + u_{2}\cdot x$. 
         This implies $\text{in}_{x}(f)$ has atleast the terms corresponding to $u_1$ and $u_2$, implying it's not a monomial, and $A \subset B$.
