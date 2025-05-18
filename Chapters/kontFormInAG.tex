@@ -1,9 +1,9 @@
 
 The goal of this chapter is to understand the proof of Kontsevich's curve counting formula.
-We start with studying some moduli theory - developing the language to understand Kontsevich's proof.
+We start with studying some moduli theory to understand the language used in Kontsevich's proof.
 We then look at various relevant moduli spaces and their properties, before stating and proving the curve counting formula.
 
-\par This chapter's exposition is majorly ispired from \cite{KockQcohom}. We also recommend the reader to refer to \cite{FPnotes} for details we don't prove during the course of this chapter.
+\par This chapter's exposition is majorly ispired from \cite{KockQcohom}. We also recommend the reader to refer to \cite{FPnotes} for details (and further generalisations) we don't discuss during the course of this chapter.
 
 \section{Moduli Theory}
 
@@ -12,7 +12,7 @@ The goal of a moduli problem is to classify a collection of geometric objects up
 The \textit{geometric object} can vary significantly from one moduli problem to another. 
 For example, in the rest of this thesis we will majorly be dealing with two moduli problems - one where the object in consideration is a rational plane curve, and the other where the rational plane curve comes together with its embedding $\mu$ in $\mathbb{P}^{r}$.
 
-Before I what exactly a Moduli problem entails, consider the following example:
+Before I state what exactly a Moduli problem entails, consider the following example:
 
 \begin{example}
     \label{exLinesInPlane}
@@ -75,12 +75,12 @@ If we have a family $\mathcal{X}/B$ and a morphism $\varphi: B' \to B$ then one 
 \]
 The family $\varphi^{*}\mathcal{X}/B'$ is called the pullback family of $\mathcal{X}/B$ along the morphism $\varphi$.
 For our families to behave ``nicely" we would like pullbacks to commute with equivalence. 
-That is, if $\mathcal{X}/B \simeq \mathcal{N}/B $ and $\varphi B' \to B$ is a morphism then we would like:
+That is, if $\mathcal{X}/B \simeq \mathcal{N}/B $ and $\varphi : B' \to B$ is a morphism then we would like:
 \begin{align*}
     \varphi^{*}\mathcal{X}/B' \simeq \varphi^{*}\mathcal{N}/B'.
 \end{align*}
 
-Before we formally define a moduli problem in the context of categories let's look at example \ref{exLinesInPlane} carefully.
+Before we formally define a moduli problem in the context of categories let's revisit example \ref{exLinesInPlane}.
 \begin{example}
     \label{compExLinesInplane}
     In example \ref{exLinesInPlane} we defined a parameter space for non-vertical lines in $\mathbb{R}^{2}$. 
@@ -138,7 +138,7 @@ We will see that the family $\gamma: \mathbb{RP}^{2} \to \mathbb{RP}^{2}$ satisf
 \end{definition}
 
 \subsection{Moduli Problems in the language of Categories}
-The properties of a moduli problem, like commutativity of pullback families with equivalences, can be stated elegantly in the language of categories.
+The properties of a moduli problem, like commutativity of pullback families with equivalences can be stated elegantly in the language of categories.
 To see this, consider the following commutative diagram:
 \[
     \begin{tikzcd}
@@ -153,7 +153,7 @@ To see this, consider the following commutative diagram:
 \]
 Given a morphism $\varphi: B' \to B$ we get a map from $S(B)$ to $S(B')$ which sends $\mathcal{X}/B$ to $\varphi^{*}\mathcal{X}/B'$. 
 Remember that $S(B)$ denotes the equivalence class of families over $B$ - hence ensuring that pullback is defined upto equivalence.
-We can interpret this reversing of directions as a contravariant functor which sends each scheme to the equivalence class of families over it. 
+We can interpret this reversing of directions as a contravariant functor (called the moduli functor) which sends each scheme to the equivalence class of families over it. 
 Consider a functor $S$ defined as:
 \begin{align*}
     S:\textbf{Sch}^{op} & \to \textbf{Sets}\\
@@ -178,7 +178,7 @@ where for $\varphi \in \text{Mor}(A,B)$, $S(\varphi) = \varphi^{*} \in \text{Mor
     A functor $S$ isomorphic to a functor points (for some scheme $X$) is called a \textbf{representable functor}.
     If $\mathcal{U}:h_{Y}\to S$ is an isomrphism of functors, then we say that the pair $(Y, \mathcal{U})$ represents $S$.
 \end{definition}
-By Yoneda's Lemma (appendix) we knoww that we can identify the natiral transformation $\mathcal{U}:h_{Y}\to S$ with an element of $S(Y)$.
+By Yoneda's Lemma (appendix) we know that we can identify the natiral transformation $\mathcal{U}:h_{Y}\to S$ with an element of $S(Y)$.
 Suppose the element of $S(Y)$ corresponding to $\mathcal{U}$ is $U$.
 Then $(Y,U)$ is said to represent $S$.
 \begin{proposition}
@@ -318,7 +318,7 @@ This map $\sigma$ acts as the classifying map, and shows that $Q$ is a fine modu
 with $\sigma_{i}(\textbf{p}) = (\textbf{p},p_{i})$.
 \par Now we want to take into consideration the notion of projective equivalence. 
 Remember that any three points $p_{1},\, p_{2}, \,p_{3}$ define an automorphism $\alpha$ of $\mathbb{P}^{1}$ which sends them to $0,\,1\,\text{and }\infty$.
-For a quedrupule of points $p_1, \dots, p_4$, let $\alpha$ be the automorphism determined by the first three points. 
+For a quedrupule of points $p_1, \dots, p_4$, let $\alpha$ be the automorphism determined by the first three points going to $0,\,1,\, \infty$. 
 Then we define the \textbf{cross ratio} of the quadruple as $\alpha(p_{4}) \in \mathbb{P}^{1}\backslash\{0,1,\infty\}$.
 \par It follows that each quadruple $(p_{1}, \dots, p_{4})$ is projctively equivalent to $(0,1,\infty,q)$ where $q$ is the cross ratio of the quadruple. Consquently we have a bijection:
 \begin{align*}
@@ -340,8 +340,8 @@ It's easy to show that $\mathcal{M}_{0,4}$ is the \textbf{fine moduli space} for
 where $\tau_1 :=0$, $\tau_2 :=1$, $\tau_3 := \infty$, $\tau_4(p) = p$.
 
 \subsubsection{Family of n-points}
-For a quadruples of points $(p_{1}, p_{2}, p_{3}, p_{4})$ let $\lambda((p_{1}, p_{2}, p_{3}, p_{4}))$ denote their cross ratio.
-Then we can sharacterize projective equivalence of two $n$-tuples in the following manner.
+For a quadruple of points $(p_{1}, p_{2}, p_{3}, p_{4})$ let $\lambda((p_{1}, p_{2}, p_{3}, p_{4}))$ denote their cross ratio.
+Then we can characterise projective equivalence of two $n$-tuples in the following manner.
 Let $(p_{1}, p_{2}, p_{3},\dots,p_{n})$ and $(p'_{1}, p'_{2}, p'_{3},\dots,p'_{n})$ be two $n$-tuples; they are said to be projectively equivalent if and only if for all $i\geq 4$:
 \begin{align*}
      \lambda(p_{1}, p_{2}, p_{3}, p_{i}) = \lambda(p'_{1}, p'_{2}, p'_{3}, p'_{i}).
@@ -534,7 +534,7 @@ As seen in the earlier example of moduli spaces of $4$-pointed curves, the limit
 The curve on the right is called the \textbf{stabilisation} of the left most curve.
 \par Similartly When a new point overlaps a node, we treat it like like a limiting family curves where the new point approaches the node like above.
 Then the limit curve formed by a blowup in the universal family gives us the stabilisation.
-\par We can also stabilise in families, which is formalised in the next proposition(given without proof).
+\par We can also stabilise in families, which is formalised in the next proposition (given without proof).
 \begin{proposition}
     For a family $(\mathfrak{X}/B, \sigma_{1},\dots,\sigma_{n})$ of stable $n$-pointed curves, let $\delta$ be an additional section.
     Then there exists a family $(\mathfrak{X}'/B, \sigma'_{1},\dots,\sigma'_{n+1})$ of stable $n+1$-pointed curves and a morphism $\varphi: \mathfrak{X}'\to \mathfrak{X}$ such that:
@@ -548,7 +548,7 @@ Then the limit curve formed by a blowup in the universal family gives us the sta
 \subsubsection{Forgetful Maps and Contraction}
 We now discuss the converse, how do we forget a marked point of a stable $n$-pointed curve? 
 That is, what happens when we go from $(C,p_{1}, \dots,p_{n+1})$ to $(C,p_{1}, \dots,p_{n})$. 
-If $p_{n+1}$ lies on a twig with $4$ or more special points, the resulting $n$ pointed curve remains stable, hence the resulting curve is just the same curve with onw less point. 
+If $p_{n+1}$ lies on a twig with $4$ or more special points, the resulting $n$ pointed curve remains stable, hence the resulting curve is just the same curve with one less point. 
 Problems start occuring when the $n+1^{\text{th}}$ point lies on a twig with $3$ or less special points. 
 This has two cases.
 \par $1.$ \textit{$p_{n+1}$ lies on a twig with two nodes}.
@@ -741,7 +741,7 @@ In this section we will classify the set of reducible curves, and discuss the pr
 \end{definition}
 
 \begin{remark}
-    Since the set $S = \{p_{1}, \dots, p_{n}\}$ we partition to define cycles already has an ordering, from now on we will assume that the ordering on the partitions is induced from this ordering. Hence we choose to drop the term \textit{ordered} while referring to partitions.
+    Since the set $S = \{p_{1}, \dots, p_{n}\}$ we partition to define cycles already has an ordering, we will assume that the ordering on the partitions is induced from this ordering. Hence we choose to drop the term \textit{ordered} while referring to partitions.
 \end{remark}
 
 \begin{definition}[Boundary Divisors]
@@ -1053,12 +1053,12 @@ We will now look at the case of stable maps into $\mathbb{P}^{2}$ and discuss so
 We describe a class of open sets of $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ which cover the entire space.
 
 \par Fix lines $l_{0},\,l_{1},\,l_{2}$ in $\mathbb{P}^{2}$, defined by the linear forms $x_{0},\, x_{1},\, x_{2} \in H^{0}(\mathcal{O}_{\mathbb{P}^{2}}(1))$.
-The open, $U$, set we are interested is the set given by maps in $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ such that their images intersect transversaly with the lines $l_{i}$.
+The open set, $U$, set we are interested is the set given by maps in $\overline{\mathcal{M}}_{0,n}(\mathbb{P}^{2},d)$ such that their images intersect transversaly with the lines $l_{i}$.
 This is equivalent to saying that the inverse image of the divisor $l_{0}+l_{1}+l_{2}$ consists of $3d$ distinct non-special points of $C$.
 The inverse image of this divisor is equally distributed among twigs of $C$.
 Remember that the degree of a curve can also be defined by the number of intersection of the curve with a transverse hyperplane divisor. 
 Since each $l_{i}$ is a hyperplane divisor in $\mathbb{P}^{2}$, if the restriction of $\mu$ onto a twig is of degree $d'$ then the inverse image divisor $\mu^{*}l_{j}$ has $d'$ points on this twig.
-We denote with $D_{j}:= \mu^{*}l_{j}$ the inverse image divisor, and with $q_{j1}, \dots, q_{jd}$the points of $D_{j}$. It's also easy to see that the divisors $D_{j}$ are linearly equivalent, since they come from the sections $\mu^{*}x_{i}$ of the line bundle $\mu^{*}\mathcal{O}_{\mathbb{P}^{2}}(1)$.
+We denote with $D_{j}:= \mu^{*}l_{j}$ the inverse image divisor, and with $q_{j1}, \dots, q_{jd}$ the points of $D_{j}$. It's also easy to see that the divisors $D_{j}$ are linearly equivalent, since they come from the sections $\mu^{*}x_{i}$ of the line bundle $\mu^{*}\mathcal{O}_{\mathbb{P}^{2}}(1)$.
 
 \begin{remark}
     In the previous paragraph we assigned to each map $\mu: C \to \mathbb{P}^{2}$ (which were transversal to three linearly equivalent divisors) a $(n+3d)$-point curve $\tilde{C}$. It turns out that this curve $\tilde{C}$ is a $(n+3d)$-pointed stable curve if and only if $\mu:C \to \mathbb{P}^{2}$ is a stable map. 
@@ -1417,7 +1417,7 @@ We strongly recommed the reader to look at the computation for $n=2,\,3$ from Ch
         \begin{pmatrix}
         3d-4\\
         3d_{A} - 2
-        \end{pmatrix} d_{A} N_{d_{A}}  d_{B} N_{d_{B}}  d_{A} d_{B}.\label{kontRHS}.
+        \end{pmatrix} d_{A} N_{d_{A}}  d_{B} N_{d_{B}}  d_{A} d_{B}.\label{kontRHS}
     \end{align} 
     Kontsevitch's equation now follows from \ref{kontRHS}, \ref{kontLHS}, and \ref{WDVVformY}.
 \end{proof}

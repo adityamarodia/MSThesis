@@ -113,7 +113,7 @@ We now define the equivalent of a family of $\mathbb{P}^{1}$'s, which were used 
     An $n$-pointed tropical curve is a tuple $(\Gamma, x_{1}, \dots, x_{n})$, where $\Gamma$ is an abstract tropical curve, with $x_{i} \in \Gamma^{1}_{\infty}$ being distinct ends of $\Gamma$.
 \end{definition}
 
-Since abstract tropical curves are topological spaces it's easy to define isomorphism between them.
+Since abstract tropical curves are topological spaces it's easy to define isomorphisms between them.
 Two $n$-pointed abstract tropical curves, $(\Gamma, x_{1}, \dots, x_{n})$ and $(\Gamma', x'_{1}, \dots, x'_{n})$, are isomorphic if there exists a homeomorphism $\phi: \Gamma \to \Gamma'$ such that $\phi(x_{i}) = x_{i}'$ for all $1\leq i\leq n$, 
 and the restriction $\phi |_{e}$ is an affine map of slope $\pm 1$ for all $e \in \Gamma^{1}$.
 
@@ -143,8 +143,8 @@ Finally, we give an alternate, but equivalent description of plane tropical curv
 \end{definition}
 
 \begin{remark}[Multiplicity of Edges]
-    A distiniction here from the tropical curves we saw in Chapter 1 is that we haven't assigned any "weights" to the edges.
-    But one can easily fix this, define the integral vector of $v(F)$ to be the \textit{direction of the flag $F$}, denote it with $\tilde v (F)$.
+    A distiniction here from the tropical curves we saw in Chapter 1 is that we haven't assigned any ``weights" to the edges.
+    But one can easily fix this - define the integral vector of $v(F)$ to be the \textit{direction of the flag $F$}, denote it with $\tilde v (F)$.
     We then have the relation $v(F) = m_{F}\tilde v(F)$ for any flag $F$.
             It's easy to see that if $F$ and $F'$ correspond to the same edge then $m_{F} = m_{F'}$, hence we can define this scaling factor at the level of edges, 
             \[
@@ -404,7 +404,7 @@ We now look at how one can forget marks (and the map $h$) in the context of plan
     Let $n\geq m$, and $C = (\Gamma, x_{1},\dots, x_{n},h) \in M_{\Delta,n}$.
     \par Let $C(m)$ be the minimal connected subgraph of $\Gamma$ which contains the undbounded edges $x_{1}, \dots, x_{m}$.
     It's clear that $C(m)$ can't contain vertices of valence $1$.
-    And at vertices of valence $2$, we ``straighten" the graph - that is, replace the two neighnouring edges of lengths $l_{1},\,l_{2}$ with one edge of length $l_{1} + l_{2}$.
+    And at vertices of valence $2$, we ``straighten" the graph - that is, replace the two neighbouring edges of lengths $l_{1},\,l_{2}$ with one edge of length $l_{1} + l_{2}$.
     The resulting graph clearly lies in $\mathcal{M}_{m}$, and we denote it by $\emph{ft}_{m}(C)$.
 \end{definition}
 
@@ -494,7 +494,7 @@ This map also encodes the data of the inverse image of boundary divisors of $\ma
             \text{coordinate of }M_{4} & 0 & * & * & * & * & **
         \end{bmatrix},
     \]
-    here, $w$ is the coordinate of the root vertex, and $l_{i}$ and $v_{i}$ the lengths and directions of the edges $E_{i}$. Further, in the last column, $l_{\alpha_{1}}$ is the length of the "new" edge in the combinatorial type $\alpha_{1}$.
+    here, $w$ is the coordinate of the root vertex, and $l_{i}$ and $v_{i}$ the lengths and directions of the edges $E_{i}$. Further, in the last column, $l_{\alpha_{1}}$ is the length of the ``new" edge in the combinatorial type $\alpha_{1}$.
     It's easy to see that the matrices $A_{i}$ for $i =2,\,3$ will differ from the above matrix only in the last column - with length of the new bounded edge and direction vectors appropriately changed.
     And the last row just corresponds to the $M_{4}$ coordinate, with $*$ and $**$'s either being $0$ or $1$.
     \par We calculate the determinant on a case by case basis - with each case corresponding to the number of $E_{i}$'s preserved under the forgetful map to $M_{4}$. 

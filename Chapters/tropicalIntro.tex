@@ -1,5 +1,5 @@
 This chapter introduces the field of Tropical Geometry. 
-After some definitions and examples we quickly build up to important themes in this subject - studying some fundamental theorem and their consquences.
+After some definitions and examples we quickly build up to important theorems in this field - the fundamental theorem and its consquences.
 \section{Introduction and Examples}
 \subsection{Tropical Arithmetic and Polynomials}
     \begin{definition} The tropical semiring $(\mathbb{R} \cup \{\infty\}, \oplus, \odot)$, is defined as the semiring whose underlying set is $\mathbb{R}$ with the binary operations: 
@@ -12,7 +12,7 @@ After some definitions and examples we quickly build up to important themes in t
 
 Like in algebraic geometry, our source of geometric objects in the tropical world comes from polynomials.
 We will look at how polynomials behave on the tropical semiring to get an idea of the geometric objects we will soon be dealing with.
-For any polynomial $f  = \sum_{i}c_{i}x^{i}\in \mathbb{R}[x]$, the standard polynomial ring, the tropical analougue, $\text{trop}(f)$ is:
+For any polynomial $f  = \sum_{i}c_{i}x^{i}\in \mathbb{R}[x]$, the tropical analougue, $\text{trop}(f)$, is:
 \begin{align*}
     \text{trop}(f) &= \bigoplus_{i}c_{i}\odot x^{\odot i}\\
                    &= \text{min}_{i}(c_{i} + i \cdot x),
@@ -32,7 +32,7 @@ a piecewise linear function from $\mathbb{R}$ to $\mathbb{R}$.
             \draw[-*](0.5,0) -- (0.5,2) node [left]{$(0,1)$};
         \end{tikzpicture}
     \end{center}
-    A piecewise linear polynomial.
+    A piecewise linear function.
 \end{example}
 
 \par In tropical geometry the points in the domain where the tropical polynomial is \textit{not linear} are referred to as the ``roots" of the function.
@@ -40,8 +40,8 @@ The reasoning behind this terminology will be justified in remark \ref{rootValRm
 \par The tropical polynomial in $2$ variables serve as a more instructive example to understand what the set of non-differentiable points look like. 
 
 \begin{example}
-    For a quadratic polynomial $f = ax^{2} + bxy + cy^{2} + dx + ey + g$, the tropicalisation looks like the tent aboce the plane in the figure below. 
-    With the ``roots"" described earlier as the projection onto the plane below.
+    For a quadratic polynomial $f = ax^{2} + bxy + cy^{2} + dx + ey + g$, the tropicalisation looks like the tent above the plane in the figure below. 
+    With the ``roots", as defined earlier as the projection onto the plane below.
     \begin{figure}[ht]
         \centering
         \begin{tikzpicture}
@@ -80,7 +80,7 @@ The reasoning behind this terminology will be justified in remark \ref{rootValRm
     \end{lemma}
     It's not hard to see that the algebraic structure induced on the image of the valuation map is almost same as the algrbaic structure on the tropical semiring. 
     This observation motivates us to define tropicalisation of a polynomial with respect to a given valuation (as hinted in \ref{rmkOnTropPol}).
-    For $f = \sum_{i}c_{i}x^{i} \in K[x]$ a polynomial in a valued field $(K, \text{val})$, the valued tropicalisation is defined as
+    For $f = \sum_{i}c_{i}x^{i} \in K[x]$, a polynomial in a valued field $(K, \text{val})$, the valued tropicalisation is defined as
     \begin{equation*}
         \text{trop}_{\text{val}}(f) = \text{min}_{i}(\text{val}(c_{i}) + i \cdot x).
     \end{equation*}
@@ -138,10 +138,10 @@ This section very closely follows the exposition in section 2.3 of \cite{maclaga
     \begin{align*}
         \text{face}_{w}(C) = \left\{x \in C: w\cdot x \leq w\cdot y ~\text{for all}~y \in C\right\}
     \end{align*}
-    For $d'$ the dimension of the face, there also exists a $d'\times n$ matrix $A'$ such that $\{x \in C: A'x\ =  0\}$. 
+    For $d'$, the dimension of the face, there also exists a $d'\times n$ matrix $A'$ such that $\{x \in C: A'x\ =  0\}$. 
     A \textbf{polyhedral fan} is a collection of polyhedral cones such that every face of the cone is part of the collection, and the intersection of any two cones is a face of both the cones.
-    A \textbf{polyhedron} $P \subset \mathbb{R}^{n}$ is the intersection of finitely many affine half spaces, allowing us to define it as the set $\{x \in \mathbb{R}^{n}: Ax\leq b\}$ where $b \in \mathbb{R}^{d}$ and $A$ is a $d \times n$ matrix. We can define faces of polyhedron's in the same manner as we defined faces of a cone.
-    \par A \textbf{polyhedral complex}, $\Sigma$, is a collection of polyhedron such that: if $P \in \Sigma$ then all faces of $P$ also lie in $\Sigma$, and if $P,Q \in \Sigma$ then $P \cap Q = \emptyset$ or $P \cap Q$ is a face of both $P,Q$. The support of a polyhedral complex, $|\Sigma |$ is the underlying set of points in $\Sigma$. 
+    A \textbf{polyhedron} $P \subset \mathbb{R}^{n}$ is the intersection of finitely many affine half spaces, allowing us to define it as the set $\{x \in \mathbb{R}^{n}: Ax\leq b\}$ where $b \in \mathbb{R}^{d}$ and $A$ is a $d \times n$ matrix. We can define faces of polyhedra in the same manner as we defined faces of a cone.
+    \par A \textbf{polyhedral complex}, $\Sigma$, is a collection of polyhedra such that: if $P \in \Sigma$ then all faces of $P$ also lie in $\Sigma$, and if $P,Q \in \Sigma$ then $P \cap Q = \emptyset$ or $P \cap Q$ is a face of both $P,Q$. The support of a polyhedral complex, $|\Sigma |$, is the underlying set of points in $\Sigma$. 
     The \textbf{lineality space} of a polyhedral complex, if it exists, is the largest linear subspace which lies in it.
     For any set of points in $\mathbb{R}^{n}$, their \textbf{affine span} is defined as the smallest affine subspace containing those points.
 
